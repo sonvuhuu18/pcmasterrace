@@ -1,11 +1,36 @@
 <% provide :title, @user.name %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+  <!--<aside class="col-md-4">-->
+  <!--  <section class="user_info">-->
+  <!--    <h1>-->
+  <!--      <%= gravatar_for @user %>-->
+  <!--      <%= @user.name %>-->
+  <!--    </h1>-->
+  <!--  </section>-->
+  <!--</aside>-->
+  <div class="container">
+  <div class="row">
+		<div class="col-lg-3 col-sm-6">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <%= gravatar_for @user %>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a target="_blank"><%= @user.name %></a>
+                    </div>
+                    <div class="desc">Reviews: </div>
+                    <div class="desc"><%= link_to 'Edit Profile', edit_user_path(@user) %></div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+	</div>
+</div>
 </div>

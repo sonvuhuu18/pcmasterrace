@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-
     actionmailer (4.2.8)
       actionpack (= 4.2.8)
       actionview (= 4.2.8)
@@ -11,12 +10,10 @@ GEM
     actionpack (4.2.8)
       actionview (= 4.2.8)
       activesupport (= 4.2.8)
-
       rack (~> 1.6)
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-
     actionview (4.2.8)
       activesupport (= 4.2.8)
       builder (~> 3.1)
@@ -60,7 +57,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-
     crass (1.0.2)
     debug_inspector (0.0.3)
     erubis (2.7.0)
@@ -165,7 +161,6 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.1.5)
-
 
 PLATFORMS
   ruby
