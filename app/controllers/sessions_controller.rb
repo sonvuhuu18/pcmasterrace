@@ -1,15 +1,27 @@
 class SessionsController < ApplicationController
   def create
-    session = params[:session]
-    user = User.find_by email: session[:email].downcase
-    if user && user.authenticate(session[:password])
-      if user.activated?
-        login_success user
+    if params[:session].present?
+      # normal login
+      user = User.find_by email: params[:session][:email].downcase
+      if user && user.authenticate(params[:session][:password])
+        if user.activated?
+          login_success user
+        else
+          activate_require
+        end
       else
-        activate_require
+        login_fail
       end
+      # facebook login
     else
-      login_fail
+      begin 
+        user = User.from_omniauth(request.env['omniauth.auth'])
+        session[:user_id] = user.id
+        flash[:success] = "Welcome, #{user.email}!"
+      rescue
+        flash[:warning] = "There was an error while trying to authenticate you..."
+      end
+      redirect_to root_url
     end
   end
 
