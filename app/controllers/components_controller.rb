@@ -8,7 +8,7 @@ class ComponentsController < ApplicationController
   end
 
   def new
-    @conponent = Component.new
+    @component = Component.new
   end
 
   def edit
@@ -56,7 +56,7 @@ class ComponentsController < ApplicationController
     end
 
     def component_params
-      params.require(:component).permit(:name, :price, :ranking, :category_id, :manufacturer_id, :type_id)
+      params.require(:component).permit(:name, :price, :ranking, :category_id, :manufacturer_id, :type_id, {images: [] })
     end
 
 end

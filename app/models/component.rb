@@ -1,4 +1,5 @@
 class Component < ActiveRecord::Base
+  mount_uploaders :images, ImageUploader
   belongs_to :type
   belongs_to :category
   belongs_to :manufacturer

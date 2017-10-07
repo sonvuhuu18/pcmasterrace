@@ -13,7 +13,8 @@ gem "faker", "1.7.3"
 gem "will_paginate", "3.1.5"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "sdoc", "~> 0.4.0", group: :doc
-
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 
 group :development, :test do
   gem "byebug"

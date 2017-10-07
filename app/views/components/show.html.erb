@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<p>Name: <%= @component.name %></p>
+<p>Price: <%= @component.price %></p>
+<p>Type: <%= link_to @component.type.name, @component.type %></p>
+<p>Category: <%= link_to @component.category.name, @component.category %> </p>
+<p>Manufacturer: <%= link_to @component.manufacturer.name, @component.manufacturer %> </p>
+
 <%= link_to 'Edit', edit_component_path(@component) %> |
 <%= link_to 'Back', components_path %>

@@ -10,6 +10,42 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :ranking %><br>
+    <%= f.text_field :ranking %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id] } %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select :category_id, Category.all.collect {|c| [c.name, c.id] } %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :images %><br>
+    <%= f.file_field :avatars, multiple: true %>
+  </div>
+  
 
   <div class="actions">
     <%= f.submit %>
