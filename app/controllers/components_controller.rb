@@ -8,7 +8,7 @@ class ComponentsController < ApplicationController
   end
 
   def new
-    @conponent = Component.new
+    @component = Component.new
   end
 
   def edit
