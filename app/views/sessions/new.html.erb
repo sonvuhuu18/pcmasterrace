@@ -21,6 +21,8 @@
     <% end %>
 
     <p><%= t "session.login.sentence_new" %>
-      <%= link_to t("session.login.signup_now"), signup_path %></p>
+      <%= link_to t("session.login.signup_now"), signup_path %>
+    </p>
+    <%= link_to "Sign in with FaceBook", "auth/facebook", id: "sign_in" %>
   </div>
 </div>

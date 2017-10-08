@@ -32,6 +32,16 @@ class User < ApplicationRecord
     return false if digest.blank?
     BCrypt::Password.new(digest).is_password? token
   end
+  
+  def self.from_omniauth(auth_hash)
+    user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    user.name = auth_hash['info']['first_name']
+    user.email = auth_hash['info']['email']
+    user.password = '123456'
+    
+    user.save!
+    user
+  end
 
   def forget
     update_attributes remember_digest: nil
