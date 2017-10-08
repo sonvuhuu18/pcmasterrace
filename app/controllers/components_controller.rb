@@ -42,6 +42,7 @@ class ComponentsController < ApplicationController
   end
 
   def destroy
+    set_component
     @component.destroy
     respond_to do |format|
       format.html {redirect_to components_url, notice: 'Component was successfully destroyed.'}
@@ -52,7 +53,7 @@ class ComponentsController < ApplicationController
   private 
 
     def set_component
-      @comoponent = Component.find(params[:id])
+      @component = Component.find(params[:id])
     end
 
     def component_params
