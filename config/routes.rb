@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :types
+  resources :specifications
+  resources :reviews
+  resources :manufacturers
+  resources :categories
+  resources :components
+  get 'components/new'
+
   root "static_pages#home"
 
   get "/help", to: "static_pages#help"
