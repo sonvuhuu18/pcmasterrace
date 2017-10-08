@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /reviews
   # GET /reviews.json
@@ -69,6 +70,10 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.fetch(:review, {})
+      params.require(:review).permit(:content, :component_id, :user_id)
+    end
+    
+    def find_user
+      @user = User.find_by id: params[:user_id]
     end
 end

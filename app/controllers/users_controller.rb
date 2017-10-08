@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     return if user
     flash[:danger] = t "user.not_found"
     redirect_to root_url
+    @reviews = @user.reviews
   end
 
   def edit; end

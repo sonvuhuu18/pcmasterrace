@@ -28,7 +28,18 @@
                     
                 </div>
             </div>
-
+            <div class="col-md-8">
+                <% if @user.reviews.any? %>
+                    <h3>Reviews (<%= @user.reviews.count %>)</h3>
+                    <% @user.reviews.each do |review| %>
+                        <hr>
+                        <p>
+                            Reviews: <%= review.id %><br/>
+                            Content: <%= review.content %><br/>
+                        </p>
+                    <% end %>
+                <% end %>
+            </div>
         </div>
 
 	</div>
