@@ -199,8 +199,8 @@ DEPENDENCIES
   faker (= 1.7.3)
   jbuilder (~> 2.0)
   jquery-rails
-  omniauth-facebook
   mini_magick
+  omniauth-facebook
   pg (= 0.18.4)
   rails (= 4.2.8)
   sass-rails (~> 5.0)

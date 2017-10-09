@@ -12,7 +12,7 @@
   <tbody>
     <% @components.each do |component| %>
       <tr>
-        <td><%= link_to 'Show', component %></td>
+        <td><%= link_to component.name, component %></td>
         <td><%= link_to 'Edit', edit_component_path(component) %></td>
         <td><%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
