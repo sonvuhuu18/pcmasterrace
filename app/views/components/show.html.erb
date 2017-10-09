@@ -1,10 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>Name: <%= @component.name %></p>
-<p>Price: <%= @component.price %></p>
-
-<%= @component.images.count%>
-<%= image_tag(@component.images.first)%>
-
-<%= link_to 'Edit', edit_component_path(@component) %>
-<%= link_to 'Back', components_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-9">
+        <div class="panel panel-default" style="background-color:#F3F781">
+        <div class="panel-body">
+        <!--<%= @component.images.count%>-->
+        <p style="font-size:30px"><b><%= @component.name %></b></p>
+        <%= image_tag(@component.images.first, :height => "250") %>
+        
+        <p><b>Price: </b><%= @component.price %></p>
+        </div>
+        </div>
+<!--<%= link_to 'Edit', edit_component_path(@component) %>-->
+<!--<%= link_to 'Back', components_path %>-->
+</div>

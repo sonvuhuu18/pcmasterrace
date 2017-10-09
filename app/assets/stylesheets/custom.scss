@@ -91,7 +91,7 @@ p {
 footer {
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
-  margin-top: 45px;
+  //margin-top: 45px;
   padding-top: 5px;
 
   a {
@@ -488,4 +488,9 @@ input {
 .navbar {
   border-color: #f4af41;
   background-color: #f4d742;
+}
+
+// component
+.name { font-size: 20px; 
+  bold: true;
 }
