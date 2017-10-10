@@ -1,9 +1,10 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top">
   <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to t("static_pages.application.link_to_1"), root_path, class: "logo" %></li>
-        <li><%= link_to "Component List", components_path %></li>
+    <nav class="custom-nav">
+      <ul class="nav navbar-nav navbar-left custom-nav">
+        <li><%= link_to image_tag("logo.jpg"), root_path, class:"logo" %></li>
+        <li><%= link_to "Newsfeed", root_path %></li>
+        <li><%= link_to "Component List", components_path%></li>
         <form class="navbar-form navbar-left">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search">
@@ -15,7 +16,7 @@
           </div>
       </form> 
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right custom-nav">
         <% if logged_in? %>
           <li><%= link_to @current_user.name, current_user %></li>
           <li><%= link_to t("static_pages.header.logout"), logout_path, method: :delete %></li>
