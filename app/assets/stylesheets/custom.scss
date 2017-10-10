@@ -489,8 +489,38 @@ input {
   border-color: #f4af41;
   background-color: #f4d742;
 }
-
+a:hover{
+  background-color: white;
+  color: #ddd;
+}
 // component
 .name { font-size: 20px; 
   bold: true;
+}
+
+.components-show{
+  .row{
+    margin: 0px;
+  }
+  padding: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  a{
+    &:hover{
+      background-color: inherit;
+      color: grey;
+    }
+    &.btn {
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 0; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+    }
+    &.info{
+      background-color: #2196F3;
+      &:hover {
+        background: #0b7dda;
+      }
+    }
+  }
 }
