@@ -50,6 +50,15 @@ class ComponentsController < ApplicationController
     end
   end
 
+  def get_specifications
+    @specifications = Type.find(params[:type_id]).specifications
+    respond_to do |format|
+      if @specifications
+        format.js
+      end
+    end
+  end
+
   private 
 
     def set_component
@@ -58,6 +67,10 @@ class ComponentsController < ApplicationController
 
     def component_params
       params.require(:component).permit(:name, :price, :ranking, :category_id, :manufacturer_id, :type_id, {images: [] })
+    end
+
+    def specification_params
+      
     end
 
 end

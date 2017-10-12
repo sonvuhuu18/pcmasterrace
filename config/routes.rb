@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :reviews
   resources :manufacturers
   resources :categories
-  resources :components
+  
+  resources :components do
+    get :get_specifications, on: :collection
+  end
   get 'components/new'
 
   root "static_pages#home"

@@ -69,6 +69,6 @@ class SpecificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def specification_params
-      params.fetch(:specification, {})
+      params.require(:specification).permit(:name, :scale, :type_id)
     end
 end

@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :scale %><br>
+    <%= f.text_field :scale %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id] } %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

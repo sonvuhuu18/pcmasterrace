@@ -30,11 +30,15 @@
     <%= f.label :type %><br>
     <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id] } %>
   </div>
+
+  <div id="specifications">
+  </div>
   
   <div class="field">
     <%= f.label :category %><br>
     <%= f.select :category_id, Category.all.collect {|c| [c.name, c.id] } %>
   </div>
+
   
   <div class="field">
     <%= f.label :manufacturer %><br>
@@ -51,3 +55,29 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $('#component_type_id').change( function() {
+    var data = {type_id: $(this).find(":selected").val()};
+    console.log(data);
+    var url = "/components/get_specifications";
+    $.get(url, data, function (response) {
+    });
+  });
+
+
+  // $("#search-box").bind("keyup", function() {
+  //   var q = $("#search-box").val();
+  //   var option = $('#option').find(":selected").val();
+  //   if(q) {
+  //     var form = $("#search-form"); // grab the form wrapping the search bar.
+  //     var url = "/searches/live_search"; // live_search action.   
+  //     var formData = form.serialize(); // grab the data in the form
+  //     // console.log(q);
+  //     $.get(url, formData, function(response) { // perform an AJAX get
+  //     }); 
+  //   } else {
+  //     $("#result-box").css("display", "none");
+  //   }
+  // });
+</script>

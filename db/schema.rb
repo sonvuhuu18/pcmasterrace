@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20171008035940) do
   end
 
   create_table "component_specifications", force: :cascade do |t|
-    t.integer  "value"
+    t.string   "value"
     t.integer  "component_id"
     t.integer  "specification_id"
     t.datetime "created_at",       null: false

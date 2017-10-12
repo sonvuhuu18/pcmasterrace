@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= @type.name%>: <%= @type.specifications.count%> specifications</p>
+
+<% @type.specifications.each do |spec|%>
+    <p><%= spec.name%></p>
+<%end%>
+
 <%= link_to 'Edit', edit_type_path(@type) %> |
 <%= link_to 'Back', types_path %>
