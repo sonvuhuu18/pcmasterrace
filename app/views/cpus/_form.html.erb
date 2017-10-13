@@ -1,0 +1,56 @@
+<%= form_for(@cpu) do |f| %>
+  <% if @cpu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cpu.errors.count, "error") %> prohibited this cpu from being saved:</h2>
+
+      <ul>
+      <% @cpu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= fields_for :item do |fi|%>
+  <div class="field">
+    <%= fi.label :name %><br>
+    <%= fi.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :price %><br>
+    <%= fi.text_field :price %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :ranking %><br>
+    <%= fi.text_field :ranking %>
+  </div>
+
+  <div class="field">
+    <%= fi.label :release_date%>
+    <%= fi.date_field :release_date%>
+  </div>
+  
+  <%= fi.hidden_field :category_id, :value => Category.find_by(name: "CPU").id %>
+  
+  <div class="field">
+    <%= fi.label :manufacturer %><br>
+    <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
+  </div>
+
+  <div class="field">
+    <%= fi.label :images %><br>
+    <%= fi.file_field :images, multiple: true %>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cores%> <br>
+    <%= f.text_field :cores%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

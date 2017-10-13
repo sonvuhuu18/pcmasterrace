@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008035940) do
+ActiveRecord::Schema.define(version: 20171012173802) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -19,15 +19,65 @@ ActiveRecord::Schema.define(version: 20171008035940) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "component_specifications", force: :cascade do |t|
-    t.string   "value"
-    t.integer  "component_id"
-    t.integer  "specification_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+  create_table "cpus", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "manufacturer_id"
+    t.integer  "clock_speed"
+    t.integer  "turbo_clock_speed"
+    t.string   "cores"
+    t.string   "is_unlocked"
+    t.string   "architechture"
+    t.integer  "threads"
+    t.integer  "l2_cache"
+    t.integer  "l3_cache"
+    t.integer  "manufacturer_process"
+    t.string   "gpu_label"
+    t.integer  "tdp"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-# Could not dump table "components" because of following NoMethodError
+  create_table "gpus", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "manufacturer_id"
+    t.string   "gpu_brand"
+    t.string   "gpu_name"
+    t.integer  "clock_speed"
+    t.integer  "turbo_clock_speed"
+    t.integer  "is_dual_gpu"
+    t.integer  "memory_clock_speed"
+    t.integer  "effective_memory_clock_speed"
+    t.integer  "memory_bus"
+    t.integer  "memory"
+    t.string   "memory_type"
+    t.integer  "memory_bandwidth"
+    t.integer  "tdp"
+    t.integer  "shading_units"
+    t.integer  "texture_mapping_units"
+    t.integer  "render_output_precessors"
+    t.integer  "pixel_rate"
+    t.integer  "texture_rate"
+    t.integer  "floating_point_performance"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "hard_drives", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "manufacturer_id"
+    t.integer  "capacity"
+    t.integer  "cache"
+    t.string   "interface"
+    t.integer  "interface_speed"
+    t.string   "controller"
+    t.string   "memory_type"
+    t.integer  "process_size"
+    t.integer  "max_shock_force"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+# Could not dump table "items" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
 
   create_table "manufacturers", force: :cascade do |t|
@@ -38,23 +88,9 @@ ActiveRecord::Schema.define(version: 20171008035940) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content"
-    t.integer  "component_id"
+    t.integer  "item_id"
     t.integer  "user_id"
     t.integer  "rate"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "specifications", force: :cascade do |t|
-    t.string   "name"
-    t.string   "scale"
-    t.integer  "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
