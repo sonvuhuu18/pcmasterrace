@@ -38,7 +38,6 @@ class CpusController < ApplicationController
     end
   end
 
-
   # PATCH/PUT /cpus/1
   # PATCH/PUT /cpus/1.json
   def update
