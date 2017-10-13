@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  resources :types
-  resources :specifications
+  
+  resources :gpus
+  resources :cpus
+  resources :hard_drives
   resources :reviews
   resources :manufacturers
   resources :categories
   
-  resources :components do
+  resources :items do
     get :get_specifications, on: :collection
   end
-  get 'components/new'
+  get 'items/new'
 
   root "static_pages#home"
 

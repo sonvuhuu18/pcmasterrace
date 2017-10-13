@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ComponentSpecificationTest < ActiveSupport::TestCase
+class ItemSpecificationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
