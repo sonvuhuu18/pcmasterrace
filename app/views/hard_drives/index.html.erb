@@ -13,7 +13,7 @@
     <% @hard_drives.each do |hard_drive| %>
       <tr>
         <td><%= link_to 'Show', hard_drive %></td>
-        <td><%= link_to 'Edit', edit_hard_drive_path(hard_drive) %></td>
+        <td><%= link_to 'Edit', edit_hard_drife_path(hard_drive) %></td>
         <td><%= link_to 'Destroy', hard_drive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Hard drive', new_hard_drive_path %>
+<%= link_to 'New Hard drive', new_hard_drife_path %>

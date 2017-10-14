@@ -70,7 +70,7 @@ class HardDrivesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hard_drive_params
-      params.require(:hard_drive).permit(:item_id,:manufacturer_id,:capacity,:cache,:interface,:interface_speed,:controller,:memory_type,:process_size,:max_shock_force)
+      params.require(:item).permit(:item_id,:manufacturer_id,:capacity,:cache,:interface,:interface_speed,:controller,:memory_type,:process_size,:max_shock_force)
     end
 
     def item_params

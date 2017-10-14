@@ -70,7 +70,7 @@ class GpusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gpu_params
-      params.require(:gpu).permit(:item_id,:manufacturer_id,:gpu_brand,:gpu_name,:clock_speed,:turbo_clock_speed,:is_dual_gpu,:memory_clock_speed,:effective_memory_clock_speed,:memory_bus,:memory,:memory_type,:memory_bandwidth,:tdp,:shading_units,:texture_mapping_units,:render_output_precessors,:pixel_rate,:texture_rate,:floating_point_performance, item: [:name, :price, :ranking, 
+      params.require(:item).permit(:item_id,:manufacturer_id,:gpu_brand,:gpu_name,:clock_speed,:turbo_clock_speed,:is_dual_gpu,:memory_clock_speed,:effective_memory_clock_speed,:memory_bus,:memory,:memory_type,:memory_bandwidth,:tdp,:shading_units,:texture_mapping_units,:render_output_precessors,:pixel_rate,:texture_rate,:floating_point_performance, item: [:name, :price, :ranking, 
                                                                   :release_date, :category_id, :manufacturer_id, {images: [] }])
     end
 
