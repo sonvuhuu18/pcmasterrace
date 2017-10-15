@@ -42,7 +42,7 @@ class HardDrivesController < ApplicationController
   # PATCH/PUT /hard_drives/1.json
   def update
     respond_to do |format|
-      if @hard_drive.update(hard_drive_params)
+      if @hard_drive.update(hard_drive_params) && @hard_drive.item.update(item_params)
         format.html { redirect_to @hard_drive, notice: 'Hard drive was successfully updated.' }
         format.json { render :show, status: :ok, location: @hard_drive }
       else

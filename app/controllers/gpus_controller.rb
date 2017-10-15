@@ -42,7 +42,7 @@ class GpusController < ApplicationController
   # PATCH/PUT /gpus/1.json
   def update
     respond_to do |format|
-      if @gpu.update(gpu_params)
+      if @gpu.update(gpu_params) && @gpu.item.update(item_params)
         format.html { redirect_to @gpu, notice: 'Gpu was successfully updated.' }
         format.json { render :show, status: :ok, location: @gpu }
       else
