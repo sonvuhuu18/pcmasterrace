@@ -33,6 +33,10 @@
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "CPU").id %>
+  <div class="field">
+    <%= fi.label :images %><br>
+    <%= fi.file_field :images, multiple: true %>
+  </div>
 
   <% end %>
   
