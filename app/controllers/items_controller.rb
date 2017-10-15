@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    @categories = Category.all
+    @manufacturers = Manufacturer.all
   end
 
   def show

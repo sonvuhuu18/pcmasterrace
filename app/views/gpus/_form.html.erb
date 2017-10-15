@@ -37,8 +37,8 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :manufacturer %><br>
-    <%= f.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
+    <%= f.label :gpu_brand %> <br>
+    <%= f.text_field :gpu_brand %>
   </div>
   
   <div class="field">
