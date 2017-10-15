@@ -60,7 +60,13 @@
               Manufacturer: <%= link_to item.manufacturer.name, item.manufacturer %>
             </div>
             <div class="row">
-              <%= link_to 'Edit', edit_item_path(item), class:"btn info" %>
+              <% if item.category.name == "GPU" %>
+                <%= link_to 'Edit', edit_gpu_path(item.gpu), class:"btn info" %>
+              <% elsif item.category.name == "CPU"%>
+                <%= link_to 'Edit', edit_cpu_path(item.cpu), class:"btn info" %>
+              <% elsif item.category.name == "Hard Drive"%>
+                <%= link_to 'Edit', edit_hard_drife_path(item.hard_drive), class:"btn info" %>
+              <% end %>
               <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
             </div>
           </div>
