@@ -10,6 +10,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @categories = Category.all
+    @items = Item.all
+    @manufacturers = Manufacturer.all
   end
 
   # GET /categories/new
