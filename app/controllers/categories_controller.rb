@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   def show
     @categories = Category.all
     @items = Item.all
+    @manufacturers = Manufacturer.all
   end
 
   # GET /categories/new
