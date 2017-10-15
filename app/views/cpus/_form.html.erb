@@ -13,70 +13,87 @@
 
   <%= fields_for :item do |fi|%>
   <div class="field">
+    <%= fi.label :name %><br> 
+    <%= fi.text_field :name %>
+  </div>
+  <div class="field">
+    <%= fi.label :price %><br>
+    <%= fi.text_field :price %>
+  </div>
+  <div class="field">
+    <%= fi.label :ranking %><br>
+    <%= fi.text_field :ranking %>
+  </div>
+  <div class="field">
+    <%= fi.label :release_date %><br>
+    <%= fi.date_field :release_date %>
+  </div>
+  <div class="field">
     <%= fi.label :manufacturer %><br>
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
-  
-  <div class="field">
-    <%= fi.label :clock_speed %><br>
-    <%= fi.number_field :clock_speed %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :turbo_clock_speed %><br>
-    <%= fi.number_field :turbo_clock_speed %>
-  </div>
-
-  <div class="field">
-    <%= fi.label :cores %> <br>
-    <%= fi.text_field :cores %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :is_unlocked %> <br>
-    <%= fi.select :is_unlocked, [['Yes', true], ['No', false]] %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :architechture %> <br>
-    <%= fi.text_field :architechture %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :threads %> <br>
-    <%= fi.number_field :threads %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :l2_cache %> <br>
-    <%= fi.number_field :l2_cache %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :l3_cache %> <br>
-    <%= fi.number_field :l3_cache %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :manufacturer_process %> <br>
-    <%= fi.number_field :manufacturer_process %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :gpu_label %> <br>
-    <%= fi.number_field :gpu_label %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :tdp %> <br>
-    <%= fi.number_field :tdp %>
-  </div>
-  
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "CPU").id %>
 
   <% end %>
+  
+  <div class="field">
+    <%= f.label :clock_speed %><br>
+    <%= f.number_field :clock_speed %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :turbo_clock_speed %><br>
+    <%= f.number_field :turbo_clock_speed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cores %> <br>
+    <%= f.text_field :cores %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :is_unlocked %> <br>
+    <%= f.select :is_unlocked, [['Yes', true], ['No', false]] %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :architechture %> <br>
+    <%= f.text_field :architechture %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :threads %> <br>
+    <%= f.number_field :threads %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :l2_cache %> <br>
+    <%= f.number_field :l2_cache %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :l3_cache %> <br>
+    <%= f.number_field :l3_cache %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :manufacturer_process %> <br>
+    <%= f.number_field :manufacturer_process %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :gpu_label %> <br>
+    <%= f.number_field :gpu_label %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :tdp %> <br>
+    <%= f.number_field :tdp %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

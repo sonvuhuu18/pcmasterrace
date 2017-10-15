@@ -13,103 +13,119 @@
 
   <%= fields_for :item do |fi|%>
   <div class="field">
+    <%= fi.label :name %><br> 
+    <%= fi.text_field :name %>
+  </div>
+  <div class="field">
+    <%= fi.label :price %><br>
+    <%= fi.text_field :price %>
+  </div>
+  <div class="field">
+    <%= fi.label :ranking %><br>
+    <%= fi.text_field :ranking %>
+  </div>
+  <div class="field">
+    <%= fi.label :release_date %><br>
+    <%= fi.date_field :release_date %>
+  </div>
+  <div class="field">
     <%= fi.label :manufacturer %><br>
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
-  
-  <div class="field">
-    <%= fi.label :gpu_brand %><br>
-    <%= fi.text_field :gpu_brand %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :gpu_name %><br>
-    <%= fi.text_field :gpu_name %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :clock_speed %><br>
-    <%= fi.number_field :clock_speed %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :turbo_clock_speed %><br>
-    <%= fi.number_field :turbo_clock_speed %>
-  </div>
-
-  <div class="field">
-    <%= fi.label :is_dual_gpu %> <br>
-    <%= fi.select :is_dual_gpu, [['Yes', true], ['No', false]] %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :memory_clock_speed %><br>
-    <%= fi.number_field :memory_clock_speed %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :effective_memory_clock_speed %><br>
-    <%= fi.number_field :effective_memory_clock_speed %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :memory_bus %><br>
-    <%= fi.number_field :memory_bus %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :memory %><br>
-    <%= fi.number_field :memory %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :memory_type %><br>
-    <%= fi.text_field :memory_type %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :memory_bandwidth %><br>
-    <%= fi.number_field :memory_bandwidth %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :tdp %> <br>
-    <%= fi.number_field :tdp %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :shading_units %> <br>
-    <%= fi.number_field :shading_units %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :texture_mapping_units %> <br>
-    <%= fi.number_field :texture_mapping_units %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :render_output_precessors %> <br>
-    <%= fi.number_field :render_output_precessors %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :pixel_rate %> <br>
-    <%= fi.number_field :pixel_rate %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :texture_rate %> <br>
-    <%= fi.number_field :texture_rate %>
-  </div>
-  
-  <div class="field">
-    <%= fi.label :floating_point_performance %> <br>
-    <%= fi.number_field :floating_point_performance %>
-  </div>
-  
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "GPU").id %>
 
   <% end %>
+  
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :gpu_name %><br>
+    <%= f.text_field :gpu_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :clock_speed %><br>
+    <%= f.number_field :clock_speed %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :turbo_clock_speed %><br>
+    <%= f.number_field :turbo_clock_speed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_dual_gpu %> <br>
+    <%= f.select :is_dual_gpu, [['Yes', true], ['No', false]] %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :memory_clock_speed %><br>
+    <%= f.number_field :memory_clock_speed %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :effective_memory_clock_speed %><br>
+    <%= f.number_field :effective_memory_clock_speed %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :memory_bus %><br>
+    <%= f.number_field :memory_bus %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :memory %><br>
+    <%= f.number_field :memory %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :memory_type %><br>
+    <%= f.text_field :memory_type %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :memory_bandwidth %><br>
+    <%= f.number_field :memory_bandwidth %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :tdp %> <br>
+    <%= f.number_field :tdp %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shading_units %> <br>
+    <%= f.number_field :shading_units %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :texture_mapping_units %> <br>
+    <%= f.number_field :texture_mapping_units %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :render_output_precessors %> <br>
+    <%= f.number_field :render_output_precessors %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :pixel_rate %> <br>
+    <%= f.number_field :pixel_rate %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :texture_rate %> <br>
+    <%= f.number_field :texture_rate %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :floating_point_performance %> <br>
+    <%= f.number_field :floating_point_performance %>
+  </div>
+    
   
   <div class="actions">
     <%= f.submit %>
