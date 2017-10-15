@@ -1,0 +1,117 @@
+<%= form_for(@gpu) do |f| %>
+  <% if @gpu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gpu.errors.count, "error") %> prohibited this gpu from being saved:</h2>
+
+      <ul>
+      <% @gpu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= fields_for :item do |fi|%>
+  <div class="field">
+    <%= fi.label :manufacturer %><br>
+    <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :gpu_brand %><br>
+    <%= fi.text_field :gpu_brand %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :gpu_name %><br>
+    <%= fi.text_field :gpu_name %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :clock_speed %><br>
+    <%= fi.number_field :clock_speed %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :turbo_clock_speed %><br>
+    <%= fi.number_field :turbo_clock_speed %>
+  </div>
+
+  <div class="field">
+    <%= fi.label :is_dual_gpu %> <br>
+    <%= fi.select :is_dual_gpu, [['Yes', true], ['No', false]] %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :memory_clock_speed %><br>
+    <%= fi.number_field :memory_clock_speed %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :effective_memory_clock_speed %><br>
+    <%= fi.number_field :effective_memory_clock_speed %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :memory_bus %><br>
+    <%= fi.number_field :memory_bus %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :memory %><br>
+    <%= fi.number_field :memory %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :memory_type %><br>
+    <%= fi.text_field :memory_type %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :memory_bandwidth %><br>
+    <%= fi.number_field :memory_bandwidth %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :tdp %> <br>
+    <%= fi.number_field :tdp %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :shading_units %> <br>
+    <%= fi.number_field :shading_units %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :texture_mapping_units %> <br>
+    <%= fi.number_field :texture_mapping_units %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :render_output_precessors %> <br>
+    <%= fi.number_field :render_output_precessors %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :pixel_rate %> <br>
+    <%= fi.number_field :pixel_rate %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :texture_rate %> <br>
+    <%= fi.number_field :texture_rate %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :floating_point_performance %> <br>
+    <%= fi.number_field :floating_point_performance %>
+  </div>
+  
+  <%= fi.hidden_field :category_id, :value => Category.find_by(name: "GPU").id %>
+
+  <% end %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  resources :types
-  resources :specifications
+  
+  resources :gpus
+  resources :cpus
+  resources :hard_drives
   resources :reviews
   resources :manufacturers
   resources :categories
-  resources :components
-  get 'components/new'
+  
+  resources :items do
+    get :get_specifications, on: :collection
+  end
+  get 'items/new'
 
   root "components#index"
 

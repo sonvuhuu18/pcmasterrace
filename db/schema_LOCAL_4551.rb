@@ -19,15 +19,15 @@ ActiveRecord::Schema.define(version: 20171001115845) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "component_specifications", force: :cascade do |t|
+  create_table "item_specifications", force: :cascade do |t|
     t.integer  "value"
-    t.integer  "component_id"
+    t.integer  "item_id"
     t.integer  "specification_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  create_table "components", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
     t.float    "ranking"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20171001115845) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content"
-    t.integer  "component_id"
+    t.integer  "item_id"
     t.integer  "user_id"
     t.integer  "rate"
     t.datetime "created_at",   null: false

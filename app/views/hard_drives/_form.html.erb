@@ -1,0 +1,66 @@
+<%= form_for(@hard_drive) do |f| %>
+  <% if @hard_drive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hard_drive.errors.count, "error") %> prohibited this hard_drive from being saved:</h2>
+
+      <ul>
+      <% @hard_drive.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= fields_for :item do |fi|%>
+  <div class="field">
+    <%= fi.label :manufacturer %><br>
+    <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :capacity %><br>
+    <%= fi.number_field :capacity %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :cache %><br>
+    <%= fi.number_field :cache %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :interface %><br>
+    <%= fi.text_field :interface %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :interface_speed %><br>
+    <%= fi.number_field :interface_speed %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :controller %><br>
+    <%= fi.text_field :controller %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :memory_type %><br>
+    <%= fi.text_field :memory_type %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :process_size %><br>
+    <%= fi.number_field :process_size %>
+  </div>
+  
+  <div class="field">
+    <%= fi.label :max_shock_force %><br>
+    <%= fi.number_field :max_shock_force %>
+  </div>
+  
+  <%= fi.hidden_field :category_id, :value => Category.find_by(name: "Hard Drive").id %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

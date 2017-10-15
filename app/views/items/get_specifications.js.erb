@@ -1,0 +1,2 @@
+$("#specifications").html(
+  "<% @specifications.each do |specification|%> <%= specification.name%> : <input type="text" name="specifications[<%= specification.name%>]"> <br><%end%>');
