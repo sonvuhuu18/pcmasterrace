@@ -10,6 +10,9 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers/1
   # GET /manufacturers/1.json
   def show
+    @categories = Category.all
+    @items = Item.all
+    @manufacturers = Manufacturer.all
   end
 
   # GET /manufacturers/new
