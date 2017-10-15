@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   get 'items/new'
 
-  root "static_pages#home"
+  root "items#index"
 
   get "/help", to: "static_pages#help"
   get "/about", to: "static_pages#about"
