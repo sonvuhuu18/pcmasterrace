@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3 class="text-left">Review about <%= link_to @review.item.name, @review.item %> by <%= link_to @review.user.name, @review.user %></h1>
+        <p><i><%= @review.content %></i></p>
+    </div>
+</div>

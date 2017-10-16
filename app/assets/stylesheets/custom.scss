@@ -551,6 +551,7 @@ nav{
   border: solid #FFD203 1px;
   background-color: #ffdf4c;
   border-radius: 5px;
+  margin-bottom: 3px;
   .row{
     margin: 0px;
     padding-bottom: 5px;
@@ -642,4 +643,8 @@ nav{
   }
 }
 .new-list{
+}
+
+.show-item {
+  background: #ffdf4c;
 }

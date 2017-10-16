@@ -6,7 +6,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find_by(params[:id])
+    # @item = Item.find_by(params[:id])
+    @categories = Category.all
+    @manufacturers = Manufacturer.all
+    @item = Item.find_by id: params[:id]
   end
 
   def new
