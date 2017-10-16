@@ -1,4 +1,87 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<!--<%= link_to 'Edit', edit_category_path(@category) %>-->
+<!--<%= link_to 'Back', categories_path %>-->
+  <div class="row">
+    <div class="filter col-sm-2">
+      <div class="row">
+        <div class="col-sm-6">
+          Category
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li>
+              <%= link_to "All", items_path %>
+            </li>
+            <% @categories.each do |category| %>
+            <li>
+              <%= link_to category.name, category%>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          Manufacturer
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li>
+              <%= link_to "All", items_path %>
+            </li>
+            <% @manufacturers.each do |manufacturer| %>
+            <li>
+              <%= link_to manufacturer.name, manufacturer %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="row components-list-title">
+        <%= @category.name %>
+      </div>
+       <div class="components-list row">
+        <% @items.each do |item| %>
+        <% if item.category.name == @category.name %>
+          <div class="components-show col-sm-3">
+            <div class="row">
+              <%= link_to item.name, item, class:"component-name"%>
+            </div>
+            <div class="row">
+              <div class="square">
+                <%= link_to image_tag(item.images.first, class:"img-responsive square-content"), item %>
+              </div>
+            </div>
+            <div class="row">
+              Category: <%= link_to item.category.name, item.category %> <br>
+              Release date: <%= item.release_date %><br>
+              Manufacturer: <%= link_to item.manufacturer.name, item.manufacturer %>
+            </div>
+            <div class="row">
+              <% if item.category.name == "GPU" %>
+                <%= link_to 'Edit', edit_gpu_path(item.gpu), class:"btn info" %>
+              <% elsif item.category.name == "CPU"%>
+                <%= link_to 'Edit', edit_cpu_path(item.cpu), class:"btn info" %>
+              <% elsif item.category.name == "Hard Drive"%>
+                <%= link_to 'Edit', edit_hard_drife_path(item.hard_drive), class:"btn info" %>
+              <% end %>
+              <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="new-list col-sm-1">
+      <div class="new-component row">
+        <%= link_to 'New CPU', new_cpu_path, class:"btn info" %>
+      </div>
+      <div class="new-component row">
+        <%= link_to 'New GPU', new_gpu_path, class:"btn info" %>
+      </div><div class="new-component row">
+        <%= link_to 'New Hard Drive', new_hard_drife_path, class:"btn info" %>
+      </div>
+    </div>
+ </div>
