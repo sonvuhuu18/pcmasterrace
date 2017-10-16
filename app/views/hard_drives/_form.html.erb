@@ -32,14 +32,16 @@
     <%= fi.label :manufacturer %><br>
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
-  <div class="field">
-    <%= fi.label :images %><br>
-    <%= fi.file_field :images, multiple: true %>
-  </div>
+  
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "Hard Drive").id %>
 
   <% end %>
   
+  <div class="field">
+    <%= f.label :images %><br>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
   <div class="field">
     <%= f.label :capacity %><br>
     <%= f.number_field :capacity %>
