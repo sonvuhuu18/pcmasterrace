@@ -48,6 +48,13 @@
             </div>
             <div class="row">
               <div class="square">
+              <% if item.category.name == "GPU" %>
+                <%= link_to image_tag(item.gpu.images.first, class:"img-responsive square-content"), item.gpu %>
+              <% elsif item.category.name == "CPU"%>
+                <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content"), item.cpu %>
+              <% elsif item.category.name == "Hard Drive"%>
+                <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content"), item.hard_drive %>
+              <% end %>
                 <%= link_to image_tag(item.images.first, class:"img-responsive square-content"), item %>
               </div>
             </div>

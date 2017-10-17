@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find_by(params[:id])
   end
 
   def create 
@@ -32,8 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+    set_item
     respond_to do |format|
-      if @item.update(movie_params)
+      if @item.update(item_params)
         format.html {redirect_to @item, notice: 'Item was successfully updated.'}
         format.json {render :show, status: :ok, location: @item}
       else
@@ -52,22 +54,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def get_specifications
-    @specifications = Type.find(params[:type_id]).specifications
-    respond_to do |format|
-      if @specifications
-        format.js
-      end
-    end
-  end
-
   private 
     def set_item
       @item = Item.find(params[:id])
     end
 
     def item_params
-      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id, {images: [] })
+      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id)
     end
 
 end

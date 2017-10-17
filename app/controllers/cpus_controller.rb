@@ -70,11 +70,11 @@ class CpusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cpu_params
-      params.require(:cpu).permit(:item_id,:manufacturer_id,:clock_speed,:turbo_clock_speed,:cores,:is_unlocked,:architechture,:threads,:l2_cache,:l3_cache,:manufacturer_process,:gpu_label,:tdp)
+      params.require(:cpu).permit(:item_id,:manufacturer_id,:clock_speed,:turbo_clock_speed,:cores,:is_unlocked,:architechture,:threads,:l2_cache,:l3_cache,:manufacturer_process,:gpu_label,:tdp, {images: [] })
     end
 
     def item_params
-      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id, {images: [] })
+      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id)
     end
 
 end
