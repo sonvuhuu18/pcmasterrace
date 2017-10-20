@@ -34,14 +34,22 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <h1><%= @user.name %>'s reviews: </h2>
+                <% if @user.review.size == 0 %>
+                <p class="text-center"><i>This user did not write any review yet</i></p>
+                <% else %>
                 <% @user.review.each do |review| %>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <p><b>Review about <%= link_to review.item.name, review.item %>: </b></p>
-                            <p><i><%= review.content.truncate(300) %></i></p>
+                            <p class="date"><i>Written at <%= review.created_at %></i></p>
+                            <p><% review.content.scan(/\S+/)[0..100].join(' ').split(/\n/).each do |paragraph| %>
+                                 <%= paragraph.html_safe %><br>
+                                 <% end %>
+                            </p>
                             <p class="text-right"><%= link_to "See more", review_path(review) %></p>
-                        </div>
                     </div>
+                    </div>
+                <% end %>
                 <% end %>
             </div>
         </div>

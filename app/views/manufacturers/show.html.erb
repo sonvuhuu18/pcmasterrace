@@ -67,6 +67,7 @@
               Release date: <%= item.release_date %><br>
               Manufacturer: <%= link_to item.manufacturer.name, item.manufacturer %>
             </div>
+            <% if current_user.admin? %>
             <div class="row">
               <% if item.category.name == "GPU" %>
                 <%= link_to 'Edit', edit_gpu_path(item.gpu), class:"btn info" %>
@@ -77,12 +78,14 @@
               <% end %>
               <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
             </div>
+            <% end %>
           </div>
           <% end %>
         <% end %>
       </div>
     </div>
     <div class="new-list col-sm-1">
+      <% if current_user.admin? %>
       <div class="new-component row">
         <%= link_to 'New CPU', new_cpu_path, class:"btn info" %>
       </div>
@@ -91,5 +94,6 @@
       </div><div class="new-component row">
         <%= link_to 'New Hard Drive', new_hard_drife_path, class:"btn info" %>
       </div>
+      <% end %>
     </div>
  </div>

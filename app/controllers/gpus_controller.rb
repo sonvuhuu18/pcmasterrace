@@ -29,7 +29,7 @@ class GpusController < ApplicationController
     @item.gpu = @gpu
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @gpu, notice: 'Gpu was successfully created.' }
+        format.html { redirect_to @item, notice: 'Gpu was successfully created.' }
         format.json { render :show, status: :created, location: @gpu }
       else
         format.html { render :new }

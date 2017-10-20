@@ -42,40 +42,42 @@
 
         <div class="panel panel-default">
             <div class="panel-body show-item" background-color="#5b412b">
-                <%= image_tag(@item.images.first) %>
-                <div class="col-sm-4">
-                <p>Name: <%= @item.name %></p>
-                <p>Price: <%= @item.price %></p>
-                <p>Released Date: <%= @item.release_date %></p>
-                <p>Manufacturer: <%= @item.manufacturer.name %></p>
-                <p>Gpu brand: <%= @item.gpu.gpu_brand %></p>
-                <p>Gpu name: <%= @item.gpu.gpu_name %></p>
-                <p>Clock speed: <%= @item.gpu.clock_speed %></p>
-                <p>Turbo clock speed: <%= @item.gpu.turbo_clock_speed %></p>
+                <div class="text-center">
+                    <%= image_tag(@item.gpu.images.first, height:"400", class:"thumbnail") %>
                 </div>
                 <div class="col-sm-4">
-                <p>Is dual gpu: 
+                <p><b>Name: </b><%= @item.name %></p>
+                <p><b>Price: </b><%= @item.price %></p>
+                <p><b>Released Date:</b> <%= @item.release_date %></p>
+                <p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>
+                <p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>
+                <p><b>Gpu name: </b><%= @item.gpu.gpu_name %></p>
+                <p><b>Clock speed:</b> <%= @item.gpu.clock_speed %></p>
+                <p><b>Turbo clock speed:</b> <%= @item.gpu.turbo_clock_speed %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><b>Is dual gpu: </b>
                     <% if @item.gpu.is_dual_gpu == 0 %>
                         Yes 
                     <% else %>
                         No 
                     <% end %>
                 </p>
-                <p>Memory clock speed: <%= @item.gpu.memory_clock_speed %></p>
-                <p>Effective memory clock speed: <%= @item.gpu.effective_memory_clock_speed %></p>
-                <p>Memory bus: <%= @item.gpu.memory_bus %></p>
-                <p>Memory: <%= @item.gpu.memory %></p>
-                <p>Memory type: <%= @item.gpu.memory_type %></p>
-                <p>Memory bandwidth: <%= @item.gpu.memory_bandwidth %></p>
-                <p>Tdp: <%= @item.gpu.tdp %></p>
+                <p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %></p>
+                <p><b>Effective memory clock speed:</b> <%= @item.gpu.effective_memory_clock_speed %></p>
+                <p><b>Memory bus: </b><%= @item.gpu.memory_bus %></p>
+                <p><b>Memory: </b><%= @item.gpu.memory %></p>
+                <p><b>Memory type: </b><%= @item.gpu.memory_type %></p>
+                <p><b>Memory bandwidth:</b> <%= @item.gpu.memory_bandwidth %></p>
+                <p><b>Tdp: </b><%= @item.gpu.tdp %></p>
                 </div>
                 <div class="col-sm-4">
-                <p>Shading units: <%= @item.gpu.shading_units %></p>
-                <p>Texture mapping units : <%= @item.gpu.texture_mapping_units %></p>
-                <p>Render output precessors: <%= @item.gpu.render_output_precessors %></p>
-                <p>Pixel rate : <%= @item.gpu.pixel_rate %></p>
-                <p>Texture rate: <%= @item.gpu.texture_rate %></p>
-                <p>Floating point performance: <%= @item.gpu.floating_point_performance %></p>
+                <p><b>Shading units: </b><%= @item.gpu.shading_units %></p>
+                <p><b>Texture mapping units : </b><%= @item.gpu.texture_mapping_units %></p>
+                <p><b>Render output precessors: </b><%= @item.gpu.render_output_precessors %></p>
+                <p><b>Pixel rate : </b><%= @item.gpu.pixel_rate %></p>
+                <p><b>Texture rate:</b> <%= @item.gpu.texture_rate %></p>
+                <p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %></p>
                 </div>
                 
             </div>
@@ -86,34 +88,41 @@
   <div class="col-sm-10">
         <div class="panel panel-default">
             <div class="panel-body show-item">
-                <%= image_tag(@item.images.first) %>
+                
+                
+                <div class="text-center">
+                    <%= image_tag(@item.cpu.images.first, height:"400", class:"thumbnail") %>
+                </div>
+                
+                
                 <div class="col-sm-4">
-                <p>Name: <%= @item.name %></p>
-                <p>Price: <%= @item.price %></p>
-                <p>Released Date: <%= @item.release_date %></p>
-                <p>Clock speed: <%= @item.cpu.clock_speed %></p>
-                <p>Turbo clock speed: <%= @item.cpu.turbo_clock_speed %></p>
-                <p>Cores: <%= @item.cpu.cores %></p>
+                <p><b>Name: </b><%= @item.name %></p>
+                <p><b>Price: </b><%= @item.price %></p>
+                <p><b>Released Date: </b><%= @item.release_date %></p>
+                <p><b>Clock speed: </b><%= @item.cpu.clock_speed %></p>
+                <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %></p>
+                <p><b>Cores:</b> <%= @item.cpu.cores %></p>
                 </div>
                 
                 <div class="col-sm-4">
-                <p>Is unlocked: 
-                    <% if @item.cpu.is_unlocked == 0 %>
+                <p><b>Is unlocked: </b>
+                    <% if @item.cpu.is_unlocked %>
                         Yes 
                     <% else %>
                         No 
                     <% end %>
                 </p>
-                <p>Architechture: <%= @item.cpu.architechture %></p>
-                <p>Threads: <%= @item.cpu.threads %></p>
-                <p>L2 cache: <%= @item.cpu.l2_cache %></p>
-                <p>L3 cache: <%= @item.cpu.l3_cache %></p>
-                <p>Manufacturer process: <%= @item.cpu.manufacturer_process %></p>
+                <p><b>Architechture: </b><%= @item.cpu.architechture %></p>
+                <p><b>Threads: </b><%= @item.cpu.threads %></p>
+                <p><b>L2 cache:</b> <%= @item.cpu.l2_cache %></p>
+                <p><b>L3 cache: </b><%= @item.cpu.l3_cache %></p>
+                <p><b>Manufacturer process: </b><%= @item.cpu.manufacturer_process %></p>
                 </div>
                 <div class="col-sm-4">
-                <p>Gpu label: <%= @item.cpu.gpu_label %></p>
-                <p>Tdp: <%= @item.cpu.tdp %></p>
+                <p><b>Gpu label: </b><%= @item.cpu.gpu_label %></p>
+                <p><b>Tdp: </b><%= @item.cpu.tdp %></p>
                 </div>
+                
             </div>
         </div>
 
@@ -125,21 +134,23 @@
   <div class="col-sm-10">
         <div class="panel panel-default">
             <div class="panel-body show-item">
-                <%= image_tag(@item.images.first) %>
-                <div class="col-sm-6">
-                <p>Name: <%= @item.name %></p>
-                <p>Price: <%= @item.price %></p>
-                <p>Released Date: <%= @item.release_date %></p>
-                <p>Capacity: <%= @item.hard_drive.capacity %></p>
-                <p>Cache: <%= @item.hard_drive.cache %></p>
-                <p>Interface: <%= @item.hard_drive.interface %></p>
+                <div class="text-center">
+                    <%= image_tag(@item.hard_drive.images.first, height:"400", class:"thumbnail") %>
                 </div>
                 <div class="col-sm-6">
-                <p>Interface speed: <%= @item.hard_drive.interface_speed %></p>
-                <p>Controller: <%= @item.hard_drive.controller %></p>
-                <p>Memory type: <%= @item.hard_drive.memory_type %></p>
-                <p>Process size: <%= @item.hard_drive.process_size %></p>
-                <p>Max shock force: <%= @item.hard_drive.max_shock_force %></p>
+                <p><b>Name: </b><%= @item.name %></p>
+                <p><b>Price: </b><%= @item.price %></p>
+                <p><b>Released Date: </b><%= @item.release_date %></p>
+                <p><b>Capacity: </b><%= @item.hard_drive.capacity %></p>
+                <p><b>Cache: </b><%= @item.hard_drive.cache %></p>
+                <p><b>Interface: </b><%= @item.hard_drive.interface %></p>
+                </div>
+                <div class="col-sm-6">
+                <p><b>Interface speed: </b><%= @item.hard_drive.interface_speed %></p>
+                <p><b>Controller: </b><%= @item.hard_drive.controller %></p>
+                <p><b>Memory type: </b><%= @item.hard_drive.memory_type %></p>
+                <p><b>Process size: </b><%= @item.hard_drive.process_size %></p>
+                <p><b>Max shock force: </b><%= @item.hard_drive.max_shock_force %></p>
                 </div>
             </div>
         </div>
@@ -150,14 +161,23 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <h1>Reviews: </h2>
+                <% if @item.reviews.size == 0 %>
+                <p class="text-center"><i>This item has not been reviewed yet</i></p>
+                <% else %>
                 <% @item.reviews.each do |review| %>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <p><b><%= link_to review.user.name, review.user %>: </b></p>
-                            <p><i><%= review.content.truncate(300) %></i></p>
+                            <p class="date"><i>Written at <%= review.created_at %></i></p>
+                            <!--<p><i><%= review.content.html_safe.truncate(250) %></i></p>-->
+                            <p><% review.content.scan(/\S+/)[0..100].join(' ').split(/\n/).each do |paragraph| %>
+                                 <%= paragraph.html_safe %><br>
+                                 <% end %>
+                            </p>
                             <p class="text-right"><%= link_to "See more", review_path(review) %></p>
                         </div>
                     </div>
+                <% end %>
                 <% end %>
             </div>
         </div>
@@ -165,11 +185,14 @@
             <%= form_for Review.new do |f| %>
                 <%= f.hidden_field :item_id, value: @item.id %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
+                     <%= tinymce_assets %>
                     <div class="field">
                         <%= f.label "Write your review:" %><br>
-                        <%= f.text_area :content, required: true %>
+                        <%= f.text_area :content, :class => "tinymce" %>
+                        <%= tinymce %>
                     </div>
                     <%= f.submit "Add Review", class: "btn btn-normal" %>
+                    
             <% end %>
         <% end %>
         

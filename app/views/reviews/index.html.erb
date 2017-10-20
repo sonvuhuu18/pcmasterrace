@@ -1,25 +1,76 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Reviews</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Review', new_review_path %>
+  <div class="row">
+    <div class="filter col-sm-2">
+      <div class="row">
+        <div class="col-sm-6">
+          Category
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li>
+              <%= link_to "All", items_path %>
+            </li>
+            <% @categories.each do |category| %>
+            <li>
+              <%= link_to category.name, category%>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          Manufacturer
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li>
+              <%= link_to "All", items_path %>
+            </li>
+            <% @manufacturers.each do |manufacturer| %>
+            <li>
+              <%= link_to manufacturer.name, manufacturer %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="row components-list-title">
+        All
+      </div>
+       <div class="components-list row">
+        <% @reviews.each do |review| %>
+          <div class="components-show col-sm-3">
+            <div class="row">
+              <%= link_to review.item.name, review, class:"component-name"%>
+            </div>
+            <div class="row">
+              <div class="square">
+              <% if review.item.category.name == "GPU" %>
+                <%= link_to image_tag(review.item.gpu.images.first, class:"img-responsive square-content"), review %>
+              <% elsif review.item.category.name == "CPU"%>
+                <%= link_to image_tag(review.item.cpu.images.first, class:"img-responsive square-content"), review %>
+              <% elsif review.item.category.name == "Hard Drive"%>
+                <%= link_to image_tag(review.item.hard_drive.images.first, class:"img-responsive square-content"), review %>
+              <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <%= review.content.first(20) %><br>
+              Category: <%= link_to review.item.category.name, review.item.category %> <br>
+              Review by: <%= link_to review.user.name, review.user %> at <%= review.created_at  %><br>
+              Manufacturer: <%= link_to review.item.manufacturer.name, review.item.manufacturer %>
+            </div>
+            <% if current_user.admin? || current_user == review.user %>
+            <div class="row">
+                <%= link_to 'Edit', edit_review_path(review), class:"btn info" %>
+                <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+ </div>
