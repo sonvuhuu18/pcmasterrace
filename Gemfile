@@ -18,6 +18,7 @@ gem "bootstrap-will_paginate", "1.0.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+gem "tinymce-rails"
 
 group :development, :test do
   gem "byebug"

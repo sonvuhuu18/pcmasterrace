@@ -29,7 +29,7 @@ class CpusController < ApplicationController
     @item.cpu = @cpu
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @cpu, notice: 'Cpu was successfully created.' }
+        format.html { redirect_to @item, notice: 'Cpu was successfully created.' }
         format.json { render :show, status: :created, location: @cpu }
       else
         format.html { render :new }

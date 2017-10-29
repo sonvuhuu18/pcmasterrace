@@ -29,7 +29,7 @@ class HardDrivesController < ApplicationController
     @item.hard_drive = @hard_drive
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @hard_drive, notice: 'Hard drive was successfully created.' }
+        format.html { redirect_to @item, notice: 'Hard drive was successfully created.' }
         format.json { render :show, status: :created, location: @hard_drive }
       else
         format.html { render :new }
