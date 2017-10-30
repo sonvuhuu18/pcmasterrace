@@ -191,6 +191,10 @@
           <%= f.label "Write your review:" %><br>
           <%= f.text_area :content, :class => "tinymce" %>
           <%= tinymce %>
+          <div class="field">
+            <%= f.label :rate %>
+            <%= f.select :rate, options_for_select(1..10), {prompt: "Your rate"}%>
+          </div>
         </div>
         <%= f.submit "Add Review", class: "btn btn-normal" %>
 
