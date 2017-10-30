@@ -1,0 +1,6 @@
+$("#result-box").html('');
+$("#result-box").css('display', 'block');
+<% @items.each do |item| %>
+  $('#result-box').append('<%= link_to(item.name, item)%>');
+  console.log('<%= item.name %>');
+<% end%>

@@ -59,11 +59,21 @@ class ItemsController < ApplicationController
   end
   
 
+
   def compare
     @categories = Category.all
     @manufacturers = Manufacturer.all
   end
   
+
+  def live_search
+    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
   private 
     def set_item
       @item = Item.find(params[:id])
