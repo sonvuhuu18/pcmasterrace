@@ -80,16 +80,8 @@ ActiveRecord::Schema.define(version: 20171016060352) do
     t.string   "images"
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.float    "ranking"
-    t.date     "release_date"
-    t.integer  "category_id"
-    t.integer  "manufacturer_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+# Could not dump table "items" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "manufacturers", force: :cascade do |t|
     t.string   "name"

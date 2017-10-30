@@ -16,6 +16,18 @@
         <%= f.label :content %><br>
         <%= f.text_area :content %>
       </div>
+      <div class="field">
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      </div>
+      <div class="field">
+        <%= f.label :item_id %><br>
+        <%= f.select :item_id, Item.all.collect {|m| [m.name, m.id] } %>
+      </div>
+      <div class="field">
+        <%= f.label :rate %>
+        <%= f.select :rate, options_for_select(1..10), {prompt: "Your rate"}%>
+      </div>
+      
     <%= f.submit %>
   </div>
 <% end %>

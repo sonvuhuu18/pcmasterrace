@@ -40,114 +40,121 @@
 
     <% if @item.category.name == "GPU" %>
 
-    <div class="panel panel-default">
-      <div class="panel-body show-item" background-color="#5b412b">
-        <div class="text-center">
-          <%= image_tag(@item.gpu.images.first, height:"400", class:"thumbnail") %>
+        <div class="panel panel-default">
+            <div class="panel-body show-item" background-color="#5b412b">
+                <div class="text-center">
+                    <%= image_tag(@item.gpu.images.first, height:"400", class:"thumbnail") %>
+                </div>
+                <div class="col-sm-4">
+                <p><b>Name: </b><%= @item.name %></p>
+                <p><b>Price: </b><%= @item.price %></p>
+                <p><b>Ranking: </b><%= @item.ranking %></p>
+                <p><b>Released Date:</b> <%= @item.release_date %></p>
+                <p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>
+                <p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>
+                <p><b>Gpu name: </b><%= @item.gpu.gpu_name %></p>
+                <p><b>Clock speed:</b> <%= @item.gpu.clock_speed %></p>
+                <p><b>Turbo clock speed:</b> <%= @item.gpu.turbo_clock_speed %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><b>Is dual gpu: </b>
+                    <% if @item.gpu.is_dual_gpu == 0 %>
+                        Yes 
+                    <% else %>
+                        No 
+                    <% end %>
+                </p>
+                <p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %></p>
+                <p><b>Effective memory clock speed:</b> <%= @item.gpu.effective_memory_clock_speed %></p>
+                <p><b>Memory bus: </b><%= @item.gpu.memory_bus %></p>
+                <p><b>Memory: </b><%= @item.gpu.memory %></p>
+                <p><b>Memory type: </b><%= @item.gpu.memory_type %></p>
+                <p><b>Memory bandwidth:</b> <%= @item.gpu.memory_bandwidth %></p>
+                <p><b>Tdp: </b><%= @item.gpu.tdp %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><b>Shading units: </b><%= @item.gpu.shading_units %></p>
+                <p><b>Texture mapping units : </b><%= @item.gpu.texture_mapping_units %></p>
+                <p><b>Render output precessors: </b><%= @item.gpu.render_output_precessors %></p>
+                <p><b>Pixel rate : </b><%= @item.gpu.pixel_rate %></p>
+                <p><b>Texture rate:</b> <%= @item.gpu.texture_rate %></p>
+                <p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %></p>
+                </div>
+                
+            </div>
         </div>
-        <div class="col-sm-4">
-          <p><b>Name: </b><%= @item.name %></p>
-          <p><b>Price: </b><%= @item.price %></p>
-          <p><b>Released Date:</b> <%= @item.release_date %></p>
-          <p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>
-          <p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>
-          <p><b>Gpu name: </b><%= @item.gpu.gpu_name %></p>
-          <p><b>Clock speed:</b> <%= @item.gpu.clock_speed %></p>
-          <p><b>Turbo clock speed:</b> <%= @item.gpu.turbo_clock_speed %></p>
-        </div>
-        <div class="col-sm-4">
-          <p><b>Is dual gpu: </b>
-            <% if @item.gpu.is_dual_gpu == 0 %>
-            Yes
-            <% else %>
-            No
-            <% end %>
-          </p>
-          <p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %></p>
-          <p><b>Effective memory clock speed:</b> <%= @item.gpu.effective_memory_clock_speed %></p>
-          <p><b>Memory bus: </b><%= @item.gpu.memory_bus %></p>
-          <p><b>Memory: </b><%= @item.gpu.memory %></p>
-          <p><b>Memory type: </b><%= @item.gpu.memory_type %></p>
-          <p><b>Memory bandwidth:</b> <%= @item.gpu.memory_bandwidth %></p>
-          <p><b>Tdp: </b><%= @item.gpu.tdp %></p>
-        </div>
-        <div class="col-sm-4">
-          <p><b>Shading units: </b><%= @item.gpu.shading_units %></p>
-          <p><b>Texture mapping units : </b><%= @item.gpu.texture_mapping_units %></p>
-          <p><b>Render output precessors: </b><%= @item.gpu.render_output_precessors %></p>
-          <p><b>Pixel rate : </b><%= @item.gpu.pixel_rate %></p>
-          <p><b>Texture rate:</b> <%= @item.gpu.texture_rate %></p>
-          <p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %></p>
-        </div>
-
-      </div>
-    </div>
-
 
     <% elsif @item.category.name == "CPU"%>
     <div class="col-sm-10">
       <div class="panel panel-default">
         <div class="panel-body show-item">
 
-
-          <div class="text-center">
-            <%= image_tag(@item.cpu.images.first, height:"400", class:"thumbnail") %>
-          </div>
-
-
-          <div class="col-sm-4">
-            <p><b>Name: </b><%= @item.name %></p>
-            <p><b>Price: </b><%= @item.price %></p>
-            <p><b>Released Date: </b><%= @item.release_date %></p>
-            <p><b>Clock speed: </b><%= @item.cpu.clock_speed %></p>
-            <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %></p>
-            <p><b>Cores:</b> <%= @item.cpu.cores %></p>
-          </div>
-
-          <div class="col-sm-4">
-            <p><b>Is unlocked: </b>
-              <% if @item.cpu.is_unlocked %>
-              Yes
-              <% else %>
-              No
-              <% end %>
-            </p>
-            <p><b>Architechture: </b><%= @item.cpu.architechture %></p>
-            <p><b>Threads: </b><%= @item.cpu.threads %></p>
-            <p><b>L2 cache:</b> <%= @item.cpu.l2_cache %></p>
-            <p><b>L3 cache: </b><%= @item.cpu.l3_cache %></p>
-            <p><b>Manufacturer process: </b><%= @item.cpu.manufacturer_process %></p>
-          </div>
-          <div class="col-sm-4">
-            <p><b>Gpu label: </b><%= @item.cpu.gpu_label %></p>
-            <p><b>Tdp: </b><%= @item.cpu.tdp %></p>
-          </div>
-
+<% elsif @item.category.name == "CPU"%>
+  <div class="col-sm-10">
+        <div class="panel panel-default">
+            <div class="panel-body show-item">
+                
+                
+                <div class="text-center">
+                    <%= image_tag(@item.cpu.images.first, height:"400", class:"thumbnail") %>
+                </div>
+                
+                
+                <div class="col-sm-4">
+                <p><b>Name: </b><%= @item.name %></p>
+                <p><b>Price: </b><%= @item.price %></p>
+                <p><b>Ranking: </b><%= @item.ranking %></p>
+                <p><b>Released Date: </b><%= @item.release_date %></p>
+                <p><b>Clock speed: </b><%= @item.cpu.clock_speed %></p>
+                <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %></p>
+                <p><b>Cores:</b> <%= @item.cpu.cores %></p>
+                </div>
+                
+                <div class="col-sm-4">
+                <p><b>Is unlocked: </b>
+                    <% if @item.cpu.is_unlocked %>
+                        Yes 
+                    <% else %>
+                        No 
+                    <% end %>
+                </p>
+                <p><b>Architechture: </b><%= @item.cpu.architechture %></p>
+                <p><b>Threads: </b><%= @item.cpu.threads %></p>
+                <p><b>L2 cache:</b> <%= @item.cpu.l2_cache %></p>
+                <p><b>L3 cache: </b><%= @item.cpu.l3_cache %></p>
+                <p><b>Manufacturer process: </b><%= @item.cpu.manufacturer_process %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><b>Gpu label: </b><%= @item.cpu.gpu_label %></p>
+                <p><b>Tdp: </b><%= @item.cpu.tdp %></p>
+                </div>
+                
+            </div>
         </div>
-      </div>
-
 
       <% elsif @item.category.name == "Hard Drive"%>
       <div class="col-sm-10">
         <div class="panel panel-default">
-          <div class="panel-body show-item">
-            <div class="text-center">
-              <%= image_tag(@item.hard_drive.images.first, height:"400", class:"thumbnail") %>
-            </div>
-            <div class="col-sm-6">
-              <p><b>Name: </b><%= @item.name %></p>
-              <p><b>Price: </b><%= @item.price %></p>
-              <p><b>Released Date: </b><%= @item.release_date %></p>
-              <p><b>Capacity: </b><%= @item.hard_drive.capacity %></p>
-              <p><b>Cache: </b><%= @item.hard_drive.cache %></p>
-              <p><b>Interface: </b><%= @item.hard_drive.interface %></p>
-            </div>
-            <div class="col-sm-6">
-              <p><b>Interface speed: </b><%= @item.hard_drive.interface_speed %></p>
-              <p><b>Controller: </b><%= @item.hard_drive.controller %></p>
-              <p><b>Memory type: </b><%= @item.hard_drive.memory_type %></p>
-              <p><b>Process size: </b><%= @item.hard_drive.process_size %></p>
-              <p><b>Max shock force: </b><%= @item.hard_drive.max_shock_force %></p>
+            <div class="panel-body show-item">
+                <div class="text-center">
+                    <%= image_tag(@item.hard_drive.images.first, height:"400", class:"thumbnail") %>
+                </div>
+                <div class="col-sm-6">
+                <p><b>Name: </b><%= @item.name %></p>
+                <p><b>Price: </b><%= @item.price %></p>
+                <p><b>Ranking: </b><%= @item.ranking %></p>
+                <p><b>Released Date: </b><%= @item.release_date %></p>
+                <p><b>Capacity: </b><%= @item.hard_drive.capacity %></p>
+                <p><b>Cache: </b><%= @item.hard_drive.cache %></p>
+                <p><b>Interface: </b><%= @item.hard_drive.interface %></p>
+                </div>
+                <div class="col-sm-6">
+                <p><b>Interface speed: </b><%= @item.hard_drive.interface_speed %></p>
+                <p><b>Controller: </b><%= @item.hard_drive.controller %></p>
+                <p><b>Memory type: </b><%= @item.hard_drive.memory_type %></p>
+                <p><b>Process size: </b><%= @item.hard_drive.process_size %></p>
+                <p><b>Max shock force: </b><%= @item.hard_drive.max_shock_force %></p>
+                </div>
             </div>
           </div>
         </div>
