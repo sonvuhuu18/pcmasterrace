@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     @categories = Category.all
     @manufacturers = Manufacturer.all
     @item = Item.find_by id: params[:id]
+    @items = Item.all
   end
 
   def new
@@ -56,6 +57,14 @@ class ItemsController < ApplicationController
       format.json {head :no_content}
     end
   end
+  
+
+
+  def compare
+    @categories = Category.all
+    @manufacturers = Manufacturer.all
+  end
+  
 
   def live_search
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
@@ -63,6 +72,7 @@ class ItemsController < ApplicationController
       format.js
     end
   end
+
 
   private 
     def set_item
@@ -72,7 +82,5 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id)
     end
-
+    
 end
-
-

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  post 'items/compare'
+
   resources :gpus
   resources :cpus
   resources :hard_drives
