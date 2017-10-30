@@ -43,9 +43,7 @@
   <% if item1.category.name == "GPU" %>
   <div class="col-sm-10">
     <div class="col-sm-10 panel panel-heading" style="background-color: #FFD203;">
-      <a href="#">intel core 7 6500 </a>
-      VS
-      <a href="#">intel core 5 1500 </a>
+      <h1><%= link_to item1.name, item1 %> VS <%= link_to item2.name, item2 %></h1>
     </div>
     <div class="col-sm-5">
       <div class="panel panel-default">
@@ -54,7 +52,6 @@
             <%= image_tag(item1.gpu.images.first, height:"400", class:"thumbnail compare-item") %>
           </div>
           <div class="col-sm-6">
-            <p><b>Name: </b><%= item1.name %></p>
             <p><b>Price: </b><%= item1.price %></p>
             <p><b>Released Date:</b> <%= item1.release_date %></p>
             <p><b>Manufacturer:</b> <%= item1.manufacturer.name %></p>
@@ -93,7 +90,6 @@
             <%= image_tag(item2.gpu.images.first, height:"400", class:"thumbnail compare-item") %>
           </div>
           <div class="col-sm-6">
-            <p><b>Name: </b><%= item2.name %></p>
             <p><b>Price: </b><%= item2.price %></p>
             <p><b>Released Date:</b> <%= item2.release_date %></p>
             <p><b>Manufacturer:</b> <%= item2.manufacturer.name %></p>
@@ -129,9 +125,7 @@
   <% elsif item1.category.name == "CPU"%>
   <div class="col-sm-10">
     <div class="col-sm-10 panel panel-heading" style="background-color: #FFD203;">
-      <a href="#">intel core 7 6500 </a>
-      VS
-      <a href="#">intel core 5 1500 </a>
+      <h1><%= link_to item1.name, item1 %> VS <%= link_to item2.name, item2 %></h1>
     </div>
     <div class="col-sm-5">
       <div class="panel panel-default">
@@ -139,12 +133,11 @@
 
 
           <div class="text-center">
-            <%= image_tag(item1.cpu.images.first, height:"400", class:"thumbnail compare-item") %>
+            <%= link_to image_tag(item1.cpu.images.first, height:"400", class:"thumbnail compare-item"), item1 %>
           </div>
 
 
           <div class="col-sm-6">
-            <p><b>Name: </b><%= item1.name %></p>
             <p><b>Price: </b><%= item1.price %></p>
             <p><b>Released Date: </b><%= item1.release_date %></p>
             <p><b>Clock speed: </b><%= item1.cpu.clock_speed %></p>
@@ -172,10 +165,9 @@
       <div class="panel panel-default">
         <div class="panel-body show-item">
           <div class="text-center">
-            <%= image_tag(item2.cpu.images.first, height:"400", class:"thumbnail compare-item") %>
+            <%= link_to image_tag(item2.cpu.images.first, height:"400", class:"thumbnail compare-item"), item2 %>
           </div>
           <div class="col-sm-6">
-            <p><b>Name: </b><%= item2.name %></p>
             <p><b>Price: </b><%= item2.price %></p>
             <p><b>Released Date: </b><%= item2.release_date %></p>
             <p><b>Clock speed: </b><%= item2.cpu.clock_speed %></p>
@@ -203,18 +195,15 @@
   <% elsif item1.category.name == "Hard Drive"%>
   <div class="col-sm-10">
     <div class="col-sm-10 panel panel-heading" style="background-color: #FFD203;">
-      <a href="#">intel core 7 6500 </a>
-      VS
-      <a href="#">intel core 5 1500 </a>
+    <h1><%= link_to item1.name, item1 %> VS <%= link_to item2.name, item2 %></h1>
     </div>
     <div class="col-sm-5">
       <div class="panel panel-default">
         <div class="panel-body show-item">
           <div class="text-center">
-            <%= image_tag(item1.hard_drive.images.first, height:"400", class:"thumbnail compare-item") %>
+            <%= link_to image_tag(item1.hard_drive.images.first, height:"400", class:"thumbnail compare-item"), item1 %>
           </div>
           <div class="col-sm-6">
-            <p><b>Name: </b><%= item1.name %></p>
             <p><b>Price: </b><%= item1.price %></p>
             <p><b>Released Date: </b><%= item1.release_date %></p>
             <p><b>Capacity: </b><%= item1.hard_drive.capacity %></p>
@@ -233,10 +222,9 @@
       <div class="panel panel-default">
         <div class="panel-body show-item">
           <div class="text-center">
-            <%= image_tag(item2.hard_drive.images.first, height:"400", class:"thumbnail compare-item") %>
+            <%= link_to image_tag(item2.hard_drive.images.first, height:"400", class:"thumbnail compare-item"), item2 %>
           </div>
           <div class="col-sm-6">
-            <p><b>Name: </b><%= item2.name %></p>
             <p><b>Price: </b><%= item2.price %></p>
             <p><b>Released Date: </b><%= item2.release_date %></p>
             <p><b>Capacity: </b><%= item2.hard_drive.capacity %></p>
