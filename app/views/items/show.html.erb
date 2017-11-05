@@ -48,7 +48,7 @@
                 <div class="col-sm-4">
                 <p><b>Name: </b><%= @item.name %></p>
                 <p><b>Price: </b><%= @item.price %></p>
-                <p><b>Ranking: </b><%= @item.ranking %></p>
+                <div class="review-rating" data-score=<%= @item.ranking %><p><b>Ranking: </b></p></div>
                 <p><b>Released Date:</b> <%= @item.release_date %></p>
                 <p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>
                 <p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>
@@ -84,10 +84,6 @@
             </div>
         </div>
 
-    <% elsif @item.category.name == "CPU"%>
-    <div class="col-sm-10">
-      <div class="panel panel-default">
-        <div class="panel-body show-item">
 
 <% elsif @item.category.name == "CPU"%>
   <div class="col-sm-10">
@@ -103,7 +99,7 @@
                 <div class="col-sm-4">
                 <p><b>Name: </b><%= @item.name %></p>
                 <p><b>Price: </b><%= @item.price %></p>
-                <p><b>Ranking: </b><%= @item.ranking %></p>
+                <div class="review-rating" data-score=<%= @item.ranking %><p><b>Ranking: </b></p></div>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
                 <p><b>Clock speed: </b><%= @item.cpu.clock_speed %></p>
                 <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %></p>
@@ -142,7 +138,7 @@
                 <div class="col-sm-6">
                 <p><b>Name: </b><%= @item.name %></p>
                 <p><b>Price: </b><%= @item.price %></p>
-                <p><b>Ranking: </b><%= @item.ranking %></p>
+                <div class="review-rating" data-score=<%= @item.ranking %><p><b>Ranking: </b></p></div>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
                 <p><b>Capacity: </b><%= @item.hard_drive.capacity %></p>
                 <p><b>Cache: </b><%= @item.hard_drive.cache %></p>
@@ -195,6 +191,10 @@
           <%= f.label "Write your review:" %><br>
           <%= f.text_area :content, :class => "tinymce" %>
           <%= tinymce %>
+          <div class="field">
+            <%= f.label :rate %>
+            <%= f.select :rate, options_for_select(1..10), {prompt: "Your rate"}%>
+          </div>
         </div>
         <%= f.submit "Add Review", class: "btn btn-normal" %>
 
@@ -236,3 +236,15 @@
     </div>
   </div>
 </div>
+
+<script>
+   $('.review-rating').raty({
+      readOnly: true,
+      score: function(){
+          return $(this).attr('data-score');
+      },
+      precision  : true,
+      path: '/assets/'
+
+    });
+</script>
