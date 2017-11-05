@@ -11,7 +11,10 @@ class ItemsController < ApplicationController
     @manufacturers = Manufacturer.all
     @item = Item.find_by id: params[:id]
     @items = Item.all
-    @ranking = @item.reviews.sum("rate")/@item.reviews.count
+    if(Item.create)
+      @ranking = '0';
+    else @ranking = @item.reviews.sum("rate")/@item.reviews.count
+    end
     @item.update_attributes(:ranking => @ranking)
   end
 
