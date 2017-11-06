@@ -58,17 +58,17 @@
               </div>
             </div>
             <div class="row">
-              <%= review.content.first(20) %><br>
+              <!--Author: <%= link_to review.user.name, review.user %><br>-->
               Category: <%= link_to review.item.category.name, review.item.category %> <br>
               Review by: <%= link_to review.user.name, review.user %> at <%= review.created_at  %><br>
               Manufacturer: <%= link_to review.item.manufacturer.name, review.item.manufacturer %>
             </div>
-            <% if (current_user != nil && current_user.admin?) || current_user == review.user %>
-            <div class="row">
-                <%= link_to 'Edit', edit_review_path(review), class:"btn info" %>
-                <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
-            </div>
-            <% end %>
+            <!--<% if (current_user != nil && current_user.admin?) || current_user == review.user %>-->
+            <!--<div class="row">-->
+            <!--    <%= link_to 'Edit', edit_review_path(review), class:"btn info" %>-->
+            <!--    <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>-->
+            <!--</div>-->
+            <!--<% end %>-->
           </div>
         <% end %>
       </div>
