@@ -1,3 +1,4 @@
+
 <%= form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -23,11 +24,20 @@
         <%= f.label :item_id %><br>
         <%= f.select :item_id, Item.all.collect {|m| [m.name, m.id] } %>
       </div>
-      <div class="field">
-        <%= f.label :rate %>
-        <%= f.select :rate, options_for_select(1..10), {prompt: "Your rate"}%>
+      <div class="rating-form">
+        <%= f.hidden_field :rate %>
       </div>
-      
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<script>
+    $('.rating-form').raty({
+
+      
+      path: '/assets/',
+      scoreName: 'review[rate]'
+        
+    });
+</script>
