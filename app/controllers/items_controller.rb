@@ -79,6 +79,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
+    respond_to do |format|
+      format.html {redirect_to items_path, notice: 'List of items'}
+    end
+  end
+
 
   private 
     def set_item
