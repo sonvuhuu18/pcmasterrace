@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.all.order("id DESC")
     @categories = Category.all
     @manufacturers = Manufacturer.side_bar_items
   end
