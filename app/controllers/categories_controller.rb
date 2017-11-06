@@ -11,8 +11,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @categories = Category.all
-    @items = Item.all
-    @manufacturers = Manufacturer.all
+    @items = Item.all.order("id DESC")
+    @manufacturers = Manufacturer.side_bar_items
   end
 
   # GET /categories/new

@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.all.order("id DESC")
     @categories = Category.all
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.side_bar_items
   end
 
   def show
     # @item = Item.find_by(params[:id])
     @categories = Category.all
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.side_bar_items
     @item = Item.find_by id: params[:id]
     @items = Item.all
     if(@item.reviews.count == 0)
