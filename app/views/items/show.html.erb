@@ -37,8 +37,10 @@
     </div>
   </div>
   <div class="col-sm-10">
-
-    <% if @item.category.name == "GPU" %>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row">
+          <% if @item.category.name == "GPU" %>
 
         <div class="panel panel-default">
             <div class="panel-body show-item" background-color="#5b412b">
@@ -199,18 +201,6 @@
         <% end %>
         <% end %>
         
-        <form class="navbar-form navbar-left" id="search-form2">
-          <div class="input-group">
-            <input type="text" name="q" id="search-box2" class="form-control" placeholder="Search to compare" autocomplete="off">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit" action="item/search">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-          </div>
-          <div id="result-box2"></div>
-        </form> 
-        
         <h1>Compare with :</h1>
         <div class="components-list row">
           <% @items.each do |item| %>
@@ -242,6 +232,23 @@
           </div>
           <% end %>
           <% end %>
+        </div>
+        </div>
+    
+        </div>
+        <div class="compare-search col-sm-3" style="margin-top:5%;">
+          <form class="navbar-form navbar-left" id="search-form2">
+          <div class="input-group">
+            <input type="text" name="q" id="search-box2" class="form-control" placeholder="Search to compare" autocomplete="off">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" action="item/search">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+          <div id="result-box2"></div>
+        </form>
+        </div>
         </div>
       </div>
     </div>
