@@ -59,6 +59,7 @@
             </div>
             <div class="row">
               Category: <%= link_to item.category.name, item.category %> <br>
+              <div class="review-rating-index" data-score=<%= item.ranking %>>Ranking: </div>
               Release date: <%= item.release_date %><br>
               Manufacturer: <%= link_to item.manufacturer.name, item.manufacturer %>
             </div>
@@ -92,3 +93,14 @@
       <% end %>
     </div>
  </div>
+<script>
+   $('.review-rating-index').raty({
+      readOnly: true,
+      score: function(){
+          return $(this).attr('data-score');
+      },
+      precision  : true,
+      path: '/assets/'
+
+    });
+</script>

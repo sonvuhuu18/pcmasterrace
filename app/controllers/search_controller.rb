@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   def index
     @categories = Category.all
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.side_bar_items
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
   end
 

@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div class="col-sm-4">
-    <div class="panel panel-default" background-color="#5b412b">
+    <div class="panel panel-default">
     <% if @item.category.name == "GPU" %>
-        <p><%= link_to @item.name, @item %></p>
+        
         <div class="panel panel-default">
             <div class="panel-body show-item" background-color="#5b412b">
+                <p><%= link_to @item.name, @item %></p>
                 <div class="text-center">
                     <meta charset="utf-8">
                       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -229,9 +230,11 @@
 <div class="col-sm-8">
     <div class="panel panel-default">
         <div class="panel-body">
-            <h3 class="text-left">Author: <%= link_to @review.user.name, @review.user %></h1>
-            at <%= @review.created_at %>
+            <h3 class="text-left">Author: <%= link_to @review.user.name, @review.user %></h3>
+            <p class="text-right"><%= @review.created_at %></p>
+            <hr>
             <p><%= @review.content.html_safe %></p>
+            <hr>
             <div class="review-rating" data-score=<%= @review.rate %>>Final rating: </div>
         </div>
         <% if current_user == @review.user || (current_user != nil && current_user.admin?) %>
@@ -249,6 +252,5 @@
       },
       precision  : true,
       path: '/assets/'
-
     });
 </script>
