@@ -6,15 +6,36 @@
         <li><%= link_to "Newsfeed", reviews_path %></li>
         <li><%= link_to "Item List", items_path%></li>
 
-        
-
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-left custom-nav">
         <%= form_for :search, :method => 'GET', :html => {:id => "search-form", :class => "navbar-form navbar-left"}, url: {:controller => 'search', :action => 'index'} do |f|%>
           <input type="text" name="q" id="search-box" class="form-control" placeholder="Search" autocomplete="off">
           <%= f.submit "Search"%>
           <div id="result-box">
         <%end%>
-
       </ul>
+      
+      <ul class="nav navbar-nav navbar-left custom-nav">
+        <%= form_for :item, :method => 'GET' do |f| %>
+          <select name="sorting" id="myselect" onchange="this.form.submit()">
+            <% if @selected %>
+              <%if @selected == 'name'%>
+                <option value="name" selected="true">Name</option>
+                <option value="price">Price</option>
+              <%elsif%>
+                <option value="name">Name</option>
+                <option value="price" selected="true">Price</option>
+              <%end%>
+            <%elsif%>
+              <option value="name">Name</option>
+              <option value="price">Price</option>
+            <%end%>
+          </select>
+          <%= f.submit "Submit", :type => "hidden"%>
+        <%end%>
+      </ul>
+      
       <ul class="nav navbar-nav navbar-right custom-nav">
         <% if logged_in? %>
           <li><%= link_to @current_user.name, current_user %></li>
@@ -43,4 +64,6 @@
       $("#result-box").css("display", "none");
     }
   });
+  
+  
 </script>

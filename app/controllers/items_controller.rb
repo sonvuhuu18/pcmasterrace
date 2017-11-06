@@ -1,6 +1,15 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    if params[:sorting]
+      if params[:sorting] == 'name'
+        @item = Item.all.sort_by_name
+        @selected = 'name'
+      elsif params[:sorting] == 'price'
+        @item = Item.all.sort_by_price
+        @selected = 'price'
+      end
+    end
     @categories = Category.all
     @manufacturers = Manufacturer.all
   end
@@ -63,8 +72,6 @@ class ItemsController < ApplicationController
       format.json {head :no_content}
     end
   end
-  
-
 
   def compare
     @categories = Category.all
@@ -73,13 +80,6 @@ class ItemsController < ApplicationController
   
 
   def live_search
-    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
-    respond_to do |format|
-      format.js
-    end
-  end
-  
-  def live_compare
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
     respond_to do |format|
       format.js
