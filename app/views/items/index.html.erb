@@ -60,6 +60,7 @@
             <div class="row">
               Category: <%= link_to item.category.name, item.category %> <br>
               Release date: <%= item.release_date %><br>
+              <div class="review-rating-index" data-score=<%= item.ranking %>>Ranking: </div>
               Manufacturer: <%= link_to item.manufacturer.name, item.manufacturer %>
             </div>
             <% if current_user != nil && current_user.admin? %>
@@ -92,3 +93,14 @@
       <% end %>
     </div>
  </div>
+<script>
+   $('.review-rating-index').raty({
+      readOnly: true,
+      score: function(){
+          return $(this).attr('data-score');
+      },
+      precision  : true,
+      path: '/assets/'
+
+    });
+</script>

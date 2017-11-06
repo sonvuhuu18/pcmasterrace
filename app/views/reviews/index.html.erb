@@ -58,9 +58,11 @@
               </div>
             </div>
             <div class="row">
-              <!--Author: <%= link_to review.user.name, review.user %><br>-->
+              Content: <%= review.content.first(15) %><br>
+              Author: <%= link_to review.user.name, review.user %><br>
               Category: <%= link_to review.item.category.name, review.item.category %> <br>
-              Review by: <%= link_to review.user.name, review.user %> at <%= review.created_at  %><br>
+              Time: <%= review.created_at  %><br>
+              <div class="review-rating" data-score=<%= review.rate %>>Ranking: </div>
               Manufacturer: <%= link_to review.item.manufacturer.name, review.item.manufacturer %>
             </div>
             <!--<% if (current_user != nil && current_user.admin?) || current_user == review.user %>-->
@@ -74,3 +76,15 @@
       </div>
     </div>
  </div>
+
+<script>
+   $('.review-rating').raty({
+      readOnly: true,
+      score: function(){
+          return $(this).attr('data-score');
+      },
+      precision  : true,
+      path: '/assets/'
+
+    });
+</script>
