@@ -199,6 +199,18 @@
         <% end %>
         <% end %>
         
+        <form class="navbar-form navbar-left" id="search-form2">
+          <div class="input-group">
+            <input type="text" name="q" id="search-box2" class="form-control" placeholder="Search to compare" autocomplete="off">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" action="item/search">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+          <div id="result-box2"></div>
+        </form> 
+        
         <h1>Compare with :</h1>
         <div class="components-list row">
           <% @items.each do |item| %>
@@ -223,6 +235,7 @@
               Release date: <%= item.release_date %><br>
               Manufacturer: <%= link_to item.manufacturer.name, item.manufacturer %>
             </div>
+            <% $itemcompare = @item %>
             <div class="row">
               <%= button_to "Compare", { action: "compare", id1: @item.id, id2: item.id }, method: :post  %>
             </div>
@@ -261,4 +274,21 @@
                 localStorage.removeItem('firstLoad');
         }
     })();
+</script>
+
+<script>
+  $("#search-box2").bind("keyup", function() {
+    var q = $("#search-box2").val();
+    var option = $('#option').find(":selected").val();
+    if(q) {
+      var form = $("#search-form2"); // grab the form wrapping the search bar.
+      var url = "/items/live_compare"; // live_search action.   
+      var formData = form.serialize(); // grab the data in the form
+      console.log(q);
+      $.get(url, formData, function(response) { // perform an AJAX get
+      }); 
+    } else {
+      $("#result-box2").css("display", "none");
+    }
+  });
 </script>

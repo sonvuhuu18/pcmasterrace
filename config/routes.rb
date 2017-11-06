@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :items do
     get :live_search, on: :collection
+    get :live_compare, on: :collection
   end
   get 'items/new'
 
