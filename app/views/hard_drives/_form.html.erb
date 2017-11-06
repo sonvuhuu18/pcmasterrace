@@ -17,7 +17,7 @@
     <%= fi.text_field :name %>
   </div>
   <div class="field">
-    <%= fi.label :price %><br>
+    <%= fi.label "price ($)" %><br>
     <%= fi.text_field :price %>
   </div>
   <%= fi.hidden_field :ranking, :value => 0 %>
@@ -40,12 +40,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :capacity %><br>
+    <%= f.label "capacity (gb)" %><br>
     <%= f.number_field :capacity %>
   </div>
   
   <div class="field">
-    <%= f.label :cache %><br>
+    <%= f.label "cache (mb)" %><br>
     <%= f.number_field :cache %>
   </div>
   
@@ -55,7 +55,7 @@
   </div>
   
   <div class="field">
-    <%= f.label :interface_speed %><br>
+    <%= f.label "interface_speed (Gbit/s)" %><br>
     <%= f.number_field :interface_speed %>
   </div>
   
@@ -70,12 +70,12 @@
   </div>
   
   <div class="field">
-    <%= f.label :process_size %><br>
+    <%= f.label "process_size (nm)" %><br>
     <%= f.number_field :process_size %>
   </div>
   
   <div class="field">
-    <%= f.label :max_shock_force %><br>
+    <%= f.label "max_shock_force (G)" %><br>
     <%= f.number_field :max_shock_force %>
   </div>
 

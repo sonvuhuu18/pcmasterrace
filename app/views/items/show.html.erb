@@ -45,18 +45,57 @@
         <div class="panel panel-default">
             <div class="panel-body show-item" background-color="#5b412b">
                 <div class="text-center">
-                    <%= image_tag(@item.gpu.images.first, height:"400", class:"thumbnail") %>
+                    <meta charset="utf-8">
+                      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <% count = 1 %>
+                            <% @item.gpu.images.each do |image| %>
+                            <% if image == @item.gpu.images.first %>
+                              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <% else %>
+                              <li data-target="#myCarousel" data-slide-to="<%= count %>"></li>
+                            <% count = count +1 %>
+                            <% end %>
+                            <% end %>
+                        </ol>
+                    
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <% @item.gpu.images.each do |image| %>
+                            <% if image == @item.gpu.images.first %>
+                              <div class="item active">
+                                <%= image_tag(image, class:"slideshow") %>
+                              </div>
+                            <% else %>
+                              <div class="item">
+                                <%= image_tag(image, class:"slideshow") %>
+                              </div>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
                 </div>
                 <div class="col-sm-4">
                 <p><b>Name: </b><%= @item.name %></p>
-                <p><b>Price: </b><%= @item.price %></p>
-                <div class="review-rating" data-score=<%= @item.ranking %>><p><b>Ranking: </b></p></div>
+                <p><b>Price: </b><%= @item.price %>$</p>
+                <div class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></div>
                 <p><b>Released Date:</b> <%= @item.release_date %></p>
                 <p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>
                 <p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>
                 <p><b>Gpu name: </b><%= @item.gpu.gpu_name %></p>
-                <p><b>Clock speed:</b> <%= @item.gpu.clock_speed %></p>
-                <p><b>Turbo clock speed:</b> <%= @item.gpu.turbo_clock_speed %></p>
+                <p><b>Clock speed:</b> <%= @item.gpu.clock_speed %> MHz</p>
+                <p><b>Turbo clock speed:</b> <%= @item.gpu.turbo_clock_speed %> MHz</p>
                 </div>
                 <div class="col-sm-4">
                 <p><b>Is dual gpu: </b>
@@ -66,21 +105,21 @@
                         No 
                     <% end %>
                 </p>
-                <p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %></p>
-                <p><b>Effective memory clock speed:</b> <%= @item.gpu.effective_memory_clock_speed %></p>
-                <p><b>Memory bus: </b><%= @item.gpu.memory_bus %></p>
-                <p><b>Memory: </b><%= @item.gpu.memory %></p>
+                <p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %> MHz</p>
+                <p><b>Effective memory clock speed:</b> <%= @item.gpu.effective_memory_clock_speed %> MHz</p>
+                <p><b>Memory bus: </b><%= @item.gpu.memory_bus %> bit</p>
+                <p><b>Memory: </b><%= @item.gpu.memory %> MB</p>
                 <p><b>Memory type: </b><%= @item.gpu.memory_type %></p>
-                <p><b>Memory bandwidth:</b> <%= @item.gpu.memory_bandwidth %></p>
-                <p><b>Tdp: </b><%= @item.gpu.tdp %></p>
+                <p><b>Memory bandwidth:</b> <%= @item.gpu.memory_bandwidth %> GB/s</p>
+                <p><b>Tdp: </b><%= @item.gpu.tdp %>W</p>
                 </div>
                 <div class="col-sm-4">
                 <p><b>Shading units: </b><%= @item.gpu.shading_units %></p>
                 <p><b>Texture mapping units : </b><%= @item.gpu.texture_mapping_units %></p>
                 <p><b>Render output precessors: </b><%= @item.gpu.render_output_precessors %></p>
-                <p><b>Pixel rate : </b><%= @item.gpu.pixel_rate %></p>
-                <p><b>Texture rate:</b> <%= @item.gpu.texture_rate %></p>
-                <p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %></p>
+                <p><b>Pixel rate : </b><%= @item.gpu.pixel_rate %> GPixel/s</p>
+                <p><b>Texture rate:</b> <%= @item.gpu.texture_rate %> GTexel/s</p>
+                <p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %> GFLOPS</p>
                 </div>
                 
             </div>
@@ -93,18 +132,57 @@
                 
                 
                 <div class="text-center">
-                    <%= image_tag(@item.cpu.images.first, height:"400", class:"thumbnail") %>
+                    <meta charset="utf-8">
+                      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <% count = 1 %>
+                            <% @item.cpu.images.each do |image| %>
+                            <% if image == @item.cpu.images.first %>
+                              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <% else %>
+                              <li data-target="#myCarousel" data-slide-to="<%= count %>"></li>
+                            <% count = count +1 %>
+                            <% end %>
+                            <% end %>
+                        </ol>
+                    
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <% @item.cpu.images.each do |image| %>
+                            <% if image == @item.cpu.images.first %>
+                              <div class="item active">
+                                <%= image_tag(image, class:"slideshow") %>
+                              </div>
+                            <% else %>
+                              <div class="item">
+                                <%= image_tag(image, class:"slideshow") %>
+                              </div>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
                 </div>
                 
                 
                 <div class="col-sm-4">
                 <p><b>Name: </b><%= @item.name %></p>
-                <p><b>Price: </b><%= @item.price %></p>
-                <div class="review-rating" data-score=<%= @item.ranking %>><p><b>Ranking: </b></p></div>
+                <p><b>Price: </b><%= @item.price %>$</p>
+                <div class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></div>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
-                <p><b>Clock speed: </b><%= @item.cpu.clock_speed %></p>
-                <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %></p>
-                <p><b>Cores:</b> <%= @item.cpu.cores %></p>
+                <p><b>Clock speed: </b><%= @item.cpu.clock_speed %> GHz</p> 
+                <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %> GHz</p>
+                <p><b>Cores:</b> <%= @item.cpu.cores %> core(s)</p> 
                 </div>
                 
                 <div class="col-sm-4">
@@ -116,14 +194,14 @@
                     <% end %>
                 </p>
                 <p><b>Architechture: </b><%= @item.cpu.architechture %></p>
-                <p><b>Threads: </b><%= @item.cpu.threads %></p>
-                <p><b>L2 cache:</b> <%= @item.cpu.l2_cache %></p>
-                <p><b>L3 cache: </b><%= @item.cpu.l3_cache %></p>
-                <p><b>Manufacturer process: </b><%= @item.cpu.manufacturer_process %></p>
+                <p><b>Threads: </b><%= @item.cpu.threads %> threads</p>
+                <p><b>L2 cache:</b> <%= @item.cpu.l2_cache %> MB</p>
+                <p><b>L3 cache: </b><%= @item.cpu.l3_cache %> MB</p>
+                <p><b>Manufacturer process: </b><%= @item.cpu.manufacturer_process %> nm</p>
                 </div>
                 <div class="col-sm-4">
                 <p><b>Gpu label: </b><%= @item.cpu.gpu_label %></p>
-                <p><b>Tdp: </b><%= @item.cpu.tdp %></p>
+                <p><b>Tdp: </b><%= @item.cpu.tdp %>W</p>
                 </div>
                 
             </div>
@@ -133,23 +211,62 @@
         <div class="panel panel-default">
             <div class="panel-body show-item">
                 <div class="text-center">
-                    <%= image_tag(@item.hard_drive.images.first, height:"400", class:"thumbnail") %>
+                    <meta charset="utf-8">
+                      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <% count = 1 %>
+                            <% @item.hard_drive.images.each do |image| %>
+                            <% if image == @item.hard_drive.images.first %>
+                              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <% else %>
+                              <li data-target="#myCarousel" data-slide-to="<%= count %>"></li>
+                            <% count = count +1 %>
+                            <% end %>
+                            <% end %>
+                        </ol>
+                    
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <% @item.hard_drive.images.each do |image| %>
+                            <% if image == @item.hard_drive.images.first %>
+                              <div class="item active">
+                                <%= image_tag(image, class:"slideshow") %>
+                              </div>
+                            <% else %>
+                              <div class="item">
+                                <%= image_tag(image, class:"slideshow") %>
+                              </div>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
                 </div>
                 <div class="col-sm-6">
                 <p><b>Name: </b><%= @item.name %></p>
                 <p><b>Price: </b><%= @item.price %></p>
-                <div class="review-rating" data-score=<%= @item.ranking %>><p><b>Ranking: </b></p></div>
+                <div class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></div>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
-                <p><b>Capacity: </b><%= @item.hard_drive.capacity %></p>
-                <p><b>Cache: </b><%= @item.hard_drive.cache %></p>
+                <p><b>Capacity: </b><%= @item.hard_drive.capacity %> GB</p>
+                <p><b>Cache: </b><%= @item.hard_drive.cache %> MB</p>
                 <p><b>Interface: </b><%= @item.hard_drive.interface %></p>
                 </div>
                 <div class="col-sm-6">
-                <p><b>Interface speed: </b><%= @item.hard_drive.interface_speed %></p>
+                <p><b>Interface speed: </b><%= @item.hard_drive.interface_speed %> Gbit/s</p>
                 <p><b>Controller: </b><%= @item.hard_drive.controller %></p>
                 <p><b>Memory type: </b><%= @item.hard_drive.memory_type %></p>
-                <p><b>Process size: </b><%= @item.hard_drive.process_size %></p>
-                <p><b>Max shock force: </b><%= @item.hard_drive.max_shock_force %></p>
+                <p><b>Process size: </b><%= @item.hard_drive.process_size %> nm</p>
+                <p><b>Max shock force: </b><%= @item.hard_drive.max_shock_force %>G</p>
                 </div>
             </div>
           </div>
@@ -186,11 +303,10 @@
         <%= form_for Review.new do |f| %>
         <%= f.hidden_field :item_id, value: @item.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= tinymce_assets %>
+        
         <div class="field">
           <%= f.label "Write your review:" %><br>
-          <%= f.text_area :content, :class => "tinymce" %>
-          <%= tinymce %>
+          <%= f.text_area :content, required: true %>
         </div>
         <div class="field">
             <%= f.label :rate %>
