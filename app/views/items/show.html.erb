@@ -298,8 +298,11 @@
             <% end %>
           </div>
         </div>
-
+        
         <% if logged_in? %>
+        <% if current_user.review & @item.reviews != [] %>
+        <h2><i>You have already reviewed this item.</i></h2>
+        <% else %>
         <%= form_for Review.new do |f| %>
         <%= f.hidden_field :item_id, value: @item.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
@@ -313,7 +316,7 @@
             <%= f.select :rate, options_for_select(1..10), {prompt: "Your rate"}%>
         </div>
         <%= f.submit "Add Review", class: "btn btn-normal" %>
-
+        <% end %>
         <% end %>
         <% end %>
         
