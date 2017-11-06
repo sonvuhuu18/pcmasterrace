@@ -49,13 +49,12 @@
             <div class="row">
               <div class="square">
               <% if item.category.name == "GPU" %>
-                <%= link_to image_tag(item.gpu.images.first, class:"img-responsive square-content"), item.gpu %>
+                <%= link_to image_tag(item.gpu.images.first, class:"img-responsive square-content"), item %>
               <% elsif item.category.name == "CPU"%>
-                <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content"), item.cpu %>
+                <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content"), item %>
               <% elsif item.category.name == "Hard Drive"%>
-                <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content"), item.hard_drive %>
+                <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content"), item %>
               <% end %>
-                <%= link_to image_tag(item.images.first, class:"img-responsive square-content"), item %>
               </div>
             </div>
             <div class="row">
@@ -63,6 +62,7 @@
               Release date: <%= item.release_date %><br>
               Manufacturer: <%= link_to item.manufacturer.name, item.manufacturer %>
             </div>
+            <% if current_user != nil && current_user.admin? %>
             <div class="row">
               <% if item.category.name == "GPU" %>
                 <%= link_to 'Edit', edit_gpu_path(item.gpu), class:"btn info" %>
@@ -74,11 +74,13 @@
 
               <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
             </div>
+            <% end %>
           </div>
         <% end %>
       </div>
     </div>
     <div class="new-list col-sm-1">
+      <% if current_user != nil && current_user.admin? %>
       <div class="new-component row">
         <%= link_to 'New CPU', new_cpu_path, class:"btn info" %>
       </div>
@@ -87,5 +89,6 @@
       </div><div class="new-component row">
         <%= link_to 'New Hard Drive', new_hard_drife_path, class:"btn info" %>
       </div>
+      <% end %>
     </div>
  </div>

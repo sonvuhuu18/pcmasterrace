@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= Category.find_by(@gpu.item.category_id).name%></p>
+<%= Category.find_by(@gpu.item.category.id).name%></p>
+<%= @gpu.item.category.name %><br>
 
 <%= link_to 'Edit', edit_gpu_path(@gpu) %> |
 <%= link_to 'Back', gpus_path %>

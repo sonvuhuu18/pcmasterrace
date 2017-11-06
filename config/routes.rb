@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  post 'items/compare'
+
   resources :gpus
   resources :cpus
   resources :hard_drives
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   
   resources :items do
     get :get_specifications, on: :collection
+    get :live_search, on: :collection
+    get :search, on: :collection
   end
   get 'items/new'
 

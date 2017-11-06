@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3 class="text-left">Review about <%= link_to @review.item.name, @review.item %> by <%= link_to @review.user.name, @review.user %></h1>
+        <p><%= @review.content.html_safe %></p>
+    </div>
+    <% if current_user == @review.user || (current_user != nil && current_user.admin?) %>
+        <%= link_to 'Edit', edit_review_path(@review), class:"btn info" %>
+        <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
+    <% end %>
+</div>

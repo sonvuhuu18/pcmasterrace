@@ -10,7 +10,7 @@
   <!--</aside>-->
   <div class="container">
   <div class="row">
-		<div class="col-lg-3 col-sm-6">
+		<div class="col-lg-2 col-sm-6">
 
             <div class="card hovercard">
                 <div class="cardheader">
@@ -23,13 +23,38 @@
                     <div class="title">
                         <a target="_blank"><%= @user.name %></a>
                     </div>
-                    <div class="desc">Reviews: </div>
+                    <div class="desc">Reviews: <%= @user.review.count %></div>
                     <div class="desc"><%= link_to 'Edit Profile', edit_user_path(@user) %></div>
                     
                 </div>
             </div>
 
         </div>
+        <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1><%= @user.name %>'s reviews: </h2>
+                <% if @user.review.size == 0 %>
+                <p class="text-center"><i>This user did not write any review yet</i></p>
+                <% else %>
+                <% @user.review.each do |review| %>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p><b>Review about <%= link_to review.item.name, review.item %>: </b></p>
+                            <p class="date"><i>Written at <%= review.created_at %></i></p>
+                            <p><% review.content.scan(/\S+/)[0..100].join(' ').split(/\n/).each do |paragraph| %>
+                                 <%= paragraph.html_safe %><br>
+                                 <% end %>
+                            </p>
+                            <p class="text-right"><%= link_to "See more", review_path(review) %></p>
+                    </div>
+                    </div>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+        </div>
+        
 
 	</div>
 </div>
