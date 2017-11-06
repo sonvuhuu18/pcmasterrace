@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'search/index'
+
   post 'items/compare'
 
   resources :gpus
@@ -10,9 +12,7 @@ Rails.application.routes.draw do
   resources :categories
   
   resources :items do
-    get :get_specifications, on: :collection
     get :live_search, on: :collection
-    get :search, on: :collection
   end
   get 'items/new'
 
