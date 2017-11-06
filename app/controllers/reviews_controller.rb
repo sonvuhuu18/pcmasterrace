@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all.order("id DESC")
     @categories = Category.all
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.side_bar_items
   end
 
   # GET /reviews/1

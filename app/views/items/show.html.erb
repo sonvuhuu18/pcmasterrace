@@ -307,14 +307,18 @@
         <%= f.hidden_field :item_id, value: @item.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         
+        
+        <div class="rating-form">
+          <%= f.label "Your rate:" %>
+          <%= f.hidden_field :rate %>
+        </div>
         <div class="field">
           <%= f.label "Write your review:" %><br>
           <%= f.text_area :content, required: true %>
         </div>
-        <div class="field">
-            <%= f.label :rate %>
-            <%= f.select :rate, options_for_select(1..10), {prompt: "Your rate"}%>
-        </div>
+        
+       
+        
         <%= f.submit "Add Review", class: "btn btn-normal" %>
         <% end %>
         <% end %>
@@ -417,4 +421,13 @@
       $("#result-box2").css("display", "none");
     }
   });
+</script>
+<script>
+    $('.rating-form').raty({
+
+      
+      path: '/assets/',
+      scoreName: 'review[rate]'
+        
+    });
 </script>
