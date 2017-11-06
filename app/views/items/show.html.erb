@@ -37,13 +37,10 @@
     </div>
   </div>
   <div class="col-sm-10">
-    <div class="row">
-      <div class="col-sm-9">
-        <div class="row">
           <% if @item.category.name == "GPU" %>
 
         <div class="panel panel-default">
-            <div class="panel-body show-item" background-color="#5b412b">
+            <div class="panel-body show-item">
                 <div class="text-center">
                     <meta charset="utf-8">
                       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -129,8 +126,6 @@
     <% elsif @item.category.name == "CPU"%>
         <div class="panel panel-default">
             <div class="panel-body show-item">
-                
-                
                 <div class="text-center">
                     <meta charset="utf-8">
                       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -323,8 +318,15 @@
         <% end %>
         <% end %>
         <% end %>
-        
-        <h1>Compare with :</h1>
+        <br>
+            <form class="form-inline" id="search-form2">
+              <label for="search-box2">Compare with:</label>
+            <div class="input-group">
+              <input type="text" name="q" id="search-box2" class="form-control" placeholder="Search to compare" autocomplete="off">
+            </div>
+            <div id="result-box2"></div>
+          </form>
+          <br>
         <div class="components-list row">
           <% @items.each do |item| %>
           <% if @item.id != item.id && @item.category == item.category%>
@@ -356,27 +358,9 @@
           <% end %>
           <% end %>
         </div>
-        </div>
     
-        </div>
-        <div class="compare-search col-sm-3" style="margin-top:5%;">
-          <form class="navbar-form navbar-left" id="search-form2">
-          <div class="input-group">
-            <input type="text" name="q" id="search-box2" class="form-control" placeholder="Search to compare" autocomplete="off">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit" action="item/search">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-          </div>
-          <div id="result-box2"></div>
-        </form>
-        </div>
-        </div>
       </div>
     </div>
-  </div>
-</div>
 
 <script>
    $('.review-rating').raty({

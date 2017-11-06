@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="col-sm-4">
-    <div class="panel panel-default">
     <% if @item.category.name == "GPU" %>
         
         <div class="panel panel-default">
-            <div class="panel-body show-item" background-color="#5b412b">
+            <div class="panel-body show-item">
                 <p><%= link_to @item.name, @item %></p>
                 <div class="text-center">
                     <meta charset="utf-8">
@@ -225,7 +224,6 @@
 
 
         <% end %>
-</div>
 </div>
 <div class="col-sm-8">
     <div class="panel panel-default">
