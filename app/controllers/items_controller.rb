@@ -63,8 +63,6 @@ class ItemsController < ApplicationController
       format.json {head :no_content}
     end
   end
-  
-
 
   def compare
     @categories = Category.all
@@ -73,13 +71,6 @@ class ItemsController < ApplicationController
   
 
   def live_search
-    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
-    respond_to do |format|
-      format.js
-    end
-  end
-  
-  def live_compare
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
     respond_to do |format|
       format.js

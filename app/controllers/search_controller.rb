@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   def index
     @categories = Category.all
     @manufacturers = Manufacturer.side_bar_items
-    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
+    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%').sort_by_name
 
   end
 
@@ -16,7 +16,7 @@ class SearchController < ApplicationController
     elsif params[:manufacturer]
       @items = Item.where("manufacturer_id = ?", params[:manufacturer]).order(params[:sort_option])
     else
-      @items = Item.all
+      @items = Item.all.sort_by_name
     end
   end
 
