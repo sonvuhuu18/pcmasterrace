@@ -17,6 +17,11 @@ $red: #f00;
 
 body {
   padding-top: 60px;
+  background-image: url("http://mapinstitute.org/data/wallpapers/92/im57540567.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: 16px;
 }
 
 section {
@@ -485,8 +490,9 @@ input {
 }
 
 .navbar {
-  border-color: #f4af41;
+  border: 0px;
   background-color: #FFD203;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 nav{
   ul.custom-nav{
@@ -512,21 +518,25 @@ nav{
 }
 //filter
 .filter{
-  padding-left: 1%;
-  padding-right: 0;
-  background: #ffdf4c;
-  border-right: solid #5b412b 1px;
+ 
+  .row {
+    background: rgba(255,255,255,0.5);
+    border-radius:3px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
   ul{
-    padding: 0;
+    padding: 0px 4px;
+    
   }
   li{
     list-style-type: none;
     a{
-      color: #5b412b;
+      color: DodgerBlue   ;
       &:hover{
         text-decoration: underline;
         background-color:inherit;
-        color: inherit;
+        color: DodgerBlue  ;
       }
     }
   }
@@ -537,11 +547,8 @@ nav{
   bold: true;
 }
 .components-list-title{
-  margin: 0;
-  margin-bottom: 7px;
-  padding: 0;
-  padding-left: 5px;
-  border-bottom: solid #5b412b 1px;
+  margin-left: 15px;
+ 
 }
 .components-list{
   margin: 0;
