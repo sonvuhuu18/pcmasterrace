@@ -1,0 +1,9 @@
+<% value1 = item1.category.name == "GPU" ? item1.gpu[a_name] : item1.hard_drive[a_name] %>
+<% value2 = item2.category.name == "GPU" ? item2.gpu[a_name] : item2.hard_drive[a_name] %>
+
+<td>
+  <span class="<%= value1 > value2 ? 'strong_attribute' : '' %>"><%= value1 %><%= a_unit %></span>
+</td>
+<td>
+  <span class="<%= value1 < value2 ? 'strong_attribute' : '' %>"><%= value2 %><%= a_unit %></span>
+</td>
