@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="filter col-sm-2">
+  <div class="filter col-sm-2"><p>Filter</p>
     <div class="row">
       <div class="col-sm-6">
         Category
@@ -36,721 +36,138 @@
       </div>
     </div>
   </div>
-  
+
   <% item1 = Item.find(params[:id1]) %>
   <% item2 = Item.find(params[:id2]) %>
-  
-  <% if item1.category.name == "GPU" %>
+
   <div class="col-sm-10">
-    <div class="col-sm-10 panel panel-heading" style="background-color: #FFD203;">
-      <h1><%= link_to item1.name, item1 %> VS <%= link_to item2.name, item2 %></h1>
-    </div>
-    <div class="col-sm-5">
-      <div class="panel panel-default">
-        <div class="panel-body show-item" background-color="#5b412b">
-          <div class="text-center">
-            <%= image_tag(item1.gpu.images.first, height:"400", class:"thumbnail compare-item") %>
-          </div>
-          <div class="col-sm-6">
-            <p><b>Price: </b>
-            <% if item1.price > item2.price %>
-              <span class="redtext"> item1.price
+    <div class="rectange">
+      <table class="table table-hover table-bordered table-compare">
+        <thead>
+          <tr>
+            <th style="position: relative"><h3 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">COMPARING</h3></th>
+            <th>
+              <%= image_tag(item1.gpu.images.first, height:"300", class:"thumbnail compare-item") %>
+              <%= link_to item_path(item1) do %>
+                <h3 class="text-center"><%= item1.name %></h3>
+              <% end %>
+            </th>
+            <th>
+              <%= image_tag(item2.gpu.images.first, height:"300", class:"thumbnail compare-item") %>
+              <%= link_to item_path(item2) do %>
+                <h3 class="text-center"><%= item2.name %></h3>
+              <% end %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Price</strong></td>
+            <td><% if item1.price > item2.price %>
+              <span class="strong_attribute"> <%= item1.price %>
             <% elsif item1.price < item1.price %>
-              <span class="greentext"><%= item1.price %>
+              <span class=""><%= item1.price %>
             <% else %>
               <span><%= item1.price %>
-            <% end %>
-            </span> $</p>
-            
-            <p><b>Released Date:</b> <%= item1.release_date %></p>
-            
-            <p><b>Manufacturer:</b> <%= item1.manufacturer.name %></p>
-            
-            <p><b>Gpu brand:</b> <%= item1.gpu.gpu_brand %></p>
-            
-            <p><b>Gpu name: </b><%= item1.gpu.gpu_name %></p>
-            
-            <p><b>Clock speed:</b> 
-            <% if item1.gpu.clock_speed < item2.gpu.clock_speed %>
-              <span class="redtext"> item1.gpu.clock_speed
-            <% elsif item1.gpu.clock_speed > item1.gpu.clock_speed %>
-              <span class="greentext"><%= item1.gpu.clock_speed %>
-            <% else %>
-              <span><%= item1.gpu.clock_speed %>
-            <% end %>
-            </span> MHz</p>
-            
-            <p><b>Turbo clock speed:</b>
-            <% if item1.gpu.turbo_clock_speed < item2.gpu.turbo_clock_speed %>
-              <span class="redtext"> item1.gpu.turbo_clock_speed
-            <% elsif item1.gpu.turbo_clock_speed > item1.gpu.turbo_clock_speed %>
-              <span class="greentext"><%= item1.gpu.turbo_clock_speed %>
-            <% else %>
-              <span><%= item1.gpu.turbo_clock_speed %>
-            <% end %>
-            </span> MHz</p>
-            
-            <p><b>Is dual gpu: </b>
-              <% if item1.gpu.is_dual_gpu == 0 %>
-              Yes
-              <% else %>
-              No
-              <% end %>
-            </p>
-            <p><b>Memory clock speed:</b>
-            <% if item1.gpu.memory_clock_speed < item2.gpu.memory_clock_speed %>
-              <span class="redtext"> item1.gpu.memory_clock_speed
-            <% elsif item1.gpu.memory_clock_speed > item1.gpu.memory_clock_speed %>
-              <span class="greentext"><%= item1.gpu.memory_clock_speed %>
-            <% else %>
-              <span><%= item1.gpu.memory_clock_speed %>
-            <% end %>
-            </span> MHz</p>
-            
-            <p><b>Effective memory clock speed:</b>
-            <% if item1.gpu.effective_memory_clock_speed < item2.gpu.effective_memory_clock_speed %>
-              <span class="redtext"> item1.gpu.effective_memory_clock_speed
-            <% elsif item1.gpu.effective_memory_clock_speed > item1.gpu.effective_memory_clock_speed %>
-              <span class="greentext"><%= item1.gpu.effective_memory_clock_speed %>
-            <% else %>
-              <span><%= item1.gpu.effective_memory_clock_speed %>
-            <% end %>
-            </span> MHz </p>
-            
-            <p><b>Memory bus: </b>
-            <% if item1.gpu.memory_bus < item2.gpu.memory_bus %>
-              <span class="redtext"> item1.gpu.memory_bus
-            <% elsif item1.gpu.memory_bus > item1.gpu.memory_bus %>
-              <span class="greentext"><%= item1.gpu.memory_bus %>
-            <% else %>
-              <span><%= item1.gpu.memory_bus %>
-            <% end %>
-            </span> bit</p>
-            
-            <p><b>Memory: </b>
-            <% if item1.gpu.memory < item2.gpu.memory %>
-              <span class="redtext"> item1.gpu.memory
-            <% elsif item1.gpu.memory > item1.gpu.memory %>
-              <span class="greentext"><%= item1.gpu.memory %>
-            <% else %>
-              <span><%= item1.gpu.memory %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>Memory type: </b><%= item1.gpu.memory_type %></p>
-            
-            <p><b>Memory bandwidth:</b>
-            <% if item1.gpu.memory_bandwidth < item2.gpu.memory_bandwidth %>
-              <span class="redtext"> item1.gpu.memory_bandwidth
-            <% elsif item1.gpu.memory_bandwidth > item1.gpu.memory_bandwidth %>
-              <span class="greentext"><%= item1.gpu.memory_bandwidth %>
-            <% else %>
-              <span><%= item1.gpu.memory_bandwidth %>
-            <% end %>
-            </span> GB/s</p>
-            
-            <p><b>Tdp: </b><%= item1.gpu.tdp %>
-            <% if item1.gpu.tdp > item2.gpu.tdp %>
-              <span class="redtext"> item1.gpu.tdp
-            <% elsif item1.gpu.tdp < item1.gpu.tdp %>
-              <span class="greentext"><%= item1.gpu.tdp %>
-            <% else %>
-              <span><%= item1.gpu.tdp %>
-            <% end %>
-            </span> W</p>
-            
-            <p><b>Shading units: </b><%= item1.gpu.shading_units %></p>
-            
-            <p><b>Texture mapping units : </b><%= item1.gpu.texture_mapping_units %></p>
-            
-            <p><b>Render output precessors: </b><%= item1.gpu.render_output_precessors %></p>
-            
-            <p><b>Pixel rate : </b>
-            <% if item1.gpu.pixel_rate < item2.gpu.pixel_rate %>
-              <span class="redtext"> item1.gpu.pixel_rate
-            <% elsif item1.gpu.pixel_rate > item1.gpu.pixel_rate %>
-              <span class="greentext"><%= item1.gpu.pixel_rate %>
-            <% else %>
-              <span><%= item1.gpu.pixel_rate %>
-            <% end %>
-            </span> GPixel/s</p>
-            
-            <p><b>Texture rate:</b>
-            <% if item1.gpu.texture_rate < item2.gpu.texture_rate %>
-              <span class="redtext"> item1.gpu.texture_rate
-            <% elsif item1.gpu.texture_rate > item1.gpu.texture_rate %>
-              <span class="greentext"><%= item1.gpu.texture_rate %>
-            <% else %>
-              <span><%= item1.gpu.texture_rate %>
-            <% end %>
-            </span> GTexel/s</p>
-            
-            <p><b>Floating point performance: </b>
-            <% if item1.gpu.floating_point_performance < item2.gpu.floating_point_performance %>
-              <span class="redtext"> item1.gpu.floating_point_performance
-            <% elsif item1.gpu.floating_point_performance > item1.gpu.floating_point_performance %>
-              <span class="greentext"><%= item1.gpu.floating_point_performance %>
-            <% else %>
-              <span><%= item1.gpu.floating_point_performance %>
-            <% end %>
-            </span> GFLOPS</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-5">
-      <div class="panel panel-default">
-        <div class="panel-body show-item" background-color="#5b412b">
-          <div class="text-center">
-            <%= image_tag(item2.gpu.images.first, height:"400", class:"thumbnail compare-item") %>
-          </div>
-          <div class="col-sm-6">
-            <p><b>Price: </b>
-            <% if item1.price < item2.price %>
-              <span class="redtext"> item2.price
+            <% end %></td>
+            <td><% if item1.price < item2.price %>
+              <span class="strong_attribute"> <%= item1.price %>
             <% elsif item1.price > item1.price %>
-              <span class="greentext"><%= item2.price %>
-            <% else %>
-              <span><%= item2.price %>
-            <% end %>
-            </span> $</p>
-            
-            <p><b>Released Date:</b> <%= item2.release_date %></p>
-            
-            <p><b>Manufacturer:</b> <%= item2.manufacturer.name %></p>
-            
-            <p><b>Gpu brand:</b> <%= item2.gpu.gpu_brand %></p>
-            
-            <p><b>Gpu name: </b><%= item2.gpu.gpu_name %></p>
-            
-            <p><b>Clock speed:</b> 
-            <% if item1.gpu.clock_speed > item2.gpu.clock_speed %>
-              <span class="redtext"> item2.gpu.clock_speed
-            <% elsif item1.gpu.clock_speed < item1.gpu.clock_speed %>
-              <span class="greentext"><%= item2.gpu.clock_speed %>
-            <% else %>
-              <span><%= item2.gpu.clock_speed %>
-            <% end %>
-            </span> MHz</p>
-            
-            <p><b>Turbo clock speed:</b>
-            <% if item1.gpu.turbo_clock_speed > item2.gpu.turbo_clock_speed %>
-              <span class="redtext"> item2.gpu.turbo_clock_speed
-            <% elsif item1.gpu.turbo_clock_speed < item1.gpu.turbo_clock_speed %>
-              <span class="greentext"><%= item2.gpu.turbo_clock_speed %>
-            <% else %>
-              <span><%= item2.gpu.turbo_clock_speed %>
-            <% end %>
-            </span> MHz</p>
-            
-            <p><b>Is dual gpu: </b>
-              <% if item2.gpu.is_dual_gpu == 0 %>
-              Yes
-              <% else %>
-              No
-              <% end %>
-            </p>
-            <p><b>Memory clock speed:</b>
-            <% if item1.gpu.memory_clock_speed > item2.gpu.memory_clock_speed %>
-              <span class="redtext"> item2.gpu.memory_clock_speed
-            <% elsif item1.gpu.memory_clock_speed < item1.gpu.memory_clock_speed %>
-              <span class="greentext"><%= item2.gpu.memory_clock_speed %>
-            <% else %>
-              <span><%= item2.gpu.memory_clock_speed %>
-            <% end %>
-            </span> MHz</p>
-            
-            <p><b>Effective memory clock speed:</b>
-            <% if item1.gpu.effective_memory_clock_speed > item2.gpu.effective_memory_clock_speed %>
-              <span class="redtext"> item2.gpu.effective_memory_clock_speed
-            <% elsif item1.gpu.effective_memory_clock_speed < item1.gpu.effective_memory_clock_speed %>
-              <span class="greentext"><%= item2.gpu.effective_memory_clock_speed %>
-            <% else %>
-              <span><%= item2.gpu.effective_memory_clock_speed %>
-            <% end %>
-            </span> MHz </p>
-            
-            <p><b>Memory bus: </b>
-            <% if item1.gpu.memory_bus > item2.gpu.memory_bus %>
-              <span class="redtext"> item2.gpu.memory_bus
-            <% elsif item1.gpu.memory_bus < item1.gpu.memory_bus %>
-              <span class="greentext"><%= item2.gpu.memory_bus %>
-            <% else %>
-              <span><%= item2.gpu.memory_bus %>
-            <% end %>
-            </span> bit</p>
-            
-            <p><b>Memory: </b>
-            <% if item1.gpu.memory > item2.gpu.memory %>
-              <span class="redtext"> item2.gpu.memory
-            <% elsif item1.gpu.memory < item1.gpu.memory %>
-              <span class="greentext"><%= item2.gpu.memory %>
-            <% else %>
-              <span><%= item2.gpu.memory %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>Memory type: </b><%= item1.gpu.memory_type %></p>
-            
-            <p><b>Memory bandwidth:</b>
-            <% if item1.gpu.memory_bandwidth > item2.gpu.memory_bandwidth %>
-              <span class="redtext"> item2.gpu.memory_bandwidth
-            <% elsif item1.gpu.memory_bandwidth < item1.gpu.memory_bandwidth %>
-              <span class="greentext"><%= item2.gpu.memory_bandwidth %>
-            <% else %>
-              <span><%= item2.gpu.memory_bandwidth %>
-            <% end %>
-            </span> GB/s</p>
-            
-            <p><b>Tdp: </b><%= item1.gpu.tdp %>
-            <% if item1.gpu.tdp < item2.gpu.tdp %>
-              <span class="redtext"> item2.gpu.tdp
-            <% elsif item1.gpu.tdp > item1.gpu.tdp %>
-              <span class="greentext"><%= item2.gpu.tdp %>
-            <% else %>
-              <span><%= item2.gpu.tdp %>
-            <% end %>
-            </span> W</p>
-            
-            <p><b>Shading units: </b><%= item2.gpu.shading_units %></p>
-            
-            <p><b>Texture mapping units : </b><%= item2.gpu.texture_mapping_units %></p>
-            
-            <p><b>Render output precessors: </b><%= item2.gpu.render_output_precessors %></p>
-            
-            <p><b>Pixel rate : </b>
-            <% if item1.gpu.pixel_rate > item2.gpu.pixel_rate %>
-              <span class="redtext"> item2.gpu.pixel_rate
-            <% elsif item1.gpu.pixel_rate < item1.gpu.pixel_rate %>
-              <span class="greentext"><%= item2.gpu.pixel_rate %>
-            <% else %>
-              <span><%= item2.gpu.pixel_rate %>
-            <% end %>
-            </span> GPixel/s</p>
-            
-            <p><b>Texture rate:</b>
-            <% if item1.gpu.texture_rate > item2.gpu.texture_rate %>
-              <span class="redtext"> item2.gpu.texture_rate
-            <% elsif item1.gpu.texture_rate < item1.gpu.texture_rate %>
-              <span class="greentext"><%= item2.gpu.texture_rate %>
-            <% else %>
-              <span><%= item2.gpu.texture_rate %>
-            <% end %>
-            </span> GTexel/s</p>
-            
-            <p><b>Floating point performance: </b>
-            <% if item1.gpu.floating_point_performance > item2.gpu.floating_point_performance %>
-              <span class="redtext"> item2.gpu.floating_point_performance
-            <% elsif item1.gpu.floating_point_performance < item1.gpu.floating_point_performance %>
-              <span class="greentext"><%= item2.gpu.floating_point_performance %>
-            <% else %>
-              <span><%= item2.gpu.floating_point_performance %>
-            <% end %>
-            </span> GFLOPS</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% elsif item1.category.name == "CPU"%>
-  <div class="col-sm-10">
-    <div class="col-sm-10 panel panel-heading" style="background-color: #FFD203;">
-      <h1><%= link_to item1.name, item1 %> VS <%= link_to item2.name, item2 %></h1>
-    </div>
-    <div class="col-sm-5">
-      <div class="panel panel-default">
-        <div class="panel-body show-item">
-
-
-          <div class="text-center">
-            <%= link_to image_tag(item1.cpu.images.first, height:"400", class:"thumbnail compare-item"), item1 %>
-          </div>
-
-
-          <div class="col-sm-6">
-            <p><b>Price: </b>
-            <% if item1.price > item2.price %>
-              <span class="redtext"><%= item1.price %>
-            <% elsif item1.price < item2.price %>
               <span class="greentext"><%= item1.price %>
             <% else %>
               <span><%= item1.price %>
-            <% end %>
-            $</span></p>
-            
-            <p><b>Released Date: </b><%= item1.release_date %></p>
-            
-            <p><b>Clock speed: </b>
-            <% if item1.cpu.clock_speed < item2.cpu.clock_speed %>
-              <span class="redtext"><%= item1.cpu.clock_speed %>
-            <% elsif item1.cpu.clock_speed > item2.cpu.clock_speed %>
-              <span class="greentext"><%= item1.cpu.clock_speed %>
-            <% else %>
-              <span><%= item1.cpu.clock_speed %>
-            <% end %>
-            </span> GHz</p>
-            
-            <p><b>Turbo clock speed: </b>
-            <% if item1.cpu.turbo_clock_speed < item2.cpu.turbo_clock_speed %>
-              <span class="redtext"><%= item1.cpu.turbo_clock_speed %>
-            <% elsif item1.cpu.turbo_clock_speed > item2.cpu.turbo_clock_speed %>
-              <span class="greentext"><%= item1.cpu.turbo_clock_speed %>
-            <% else %>
-              <span><%= item1.cpu.turbo_clock_speed %>
-            <% end %>
-            </span> GHz</p>
-            
-            <p><b>Cores:</b>
-            <% if item1.cpu.cores < item2.cpu.cores %>
-              <span class="redtext"><%= item1.cpu.cores %>
-            <% elsif item1.cpu.cores > item2.cpu.cores %>
-              <span class="greentext"><%= item1.cpu.cores %>
-            <% else %>
-              <span><%= item1.cpu.cores %>
-            <% end %>
-            </span> core(s)</p>
-            
-            <p><b>Is unlocked: </b>
-              <% if item1.cpu.is_unlocked %>
-              Yes
-              <% else %>
-              No
-              <% end %>
-            </p>
-            
-            <p><b>Architechture: </b><%= item1.cpu.architechture %></p>
-            
-            <p><b>Threads: </b> 
-            <% if item1.cpu.threads < item2.cpu.threads %>
-              <span class="redtext"> item1.cpu.threads
-            <% elsif item1.cpu.threads > item2.cpu.threads %>
-              <span class="greentext"><%= item1.cpu.threads %>
-            <% else %>
-              <span><%= item1.cpu.threads %>
-            <% end %>
-            </span> threads</p>
-            
-            <p><b>L2 cache:</b>
-            <% if item1.cpu.l2_cache < item2.cpu.l2_cache %>
-              <span class="redtext"> item1.cpu.l2_cache
-            <% elsif item1.cpu.l2_cache > item2.cpu.l2_cache %>
-              <span class="greentext"><%= item1.cpu.l2_cache %>
-            <% else %>
-              <span><%= item1.cpu.l2_cache %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>L3 cache: </b>
-            <% if item1.cpu.l3_cache < item2.cpu.l3_cache %>
-              <span class="redtext"> item1.cpu.l3_cache
-            <% elsif item1.cpu.l3_cache > item2.cpu.l3_cache %>
-              <span class="greentext"><%= item1.cpu.l3_cache %>
-            <% else %>
-              <span><%= item1.cpu.l3_cache %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>Manufacturer process: </b>
-            <% if item1.cpu.manufacturer_process > item2.cpu.manufacturer_process %>
-              <span class="redtext"> item1.cpu.manufacturer_process
-            <% elsif item1.cpu.manufacturer_process < item2.cpu.manufacturer_process %>
-              <span class="greentext"><%= item1.cpu.manufacturer_process %>
-            <% else %>
-              <span><%= item1.cpu.manufacturer_process %>
-            <% end %>
-            </span> nm</p>
-            
-            <p><b>Gpu label: </b><%= item1.cpu.gpu_label %></p>
-            
-            <p><b>Tdp: </b>
-            <% if item1.cpu.tdp > item2.cpu.tdp %>
-              <span class="redtext"> item1.cpu.tdp
-            <% elsif item1.cpu.l3_cache < item2.cpu.tdp %>
-              <span class="greentext"><%= item1.cpu.tdp %>
-            <% else %>
-              <span><%= item1.cpu.tdp %>
-            <% end %>
-            </span> W</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-5">
-      <div class="panel panel-default">
-        <div class="panel-body show-item">
-          <div class="text-center">
-            <%= link_to image_tag(item2.cpu.images.first, height:"400", class:"thumbnail compare-item"), item2 %>
-          </div>
-          <div class="col-sm-6">
-            <p><b>Price: </b>
-            <% if item1.price < item2.price %>
-              <span class="redtext"><%= item2.price %>
-            <% elsif item1.price > item2.price %>
-              <span class="greentext"><%= item2.price %>
-            <% else %>
-              <span><%= item2.price %>
-            <% end %>
-            $</span></p>
-            
-            <p><b>Released Date: </b><%= item2.release_date %></p>
-            
-            <p><b>Clock speed: </b>
-            <% if item1.cpu.clock_speed > item2.cpu.clock_speed %>
-              <span class="redtext"><%= item2.cpu.clock_speed %>
-            <% elsif item1.cpu.clock_speed < item2.cpu.clock_speed %>
-              <span class="greentext"><%= item2.cpu.clock_speed %>
-            <% else %>
-              <span><%= item2.cpu.clock_speed %>
-            <% end %>
-            </span> GHz</p>
-            
-            <p><b>Turbo clock speed: </b>
-            <% if item1.cpu.turbo_clock_speed > item2.cpu.turbo_clock_speed %>
-              <span class="redtext"><%= item2.cpu.turbo_clock_speed %>
-            <% elsif item1.cpu.turbo_clock_speed < item2.cpu.turbo_clock_speed %>
-              <span class="greentext"><%= item2.cpu.turbo_clock_speed %>
-            <% else %>
-              <span><%= item2.cpu.turbo_clock_speed %>
-            <% end %>
-            </span> GHz</p>
-            
-            <p><b>Cores:</b>
-            <% if item1.cpu.cores > item2.cpu.cores %>
-              <span class="redtext"><%= item2.cpu.cores %>
-            <% elsif item1.cpu.cores < item2.cpu.cores %>
-              <span class="greentext"><%= item2.cpu.cores %>
-            <% else %>
-              <span><%= item2.cpu.cores %>
-            <% end %>
-            </span> core(s)</p>
-            
-            <p><b>Is unlocked: </b>
-              <% if item2.cpu.is_unlocked %>
-              Yes
-              <% else %>
-              No
-              <% end %>
-            </p>
-            
-            <p><b>Architechture: </b><%= item2.cpu.architechture %></p>
-            
-            <p><b>Threads: </b> 
-            <% if item1.cpu.threads > item2.cpu.threads %>
-              <span class="redtext"> item2.cpu.threads
-            <% elsif item1.cpu.threads < item2.cpu.threads %>
-              <span class="greentext"><%= item2.cpu.threads %>
-            <% else %>
-              <span><%= item2.cpu.threads %>
-            <% end %>
-            </span> threads</p>
-            
-            <p><b>L2 cache:</b>
-            <% if item1.cpu.l2_cache > item2.cpu.l2_cache %>
-              <span class="redtext"> item2.cpu.l2_cache
-            <% elsif item1.cpu.l2_cache < item2.cpu.l2_cache %>
-              <span class="greentext"><%= item2.cpu.l2_cache %>
-            <% else %>
-              <span><%= item2.cpu.l2_cache %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>L3 cache: </b>
-            <% if item1.cpu.l3_cache > item2.cpu.l3_cache %>
-              <span class="redtext"> item2.cpu.l3_cache
-            <% elsif item1.cpu.l3_cache < item2.cpu.l3_cache %>
-              <span class="greentext"><%= item2.cpu.l3_cache %>
-            <% else %>
-              <span><%= item2.cpu.l3_cache %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>Manufacturer process: </b>
-            <% if item1.cpu.manufacturer_process < item2.cpu.manufacturer_process %>
-              <span class="redtext"> item2.cpu.manufacturer_process
-            <% elsif item1.cpu.manufacturer_process > item2.cpu.manufacturer_process %>
-              <span class="greentext"><%= item2.cpu.manufacturer_process %>
-            <% else %>
-              <span><%= item2.cpu.manufacturer_process %>
-            <% end %>
-            </span> nm</p>
-            
-            <p><b>Gpu label: </b><%= item2.cpu.gpu_label %></p>
-            
-            <p><b>Tdp: </b>
-            <% if item1.cpu.tdp < item2.cpu.tdp %>
-              <span class="redtext"> item2.cpu.tdp
-            <% elsif item1.cpu.tdp > item2.cpu.tdp %>
-              <span class="greentext"><%= item2.cpu.tdp %>
-            <% else %>
-              <span><%= item2.cpu.tdp %>
-            <% end %>
-            </span> W</p>
-          </div>
-        </div>
-      </div>
+            <% end %></td>
+          </tr>
+          <tr>
+            <td><strong>Released Date</strong></td>
+            <td><%= item1.release_date %></td>
+            <td><%= item2.release_date %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Manufacturer</strong></td>
+            <td><%= item1.manufacturer.name %></td>
+            <td><%= item2.manufacturer.name %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Gpu Brand</strong></td>
+            <td><%= item1.gpu.gpu_brand %></td>
+            <td><%= item2.gpu.gpu_brand %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Gpu Name</strong></td>
+            <td><%= item1.gpu.gpu_name %></td>
+            <td><%= item2.gpu.gpu_name %></td>
+          </tr>
+
+          <tr>
+            <td><strong>CLOCK SPEED</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'clock_speed', a_unit: 'MHz', item1: item1, item2: item2 } %>
+          </tr>
+
+          <tr>
+            <td><strong>EFFECTIVE MEMORY CLOCK SPEED</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'effective_memory_clock_speed', a_unit: 'MHz', item1: item1, item2: item2 } %>
+          </tr>
+
+          <tr>
+            <td><strong>MEMORY BUS</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'memory_bus', a_unit: 'bit', item1: item1, item2: item2 } %>
+          </tr>
+
+          <tr>
+            <td><strong>MEMORY TYPE</strong></td>
+            <td><%= item1.gpu.memory_type %></td>
+            <td><%= item2.gpu.memory_type %></td>
+          </tr>
+
+          <tr>
+            <td><strong>MEMORY BANDWIDTH</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'memory_bandwidth', a_unit: 'GB/s', item1: item1, item2: item2 } %>
+          </tr>
+
+          <tr>
+            <td><strong>TDP</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'tdp', a_unit: 'W', item1: item1, item2: item2 } %>
+          </tr>
+
+          <tr>
+            <td><strong>SHADING UNITS</strong></td>
+            <td><%= item1.gpu.shading_units %></td>
+            <td><%= item2.gpu.shading_units %></td>
+          </tr>
+
+          <tr>
+            <td><strong>TEXTURE MAPPING UNITS</strong></td>
+            <td><%= item1.gpu.texture_mapping_units %></td>
+            <td><%= item2.gpu.texture_mapping_units %></td>
+          </tr>
+
+          <tr>
+            <td><strong>RENDER OUTPUT PRECESSORS</strong></td>
+            <td><%= item1.gpu.render_output_precessors %></td>
+            <td><%= item2.gpu.render_output_precessors %></td>
+          </tr>
+
+          <tr>
+            <td><strong>PIXEL RATE</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'pixel_rate', a_unit: 'GPixel/s', item1: item1, item2: item2 } %>
+          </tr>
+
+          <tr>
+            <td><strong>TEXTURE RATE</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'texture_rate', a_unit: 'GTexel/s', item1: item1, item2: item2 } %>
+          </tr>
+
+          <tr>
+            <td><strong>FLOATING POINT PERFORMANCE</strong></td>
+            <%= render partial: 'attribute_comparision', locals: {a_name: 'floating_point_performance', a_unit: 'GFLOPS', item1: item1, item2: item2 } %>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   </div>
-  <% elsif item1.category.name == "Hard Drive"%>
-  <div class="col-sm-10">
-    <div class="col-sm-10 panel panel-heading" style="background-color: #FFD203;">
-    <h1><%= link_to item1.name, item1 %> VS <%= link_to item2.name, item2 %></h1>
-    </div>
-    <div class="col-sm-5">
-      <div class="panel panel-default">
-        <div class="panel-body show-item">
-          <div class="text-center">
-            <%= link_to image_tag(item1.hard_drive.images.first, height:"400", class:"thumbnail compare-item"), item1 %>
-          </div>
-          <div class="col-sm-6">
-            <p><b>Price: </b>
-            <% if item1.price > item2.price %>
-              <span class="redtext"> item1.price
-            <% elsif item1.price < item1.price %>
-              <span class="greentext"><%= item1.price %>
-            <% else %>
-              <span><%= item1.price %>
-            <% end %>
-            </span> $</p>
-            
-            <p><b>Released Date: </b><%= item1.release_date %></p>
-            
-            <p><b>Capacity: </b>
-            <% if item1.hard_drive.capacity < item2.hard_drive.capacity %>
-              <span class="redtext"> item1.hard_drive.capacity
-            <% elsif item1.hard_drive.capacity > item1.hard_drive.capacity %>
-              <span class="greentext"><%= item1.hard_drive.capacity %>
-            <% else %>
-              <span><%= item1.hard_drive.capacity %>
-            <% end %>
-            </span> GB</p>
-            
-            <p><b>Cache: </b>
-            <% if item1.hard_drive.cache < item2.hard_drive.cache %>
-              <span class="redtext"> item1.hard_drive.cache
-            <% elsif item1.hard_drive.cache > item1.hard_drive.cache %>
-              <span class="greentext"><%= item1.hard_drive.cache %>
-            <% else %>
-              <span><%= item1.hard_drive.cache %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>Interface: </b><%= item1.hard_drive.interface %></p>
-            
-            <p><b>Interface speed: </b>
-            <% if item1.hard_drive.interface_speed < item2.hard_drive.interface_speed %>
-              <span class="redtext"> item1.hard_drive.interface_speed
-            <% elsif item1.hard_drive.interface_speed > item1.hard_drive.interface_speed %>
-              <span class="greentext"><%= item1.hard_drive.interface_speed %>
-            <% else %>
-              <span><%= item1.hard_drive.interface_speed %>
-            <% end %>
-            </span> Gbit/s</p>
-            
-            <p><b>Controller: </b><%= item1.hard_drive.controller %></p>
-            
-            <p><b>Memory type: </b><%= item1.hard_drive.memory_type %></p>
-            
-            <p><b>Process size: </b>
-            <% if item1.hard_drive.process_size > item2.hard_drive.process_size %>
-              <span class="redtext"> item1.hard_drive.process_size
-            <% elsif item1.hard_drive.process_size < item1.hard_drive.process_size %>
-              <span class="greentext"><%= item1.hard_drive.process_size %>
-            <% else %>
-              <span><%= item1.hard_drive.process_size %>
-            <% end %>
-            </span> nm</p>
-            
-            <p><b>Max shock force: </b>
-            <% if item1.hard_drive.max_shock_force < item2.hard_drive.max_shock_force %>
-              <span class="redtext"> item1.hard_drive.max_shock_force
-            <% elsif item1.hard_drive.max_shock_force > item1.hard_drive.max_shock_force %>
-              <span class="greentext"><%= item1.hard_drive.max_shock_force %>
-            <% else %>
-              <span><%= item1.hard_drive.max_shock_force %>
-            <% end %>
-            </span> G</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-5">
-      <div class="panel panel-default">
-        <div class="panel-body show-item">
-          <div class="text-center">
-            <%= link_to image_tag(item2.hard_drive.images.first, height:"400", class:"thumbnail compare-item"), item2 %>
-          </div>
-          <div class="col-sm-6">
-            <p><b>Price: </b>
-            <% if item1.price < item2.price %>
-              <span class="redtext"> item2.price
-            <% elsif item1.price > item1.price %>
-              <span class="greentext"><%= item2.price %>
-            <% else %>
-              <span><%= item2.price %>
-            <% end %>
-            </span> $</p>
-            
-            <p><b>Released Date: </b><%= item2.release_date %></p>
-            
-            <p><b>Capacity: </b>
-            <% if item1.hard_drive.capacity > item2.hard_drive.capacity %>
-              <span class="redtext"> item2.hard_drive.capacity
-            <% elsif item1.hard_drive.capacity < item1.hard_drive.capacity %>
-              <span class="greentext"><%= item2.hard_drive.capacity %>
-            <% else %>
-              <span><%= item2.hard_drive.capacity %>
-            <% end %>
-            </span> GB</p>
-            
-            <p><b>Cache: </b>
-            <% if item1.hard_drive.cache < item2.hard_drive.cache %>
-              <span class="redtext"> item1.hard_drive.cache
-            <% elsif item1.hard_drive.cache > item1.hard_drive.cache %>
-              <span class="greentext"><%= item1.hard_drive.cache %>
-            <% else %>
-              <span><%= item1.hard_drive.cache %>
-            <% end %>
-            </span> MB</p>
-            
-            <p><b>Interface: </b><%= item2.hard_drive.interface %></p>
-            
-            <p><b>Interface speed: </b>
-            <% if item1.hard_drive.interface_speed > item2.hard_drive.interface_speed %>
-              <span class="redtext"> item2.hard_drive.interface_speed
-            <% elsif item1.hard_drive.interface_speed < item1.hard_drive.interface_speed %>
-              <span class="greentext"><%= item2.hard_drive.interface_speed %>
-            <% else %>
-              <span><%= item2.hard_drive.interface_speed %>
-            <% end %>
-            </span> Gbit/s</p>
-            
-            <p><b>Controller: </b><%= item2.hard_drive.controller %></p>
-            
-            <p><b>Memory type: </b><%= item2.hard_drive.memory_type %></p>
-            
-            <p><b>Process size: </b>
-            <% if item1.hard_drive.process_size < item2.hard_drive.process_size %>
-              <span class="redtext"> item2.hard_drive.process_size
-            <% elsif item1.hard_drive.process_size > item1.hard_drive.process_size %>
-              <span class="greentext"><%= item2.hard_drive.process_size %>
-            <% else %>
-              <span><%= item2.hard_drive.process_size %>
-            <% end %>
-            </span> nm</p>
-            
-            <p><b>Max shock force: </b>
-            <% if item1.hard_drive.max_shock_force > item2.hard_drive.max_shock_force %>
-              <span class="redtext"> item2.hard_drive.max_shock_force
-            <% elsif item1.hard_drive.max_shock_force < item1.hard_drive.max_shock_force %>
-              <span class="greentext"><%= item2.hard_drive.max_shock_force %>
-            <% else %>
-              <span><%= item2.hard_drive.max_shock_force %>
-            <% end %>
-            </span> G</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
 </div>
