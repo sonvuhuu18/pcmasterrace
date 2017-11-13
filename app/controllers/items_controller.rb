@@ -13,10 +13,13 @@ class ItemsController < ApplicationController
     @items = Item.all
     if(@item.reviews.count == 0)
       @ranking = '0';
-    else 
+    else
       @ranking = @item.reviews.sum("rate")/@item.reviews.count
     end
     @item.update_attributes(:ranking => @ranking)
+  end
+
+  def compare
   end
 
   def new
@@ -27,9 +30,9 @@ class ItemsController < ApplicationController
     @item = Item.find_by(params[:id])
   end
 
-  def create 
+  def create
     @item = Item.new(item_params)
-    
+
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -38,8 +41,8 @@ class ItemsController < ApplicationController
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
-    end 
-    
+    end
+
   end
 
   def update
@@ -68,7 +71,7 @@ class ItemsController < ApplicationController
     @categories = Category.all
     @manufacturers = Manufacturer.all
   end
-  
+
 
   def live_search
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
@@ -85,7 +88,7 @@ class ItemsController < ApplicationController
   end
 
 
-  private 
+  private
     def set_item
       @item = Item.find(params[:id])
     end
@@ -93,5 +96,5 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id)
     end
-    
+
 end
