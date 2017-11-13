@@ -17,6 +17,11 @@ $red: #f00;
 
 body {
   padding-top: 60px;
+  background-image: url("http://mapinstitute.org/data/wallpapers/92/im57540567.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: 16px;
 }
 
 section {
@@ -485,13 +490,15 @@ input {
 }
 
 .navbar {
-  border-color: #f4af41;
+  border: 0px;
   background-color: #FFD203;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 nav{
   ul.custom-nav{
     li{
       a{
+        transition: 0.3s;
         color: #5b412b;
         &:hover{
                 background-color: #5b412b;
@@ -512,59 +519,73 @@ nav{
 }
 //filter
 .filter{
-  padding-left: 1%;
-  padding-right: 0;
-  background: #ffdf4c;
-  border-right: solid #5b412b 1px;
+
+  .row {
+    background: rgba(255,255,255,0.5);
+    border-radius:3px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
   ul{
-    padding: 0;
+    padding: 0px 4px;
+
   }
   li{
     list-style-type: none;
     a{
-      color: #5b412b;
+      color: DodgerBlue   ;
       &:hover{
         text-decoration: underline;
         background-color:inherit;
-        color: inherit;
+        color: DodgerBlue  ;
       }
     }
   }
 }
 
 // component
-.name { font-size: 20px; 
+.name { font-size: 20px;
   bold: true;
 }
 .components-list-title{
-  margin: 0;
-  margin-bottom: 7px;
-  padding: 0;
-  padding-left: 5px;
-  border-bottom: solid #5b412b 1px;
+  margin-left: 15px;
+
 }
 .components-list{
   margin: 0;
 }
+
+.material-card {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+
+}
+
+.material-card:hover{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
 .components-show{
+
   width: 32%;
-  border: solid #FFD203 1px;
-  background-color: #ffdf4c;
-  border-radius: 5px;
+  //border: solid #FFD203 1px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 3px;
   margin-bottom: 5px;
+
   .row{
     margin: 0px;
     padding-bottom: 5px;
   }
-  padding: 5px;
+  padding: 12px;
   margin-left: 5px;
   margin-right: 5px;
   a{
-    color: #5b412b;
+    color: dodgerblue;
     &:visited{
-      color:#5b412b;
+      color:dodgerblue;
     }
     &.component-name{
+      font-size: 18px;
       display:inline-block;
       margin-left: 3px;
       padding-bottom: 10px;
@@ -603,13 +624,16 @@ nav{
     padding-bottom: 100%; /* = width for a 1:1 aspect ratio */
     // margin:1.66%;
     overflow:hidden;
-    background:white;
+    // background:white;
 }
 .square-content {
+
     position:absolute;
     // height:80%; /* = 100% - 2*10% padding */
-    width:100%; /* = 100% - 2*5% padding */
+    width: 100%; /* = 100% - 2*5% padding */
     // padding: 10% 0%;
+    height: 100%;
+    object-fit: contain;
 }
 .new-component{
   margin: 0;
@@ -673,7 +697,7 @@ nav{
 }
 
 .thumbnail {
-  float: none; 
+  float: none;
   margin: 0 auto;
 }
 
@@ -687,53 +711,53 @@ p.date {
   max-height: 100%;
 }
 form #result-box{
-  display: none; 
-  max-height: 300px; 
-  overflow-y: auto; 
-  overflow-x: hidden; 
-  position: absolute; 
-  background-color: #fff; 
-  border: 1px solid #eee; 
-  border-top: 0; 
-  width: 250px; 
-  max-height: 300px; 
-  line-height: 2em; 
+  display: none;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-top: 0;
+  width: 250px;
+  max-height: 300px;
+  line-height: 2em;
   font-size: 14px;
   a {
-      color: #777; 
-      display: block; 
+      color: #777;
+      display: block;
       padding-left: 10px;
       // text-overflow: clip;
       &:hover{
-        color: black; 
-        background-color: #eee; 
+        color: black;
+        background-color: #eee;
         text-decoration: none;
       }
     }
 }
 form #result-box2{
-  display: none; 
-  max-height: 300px; 
-  overflow-y: auto; 
-  overflow-x: hidden; 
-  position: absolute; 
+  display: none;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
   margin-left: 110px;
-  background-color: #fff; 
-  border: 1px solid #eee; 
-  border-top: 0; 
-  width: 250px; 
-  max-height: 300px; 
-  line-height: 2em; 
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-top: 0;
+  width: 250px;
+  max-height: 300px;
+  line-height: 2em;
   font-size: 14px;
   z-index:10;
   a {
-      color: #777; 
-      display: block; 
+      color: #777;
+      display: block;
       padding-left: 10px;
       // text-overflow: clip;
       &:hover{
-        color: black; 
-        background-color: #eee; 
+        color: black;
+        background-color: #eee;
         text-decoration: none;
       }
     }
@@ -768,4 +792,30 @@ form #result-box2{
 
 .greentext {
   color: green;
+}
+
+
+
+// COMPARE
+.table-compare {
+  tr {
+    td:first-child {
+      text-align: left;
+    }
+    td {
+      text-align: center;
+      padding: 12px !important;
+    }
+  }
+
+  .strong_attribute {
+    font-weight: bold;
+  }
+}
+
+.rectange {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }

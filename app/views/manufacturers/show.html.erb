@@ -4,7 +4,7 @@
 <!--<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |-->
 <!--<%= link_to 'Back', manufacturers_path %>-->
 <div class="row">
-    <div class="filter col-sm-2">
+    <div class="filter col-sm-2"><p>Filter</p>
       <div class="row">
         <div class="col-sm-6">
           Category
@@ -41,24 +41,24 @@
       </div>
     </div>
     <div class="col-sm-9">
-      <div class="row components-list-title">
+      <p class="row components-list-title">
         <%= @manufacturer.name %>
-      </div>
+      </p>
        <div class="components-list row">
         <% @items.each do |item| %>
         <% if item.manufacturer.name == @manufacturer.name %>
-          <div class="components-show col-sm-3">
+          <div class="components-show material-card col-sm-3">
             <div class="row">
               <%= link_to item.name, item, class:"component-name"%>
             </div>
             <div class="row">
               <div class="square">
                 <% if item.category.name == "GPU" %>
-                <%= link_to image_tag(item.gpu.images.first, class:"img-responsive square-content"), item %>
+                <%= link_to image_tag(item.gpu.images.first, class:"img-responsive square-content thumbnail"), item %>
               <% elsif item.category.name == "CPU"%>
-                <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content"), item %>
+                <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content thumbnail"), item %>
               <% elsif item.category.name == "Hard Drive"%>
-                <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content"), item %>
+                <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content thumbnail"), item %>
               <% end %>
               </div>
             </div>
