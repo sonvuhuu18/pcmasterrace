@@ -7,34 +7,37 @@
         <li><%= link_to "Item List", items_path%></li>
 
         <li>
-        <div class="input-group">
+       
         <%= form_for :search, :method => 'GET', :html => {:id => "search-form", :class => "navbar-form navbar-left"}, url: {:controller => 'search', :action => 'index'} do |f|%>
+         <div class="input-group">
           <input type="text" name="q" id="search-box" class="form-control" placeholder="Search" autocomplete="off">
-          <div class="input-group-btn">
+          <span class="input-group-btn">
               <button class="btn btn-default" type="submit" action="item/search">
                 <i class="glyphicon glyphicon-search"></i>
               </button>
+          </span>
+          
           </div>
           <div id="result-box"></div>
         <%end%>
-        </div>
+        
         </li>
         <li>
         <!-- sorting form -->
-          <div class="input-group">
-            <%= form_for :search, :method => 'GET', :html => {:id => "search-form", :class => "navbar-form navbar-left"}, url: {:controller => 'search', :action => 'sorting'} do |f|%>
-              <select name="sort_option" onchange="this.form.submit()">
-                <option value="name" <%if @option && @option == 'name'%> selected <%end%>>Name</option>
-                <option value="price" <%if @option && @option == 'price'%> selected <%end%>>Price</option>
-              </select>
-              <%if @category%>
-                <input type="hidden" name="category" value="<%= @category.id%>">
-              <%end%>
-              <%if @manufacturer%>
-                <input type="hidden" name="manufacturer" value="<%= @manufacturer.id%>">
-              <%end%>
-            <%end%>
-          </div>
+          <!--<div class="input-group">-->
+          <!--  <%= form_for :search, :method => 'GET', :html => {:id => "search-form", :class => "navbar-form navbar-left"}, url: {:controller => 'search', :action => 'sorting'} do |f|%>-->
+          <!--    <select name="sort_option" onchange="this.form.submit()">-->
+          <!--      <option value="name" <%if @option && @option == 'name'%> selected <%end%>>Name</option>-->
+          <!--      <option value="price" <%if @option && @option == 'price'%> selected <%end%>>Price</option>-->
+          <!--    </select>-->
+          <!--    <%if @category%>-->
+          <!--      <input type="hidden" name="category" value="<%= @category.id%>">-->
+          <!--    <%end%>-->
+          <!--    <%if @manufacturer%>-->
+          <!--      <input type="hidden" name="manufacturer" value="<%= @manufacturer.id%>">-->
+          <!--    <%end%>-->
+          <!--  <%end%>-->
+          <!--</div>-->
         <!-- Sorting form -->
         </li>
       </ul>
