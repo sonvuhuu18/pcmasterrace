@@ -42,20 +42,23 @@
 
   <div class="col-sm-10">
     <div class="rectange">
+      <h3 class="text-center">Comparing</h3>
+      <br><br>
       <table class="table table-hover table-bordered table-compare">
         <thead>
           <tr>
-            <th style="position: relative"><h3 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">COMPARING</h3></th>
+            <th></th>
+            <!-- <th style="position: relative"><h3 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">COMPARING</h3></th> -->
             <th>
-              <%= image_tag(item1.gpu.images.first, height:"300", class:"thumbnail compare-item") %>
+              <%= image_tag(@value1.images.first, height:"300", class:"thumbnail compare-item") %>
               <%= link_to item_path(item1) do %>
-                <h3 class="text-center"><%= item1.name %></h3>
+                <h3 class="text-center"><%= @item1.name %></h3>
               <% end %>
             </th>
             <th>
-              <%= image_tag(item2.gpu.images.first, height:"300", class:"thumbnail compare-item") %>
+              <%= image_tag(@value2.images.first, height:"300", class:"thumbnail compare-item") %>
               <%= link_to item_path(item2) do %>
-                <h3 class="text-center"><%= item2.name %></h3>
+                <h3 class="text-center"><%= @item2.name %></h3>
               <% end %>
             </th>
           </tr>
@@ -63,109 +66,22 @@
         <tbody>
           <tr>
             <td><strong>Price</strong></td>
-            <td><% if item1.price > item2.price %>
-              <span class="strong_attribute"> <%= item1.price %>
-            <% elsif item1.price < item1.price %>
-              <span class=""><%= item1.price %>
+            <td><% if @item1.price > @item2.price %>
+              <span class="strong_attribute"> <%= @item1.price %>
+            <% elsif @item1.price < @item1.price %>
+              <span class=""><%= @item1.price %>
             <% else %>
-              <span><%= item1.price %>
+              <span><%= @item1.price %>
             <% end %></td>
-            <td><% if item1.price < item2.price %>
-              <span class="strong_attribute"> <%= item1.price %>
-            <% elsif item1.price > item1.price %>
-              <span class="greentext"><%= item1.price %>
+            <td><% if @item1.price < item2.price %>
+              <span class="strong_attribute"> <%= @item1.price %>
+            <% elsif @item1.price > @item1.price %>
+              <span class="greentext"><%= @item1.price %>
             <% else %>
-              <span><%= item1.price %>
+              <span><%= @item1.price %>
             <% end %></td>
           </tr>
-          <tr>
-            <td><strong>Released Date</strong></td>
-            <td><%= item1.release_date %></td>
-            <td><%= item2.release_date %></td>
-          </tr>
-
-          <tr>
-            <td><strong>Manufacturer</strong></td>
-            <td><%= item1.manufacturer.name %></td>
-            <td><%= item2.manufacturer.name %></td>
-          </tr>
-
-          <tr>
-            <td><strong>Gpu Brand</strong></td>
-            <td><%= item1.gpu.gpu_brand %></td>
-            <td><%= item2.gpu.gpu_brand %></td>
-          </tr>
-
-          <tr>
-            <td><strong>Gpu Name</strong></td>
-            <td><%= item1.gpu.gpu_name %></td>
-            <td><%= item2.gpu.gpu_name %></td>
-          </tr>
-
-          <tr>
-            <td><strong>CLOCK SPEED</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'clock_speed', a_unit: 'MHz', item1: item1, item2: item2 } %>
-          </tr>
-
-          <tr>
-            <td><strong>EFFECTIVE MEMORY CLOCK SPEED</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'effective_memory_clock_speed', a_unit: 'MHz', item1: item1, item2: item2 } %>
-          </tr>
-
-          <tr>
-            <td><strong>MEMORY BUS</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'memory_bus', a_unit: 'bit', item1: item1, item2: item2 } %>
-          </tr>
-
-          <tr>
-            <td><strong>MEMORY TYPE</strong></td>
-            <td><%= item1.gpu.memory_type %></td>
-            <td><%= item2.gpu.memory_type %></td>
-          </tr>
-
-          <tr>
-            <td><strong>MEMORY BANDWIDTH</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'memory_bandwidth', a_unit: 'GB/s', item1: item1, item2: item2 } %>
-          </tr>
-
-          <tr>
-            <td><strong>TDP</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'tdp', a_unit: 'W', item1: item1, item2: item2 } %>
-          </tr>
-
-          <tr>
-            <td><strong>SHADING UNITS</strong></td>
-            <td><%= item1.gpu.shading_units %></td>
-            <td><%= item2.gpu.shading_units %></td>
-          </tr>
-
-          <tr>
-            <td><strong>TEXTURE MAPPING UNITS</strong></td>
-            <td><%= item1.gpu.texture_mapping_units %></td>
-            <td><%= item2.gpu.texture_mapping_units %></td>
-          </tr>
-
-          <tr>
-            <td><strong>RENDER OUTPUT PRECESSORS</strong></td>
-            <td><%= item1.gpu.render_output_precessors %></td>
-            <td><%= item2.gpu.render_output_precessors %></td>
-          </tr>
-
-          <tr>
-            <td><strong>PIXEL RATE</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'pixel_rate', a_unit: 'GPixel/s', item1: item1, item2: item2 } %>
-          </tr>
-
-          <tr>
-            <td><strong>TEXTURE RATE</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'texture_rate', a_unit: 'GTexel/s', item1: item1, item2: item2 } %>
-          </tr>
-
-          <tr>
-            <td><strong>FLOATING POINT PERFORMANCE</strong></td>
-            <%= render partial: 'attribute_comparision', locals: {a_name: 'floating_point_performance', a_unit: 'GFLOPS', item1: item1, item2: item2 } %>
-          </tr>
-
+          <%= render partial: 'attribute_comparision', locals: { value1: @value1, value2: @value2 } %>
         </tbody>
       </table>
     </div>
