@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="filter col-sm-2">
+  <div class="filter col-sm-2"><p>Browse</p>
     <div class="row">
       <div class="col-sm-6">
         Category
@@ -56,22 +56,22 @@
                             <% end %>
                             <% end %>
                         </ol>
-                    
+
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <% @item.gpu.images.each do |image| %>
                             <% if image == @item.gpu.images.first %>
                               <div class="item active">
-                                <%= image_tag(image, class:"slideshow") %>
+                                <%= image_tag(image, class:"thumbnail") %>
                               </div>
                             <% else %>
                               <div class="item">
-                                <%= image_tag(image, class:"slideshow") %>
+                                <%= image_tag(image, class:"thumbnail") %>
                               </div>
                             <% end %>
                             <% end %>
                         </div>
-                    
+
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                           <span class="glyphicon glyphicon-chevron-left"></span>
@@ -86,7 +86,7 @@
                 <div class="col-sm-4">
                 <p><b>Name: </b><%= @item.name %></p>
                 <p><b>Price: </b><%= @item.price %>$</p>
-                <div class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></div>
+                <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
                 <p><b>Released Date:</b> <%= @item.release_date %></p>
                 <p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>
                 <p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>
@@ -97,9 +97,9 @@
                 <div class="col-sm-4">
                 <p><b>Is dual gpu: </b>
                     <% if @item.gpu.is_dual_gpu == 0 %>
-                        Yes 
+                        Yes
                     <% else %>
-                        No 
+                        No
                     <% end %>
                 </p>
                 <p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %> MHz</p>
@@ -118,7 +118,7 @@
                 <p><b>Texture rate:</b> <%= @item.gpu.texture_rate %> GTexel/s</p>
                 <p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %> GFLOPS</p>
                 </div>
-                
+
             </div>
         </div>
 
@@ -141,22 +141,22 @@
                             <% end %>
                             <% end %>
                         </ol>
-                    
+
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <% @item.cpu.images.each do |image| %>
                             <% if image == @item.cpu.images.first %>
                               <div class="item active">
-                                <%= image_tag(image, class:"slideshow") %>
+                                <%= image_tag(image, class:"thumbnail") %>
                               </div>
                             <% else %>
                               <div class="item">
-                                <%= image_tag(image, class:"slideshow") %>
+                                <%= image_tag(image, class:"thumbnail") %>
                               </div>
                             <% end %>
                             <% end %>
                         </div>
-                    
+
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                           <span class="glyphicon glyphicon-chevron-left"></span>
@@ -168,24 +168,24 @@
                         </a>
                       </div>
                 </div>
-                
-                
+                <br />
+
                 <div class="col-sm-4">
                 <p><b>Name: </b><%= @item.name %></p>
                 <p><b>Price: </b><%= @item.price %>$</p>
-                <div class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></div>
+                <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
-                <p><b>Clock speed: </b><%= @item.cpu.clock_speed %> GHz</p> 
+                <p><b>Clock speed: </b><%= @item.cpu.clock_speed %> GHz</p>
                 <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %> GHz</p>
-                <p><b>Cores:</b> <%= @item.cpu.cores %> core(s)</p> 
+                <p><b>Cores:</b> <%= @item.cpu.cores %> core(s)</p>
                 </div>
-                
+
                 <div class="col-sm-4">
                 <p><b>Is unlocked: </b>
                     <% if @item.cpu.is_unlocked %>
-                        Yes 
+                        Yes
                     <% else %>
-                        No 
+                        No
                     <% end %>
                 </p>
                 <p><b>Architechture: </b><%= @item.cpu.architechture %></p>
@@ -198,7 +198,7 @@
                 <p><b>Gpu label: </b><%= @item.cpu.gpu_label %></p>
                 <p><b>Tdp: </b><%= @item.cpu.tdp %>W</p>
                 </div>
-                
+
             </div>
         </div>
 
@@ -220,22 +220,22 @@
                             <% end %>
                             <% end %>
                         </ol>
-                    
+
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <% @item.hard_drive.images.each do |image| %>
                             <% if image == @item.hard_drive.images.first %>
                               <div class="item active">
-                                <%= image_tag(image, class:"slideshow") %>
+                                <%= image_tag(image, class:"thumbnail") %>
                               </div>
                             <% else %>
                               <div class="item">
-                                <%= image_tag(image, class:"slideshow") %>
+                                <%= image_tag(image, class:"thumbnail") %>
                               </div>
                             <% end %>
                             <% end %>
                         </div>
-                    
+
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                           <span class="glyphicon glyphicon-chevron-left"></span>
@@ -250,7 +250,7 @@
                 <div class="col-sm-6">
                 <p><b>Name: </b><%= @item.name %></p>
                 <p><b>Price: </b><%= @item.price %></p>
-                <div class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></div>
+                <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
                 <p><b>Capacity: </b><%= @item.hard_drive.capacity %> GB</p>
                 <p><b>Cache: </b><%= @item.hard_drive.cache %> MB</p>
@@ -270,9 +270,8 @@
         <% end %>
 
 
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h1>Reviews: </h1>
+
+            <p class="left-align">Reviews: </p>
             <% if @item.reviews.size == 0 %>
             <p class="text-center"><i>This item has not been reviewed yet</i></p>
             <% else %>
@@ -291,9 +290,8 @@
             </div>
             <% end %>
             <% end %>
-          </div>
-        </div>
-        
+
+
         <% if logged_in? %>
         <% if current_user.review & @item.reviews != [] %>
         <h2><i>You have already reviewed this item.</i></h2>
@@ -301,23 +299,26 @@
         <%= form_for Review.new do |f| %>
         <%= f.hidden_field :item_id, value: @item.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
-        
-        
+
+        <div class="panel panel-default">
+              <div class="panel-body">
+
+        <div class="field">
+          <%= f.label "Review this item:" %><br>
+          <%= f.text_area :content, required: true %>
+        </div>
         <div class="rating-form">
           <%= f.label "Your rate:" %>
           <%= f.hidden_field :rate %>
         </div>
-        <div class="field">
-          <%= f.label "Write your review:" %><br>
-          <%= f.text_area :content, required: true, style:"height: 150px;" %>
+
+
+        <%= f.submit "Add Review", class: "btn btn-success" %>
+        <% end %>
+        <% end %>
+        <% end %>
         </div>
-        
-       
-        
-        <%= f.submit "Add Review", class: "btn btn-normal" %>
-        <% end %>
-        <% end %>
-        <% end %>
+        </div>
         <br>
             <form class="form-inline" id="search-form2">
               <label for="search-box2">Compare with:</label>
@@ -330,18 +331,18 @@
         <div class="components-list row">
           <% @items.each do |item| %>
           <% if @item.id != item.id && @item.category == item.category%>
-          <div class="components-show col-sm-3">
+          <div class="components-show material-card col-sm-3">
             <div class="row">
               <%= link_to item.name, item, class:"component-name"%>
             </div>
             <div class="row">
               <div class="square">
                 <% if item.category.name == "GPU" %>
-                <%= link_to image_tag(item.gpu.images.first, class:"img-responsive square-content"), item %>
+                <%= link_to image_tag(item.gpu.images.first, class:"img-responsive square-content thumbnail"), item %>
                 <% elsif item.category.name == "CPU"%>
-                <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content"), item %>
+                <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content thumbnail"), item %>
                 <% elsif item.category.name == "Hard Drive"%>
-                <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content"), item %>
+                <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content thumbnail"), item %>
                 <% end %>
               </div>
             </div>
@@ -352,13 +353,14 @@
             </div>
             <% $itemcompare = @item %>
             <div class="row">
-              <%= button_to "Compare", { action: "compare", id1: @item.id, id2: item.id }, method: :post  %>
+              <%# button_to "Compare", { action: "compare", id1: @item.id, id2: item.id }, method: :post, class: "btn btn-primary"  %>
+              <%= link_to "Compare", items_compare_path(id1: @item.id, id2: item.id), class: 'btn btn-primary' %>
             </div>
           </div>
           <% end %>
           <% end %>
         </div>
-    
+
       </div>
     </div>
 
@@ -396,11 +398,11 @@
     var option = $('#option').find(":selected").val();
     if(q) {
       var form = $("#search-form2"); // grab the form wrapping the search bar.
-      var url = "/items/live_compare"; // live_search action.   
+      var url = "/items/live_compare"; // live_search action.
       var formData = form.serialize(); // grab the data in the form
       console.log(q);
       $.get(url, formData, function(response) { // perform an AJAX get
-      }); 
+      });
     } else {
       $("#result-box2").css("display", "none");
     }
@@ -409,9 +411,9 @@
 <script>
     $('.rating-form').raty({
 
-      
+
       path: '/assets/',
       scoreName: 'review[rate]'
-        
+
     });
 </script>

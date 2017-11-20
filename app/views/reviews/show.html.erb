@@ -48,39 +48,39 @@
                         </a>
                       </div>
                 </div>
-                <div class="col-sm-4">
-                <p><b>Price: </b><%= @item.price %>$</p>
-                <p><b>Released Date:</b> <%= @item.release_date %></p>
-                <p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>
-                <p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>
-                <p><b>Gpu name: </b><%= @item.gpu.gpu_name %></p>
-                <p><b>Clock speed:</b> <%= @item.gpu.clock_speed %> MHz</p>
-                <p><b>Turbo clock speed:</b> <%= @item.gpu.turbo_clock_speed %> MHz</p>
-                </div>
-                <div class="col-sm-4">
-                <p><b>Is dual gpu: </b>
-                    <% if @item.gpu.is_dual_gpu == 0 %>
-                        Yes 
-                    <% else %>
-                        No 
-                    <% end %>
-                </p>
-                <p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %> MHz</p>
-                <p><b>Effective memory clock speed:</b> <%= @item.gpu.effective_memory_clock_speed %> MHz</p>
-                <p><b>Memory bus: </b><%= @item.gpu.memory_bus %> bit</p>
-                <p><b>Memory: </b><%= @item.gpu.memory %> MB</p>
-                <p><b>Memory type: </b><%= @item.gpu.memory_type %></p>
-                <p><b>Memory bandwidth:</b> <%= @item.gpu.memory_bandwidth %> GB/s</p>
-                <p><b>Tdp: </b><%= @item.gpu.tdp %>W</p>
-                </div>
-                <div class="col-sm-4">
-                <p><b>Shading units: </b><%= @item.gpu.shading_units %></p>
-                <p><b>Texture mapping units : </b><%= @item.gpu.texture_mapping_units %></p>
-                <p><b>Render output precessors: </b><%= @item.gpu.render_output_precessors %></p>
-                <p><b>Pixel rate : </b><%= @item.gpu.pixel_rate %> GPixel/s</p>
-                <p><b>Texture rate:</b> <%= @item.gpu.texture_rate %> GTexel/s</p>
-                <p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %> GFLOPS</p>
-                </div>
+                <!--<div class="col-sm-4">-->
+                <!--<p><b>Price: </b><%= @item.price %>$</p>-->
+                <!--<p><b>Released Date:</b> <%= @item.release_date %></p>-->
+                <!--<p><b>Manufacturer:</b> <%= @item.manufacturer.name %></p>-->
+                <!--<p><b>Gpu brand:</b> <%= @item.gpu.gpu_brand %></p>-->
+                <!--<p><b>Gpu name: </b><%= @item.gpu.gpu_name %></p>-->
+                <!--<p><b>Clock speed:</b> <%= @item.gpu.clock_speed %> MHz</p>-->
+                <!--<p><b>Turbo clock speed:</b> <%= @item.gpu.turbo_clock_speed %> MHz</p>-->
+                <!--</div>-->
+                <!--<div class="col-sm-4">-->
+                <!--<p><b>Is dual gpu: </b>-->
+                <!--    <% if @item.gpu.is_dual_gpu == 0 %>-->
+                <!--        Yes -->
+                <!--    <% else %>-->
+                <!--        No -->
+                <!--    <% end %>-->
+                <!--</p>-->
+                <!--<p><b>Memory clock speed:</b> <%= @item.gpu.memory_clock_speed %> MHz</p>-->
+                <!--<p><b>Effective memory clock speed:</b> <%= @item.gpu.effective_memory_clock_speed %> MHz</p>-->
+                <!--<p><b>Memory bus: </b><%= @item.gpu.memory_bus %> bit</p>-->
+                <!--<p><b>Memory: </b><%= @item.gpu.memory %> MB</p>-->
+                <!--<p><b>Memory type: </b><%= @item.gpu.memory_type %></p>-->
+                <!--<p><b>Memory bandwidth:</b> <%= @item.gpu.memory_bandwidth %> GB/s</p>-->
+                <!--<p><b>Tdp: </b><%= @item.gpu.tdp %>W</p>-->
+                <!--</div>-->
+                <!--<div class="col-sm-4">-->
+                <!--<p><b>Shading units: </b><%= @item.gpu.shading_units %></p>-->
+                <!--<p><b>Texture mapping units : </b><%= @item.gpu.texture_mapping_units %></p>-->
+                <!--<p><b>Render output precessors: </b><%= @item.gpu.render_output_precessors %></p>-->
+                <!--<p><b>Pixel rate : </b><%= @item.gpu.pixel_rate %> GPixel/s</p>-->
+                <!--<p><b>Texture rate:</b> <%= @item.gpu.texture_rate %> GTexel/s</p>-->
+                <!--<p><b>Floating point performance: </b><%= @item.gpu.floating_point_performance %> GFLOPS</p>-->
+                <!--</div>-->
             </div>
         </div>
     <% elsif @item.category.name == "CPU"%>
@@ -129,32 +129,32 @@
                         </a>
                       </div>
                 </div>
-                <div class="col-sm-4">
-                <p><b>Price: </b><%= @item.price %>$</p>
-                <p><b>Released Date: </b><%= @item.release_date %></p>
-                <p><b>Clock speed: </b><%= @item.cpu.clock_speed %> GHz</p> 
-                <p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %> GHz</p>
-                <p><b>Cores:</b> <%= @item.cpu.cores %> core(s)</p> 
-                </div>
+                <!--<div class="col-sm-4">-->
+                <!--<p><b>Price: </b><%= @item.price %>$</p>-->
+                <!--<p><b>Released Date: </b><%= @item.release_date %></p>-->
+                <!--<p><b>Clock speed: </b><%= @item.cpu.clock_speed %> GHz</p> -->
+                <!--<p><b>Turbo clock speed: </b><%= @item.cpu.turbo_clock_speed %> GHz</p>-->
+                <!--<p><b>Cores:</b> <%= @item.cpu.cores %> core(s)</p> -->
+                <!--</div>-->
                 
-                <div class="col-sm-4">
-                <p><b>Is unlocked: </b>
-                    <% if @item.cpu.is_unlocked %>
-                        Yes 
-                    <% else %>
-                        No 
-                    <% end %>
-                </p>
-                <p><b>Architechture: </b><%= @item.cpu.architechture %></p>
-                <p><b>Threads: </b><%= @item.cpu.threads %> threads</p>
-                <p><b>L2 cache:</b> <%= @item.cpu.l2_cache %> MB</p>
-                <p><b>L3 cache: </b><%= @item.cpu.l3_cache %> MB</p>
-                <p><b>Manufacturer process: </b><%= @item.cpu.manufacturer_process %> nm</p>
-                </div>
-                <div class="col-sm-4">
-                <p><b>Gpu label: </b><%= @item.cpu.gpu_label %></p>
-                <p><b>Tdp: </b><%= @item.cpu.tdp %>W</p>
-                </div>
+                <!--<div class="col-sm-4">-->
+                <!--<p><b>Is unlocked: </b>-->
+                <!--    <% if @item.cpu.is_unlocked %>-->
+                <!--        Yes -->
+                <!--    <% else %>-->
+                <!--        No -->
+                <!--    <% end %>-->
+                <!--</p>-->
+                <!--<p><b>Architechture: </b><%= @item.cpu.architechture %></p>-->
+                <!--<p><b>Threads: </b><%= @item.cpu.threads %> threads</p>-->
+                <!--<p><b>L2 cache:</b> <%= @item.cpu.l2_cache %> MB</p>-->
+                <!--<p><b>L3 cache: </b><%= @item.cpu.l3_cache %> MB</p>-->
+                <!--<p><b>Manufacturer process: </b><%= @item.cpu.manufacturer_process %> nm</p>-->
+                <!--</div>-->
+                <!--<div class="col-sm-4">-->
+                <!--<p><b>Gpu label: </b><%= @item.cpu.gpu_label %></p>-->
+                <!--<p><b>Tdp: </b><%= @item.cpu.tdp %>W</p>-->
+                <!--</div>-->
                 
             </div>
         </div>
@@ -205,20 +205,20 @@
                         </a>
                       </div>
                 </div>
-                <div class="col-sm-6">
-                <p><b>Price: </b><%= @item.price %>$</p>
-                <p><b>Released Date: </b><%= @item.release_date %></p>
-                <p><b>Capacity: </b><%= @item.hard_drive.capacity %> GB</p>
-                <p><b>Cache: </b><%= @item.hard_drive.cache %> MB</p>
-                <p><b>Interface: </b><%= @item.hard_drive.interface %></p>
-                </div>
-                <div class="col-sm-6">
-                <p><b>Interface speed: </b><%= @item.hard_drive.interface_speed %> Gbit/s</p>
-                <p><b>Controller: </b><%= @item.hard_drive.controller %></p>
-                <p><b>Memory type: </b><%= @item.hard_drive.memory_type %></p>
-                <p><b>Process size: </b><%= @item.hard_drive.process_size %> nm</p>
-                <p><b>Max shock force: </b><%= @item.hard_drive.max_shock_force %>G</p>
-                </div>
+                <!--<div class="col-sm-6">-->
+                <!--<p><b>Price: </b><%= @item.price %>$</p>-->
+                <!--<p><b>Released Date: </b><%= @item.release_date %></p>-->
+                <!--<p><b>Capacity: </b><%= @item.hard_drive.capacity %> GB</p>-->
+                <!--<p><b>Cache: </b><%= @item.hard_drive.cache %> MB</p>-->
+                <!--<p><b>Interface: </b><%= @item.hard_drive.interface %></p>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6">-->
+                <!--<p><b>Interface speed: </b><%= @item.hard_drive.interface_speed %> Gbit/s</p>-->
+                <!--<p><b>Controller: </b><%= @item.hard_drive.controller %></p>-->
+                <!--<p><b>Memory type: </b><%= @item.hard_drive.memory_type %></p>-->
+                <!--<p><b>Process size: </b><%= @item.hard_drive.process_size %> nm</p>-->
+                <!--<p><b>Max shock force: </b><%= @item.hard_drive.max_shock_force %>G</p>-->
+                <!--</div>-->
             </div>
           </div>
 
@@ -228,12 +228,13 @@
 <div class="col-sm-8">
     <div class="panel panel-default">
         <div class="panel-body">
-            <h3 class="text-left">Author: <%= link_to @review.user.name, @review.user %></h3>
-            <p class="text-right"><%= @review.created_at %></p>
+            
             <hr>
             <p><%= @review.content.html_safe %></p>
-            <hr>
+            
             <div class="review-rating" data-score=<%= @review.rate %>>Final rating: </div>
+            <hr>
+            <p><%= link_to @review.user.name, @review.user %> reviewed at <span class="date"><%= @review.created_at %></span></p>
         </div>
         <% if current_user == @review.user || (current_user != nil && current_user.admin?) %>
             <%= link_to 'Edit', edit_review_path(@review), class:"btn info" %>

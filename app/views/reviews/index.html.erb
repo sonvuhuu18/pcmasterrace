@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
   <div class="row">
-    <div class="filter col-sm-2">
+    <div class="filter col-sm-2"><p>Filter</p>
       <div class="row">
         <div class="col-sm-6">
           Category
@@ -37,28 +37,28 @@
       </div>
     </div>
     <div class="col-sm-9">
-      <div class="row components-list-title">
+      <p class="row components-list-title">
         All
-      </div>
+      </p>
        <div class="components-list row">
         <% @reviews.each do |review| %>
-          <div class="components-show col-sm-3">
+          <div class="components-show material-card col-sm-3">
             <div class="row">
               <%= link_to review.item.name, review, class:"component-name"%>
             </div>
             <div class="row">
               <div class="square">
               <% if review.item.category.name == "GPU" %>
-                <%= link_to image_tag(review.item.gpu.images.first, class:"img-responsive square-content"), review %>
+                <%= link_to image_tag(review.item.gpu.images.first, class:"img-responsive square-content thumbnail"), review %>
               <% elsif review.item.category.name == "CPU"%>
-                <%= link_to image_tag(review.item.cpu.images.first, class:"img-responsive square-content"), review %>
+                <%= link_to image_tag(review.item.cpu.images.first, class:"img-responsive square-content thumbnail"), review %>
               <% elsif review.item.category.name == "Hard Drive"%>
-                <%= link_to image_tag(review.item.hard_drive.images.first, class:"img-responsive square-content"), review %>
+                <%= link_to image_tag(review.item.hard_drive.images.first, class:"img-responsive square-content thumbnail"), review %>
               <% end %>
               </div>
             </div>
             <div class="row">
-              Content: <%= review.content.first(15) %><br>
+              Content: <%= review.content.first(15) %>...<br>
               Author: <%= link_to review.user.name, review.user %><br>
               Category: <%= link_to review.item.category.name, review.item.category %> <br>
               Time: <%= review.created_at  %><br>

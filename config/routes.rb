@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  
-  get 'search/index'
 
-  post 'items/compare'
+  get 'search/index'
+  get 'search/sorting'
+
+  # post 'items/compare'
+
+  get 'items/compare', to: 'items#compare'
 
   resources :gpus
   resources :cpus
@@ -10,7 +13,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :manufacturers
   resources :categories
-  
+
   resources :items do
     get :live_search, on: :collection
     get :live_compare, on: :collection
