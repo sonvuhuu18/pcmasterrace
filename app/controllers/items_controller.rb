@@ -96,6 +96,13 @@ class ItemsController < ApplicationController
       format.js
     end
   end
+  
+  def live_compare
+    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def search
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
