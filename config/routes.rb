@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'search/index'
   get 'search/sorting'
 
-  post 'items/compare'
+  # post 'items/compare'
 
   get 'items/compare', to: 'items#compare'
 

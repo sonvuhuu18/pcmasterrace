@@ -20,6 +20,23 @@ class ItemsController < ApplicationController
   end
 
   def compare
+    @categories = Category.all
+    @manufacturers = Manufacturer.all
+
+    @item1 = Item.find(params[:id1])
+    @item2 = Item.find(params[:id2])
+
+    case @item1.category.name
+    when "GPU"
+      @value1 = @item1.gpu
+      @value2 = @item2.gpu
+    when "CPU"
+      @value1 = @item1.cpu
+      @value2 = @item2.cpu
+    when "Hard Drive"
+      @value1 = @item1.hard_drive
+      @value2 = @item2.hard_drive
+    end
   end
 
   def new
@@ -67,10 +84,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def compare
-    @categories = Category.all
-    @manufacturers = Manufacturer.all
-  end
+  # def compare
+  #   @categories = Category.all
+  #   @manufacturers = Manufacturer.all
+  # end
 
 
   def live_search

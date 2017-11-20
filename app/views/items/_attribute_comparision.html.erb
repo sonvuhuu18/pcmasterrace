@@ -1,9 +1,14 @@
-<% value1 = item1.category.name == "GPU" ? item1.gpu[a_name] : item1.hard_drive[a_name] %>
-<% value2 = item2.category.name == "GPU" ? item2.gpu[a_name] : item2.hard_drive[a_name] %>
-
-<td>
-  <span class="<%= value1 > value2 ? 'strong_attribute' : '' %>"><%= value1 %><%= a_unit %></span>
-</td>
-<td>
-  <span class="<%= value1 < value2 ? 'strong_attribute' : '' %>"><%= value2 %><%= a_unit %></span>
-</td>
+<% value1.attributes.keys.each do |key| %>
+  <% if not ["id", "item_id", "images", "manufacturer_id", "created_at", "updated_at"].include? key %>
+    <tr>
+      <td><strong><%= key.split('_').collect(&:capitalize).join(" ") %></strong></td>
+      <% if value1[key].is_a? Numeric %>
+        <td><span class="<%= value1[key] > value2[key] ? 'strong_attribute' : '' %>"><%= value1[key] %></span></td>
+        <td><span class="<%= value1[key] < value2[key] ? 'strong_attribute' : '' %>"><%= value2[key] %></span></td>
+      <% else %>
+        <td><%= value1[key] %></td>
+        <td><%= value2[key] %></td>
+      <% end %>
+    </tr>
+  <% end %>
+<% end %>
