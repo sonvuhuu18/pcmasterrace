@@ -35,6 +35,7 @@
                             <th style="width:15%;">Type</th>
                             <th>Specs</th>
                             <th style="width:15%;">Images</th>
+                            <th style="width:15%;">Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,7 @@
                             <td>CPU</td>
                             <td><%= @cpu.name %></td>
                             <td><%= image_tag @cpu.images.first, class: "img-responsive" %></td>
+                            <td><%= @cpu.item.price %></td>
                         </tr>
                         <% end %>
                     </tbody>
