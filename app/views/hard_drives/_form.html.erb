@@ -30,6 +30,11 @@
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
   
+  <div class="field">
+    <%= fi.label :store %><br>
+    <%= fi.text_field :store %>
+  </div>
+  
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "Hard Drive").id %>
 
   <% end %>
@@ -41,12 +46,12 @@
 
   <div class="field">
     <%= f.label "capacity (gb)" %><br>
-    <%= f.number_field :capacity %>
+    <%= f.number_field :capacity, step: :any %>
   </div>
   
   <div class="field">
     <%= f.label "cache (mb)" %><br>
-    <%= f.number_field :cache %>
+    <%= f.number_field :cache, step: :any %>
   </div>
   
   <div class="field">
@@ -56,7 +61,7 @@
   
   <div class="field">
     <%= f.label "interface_speed (Gbit/s)" %><br>
-    <%= f.number_field :interface_speed %>
+    <%= f.number_field :interface_speed, step: :any %>
   </div>
   
   <div class="field">
@@ -71,12 +76,12 @@
   
   <div class="field">
     <%= f.label "process_size (nm)" %><br>
-    <%= f.number_field :process_size %>
+    <%= f.number_field :process_size, step: :any %>
   </div>
   
   <div class="field">
     <%= f.label "max_shock_force (G)" %><br>
-    <%= f.number_field :max_shock_force %>
+    <%= f.number_field :max_shock_force, step: :any %>
   </div>
 
   <div class="actions">

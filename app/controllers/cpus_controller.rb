@@ -74,7 +74,7 @@ class CpusController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id)
+      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id, :store)
     end
 
 end

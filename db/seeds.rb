@@ -2,6 +2,13 @@ User.create! name: "Admin", email: "admin@gmail.com",
   password: "foobar", password_confirmation: "foobar", admin: true,
   activated: true, activated_at: Time.zone.now
 
+Category.create name: "GPU"
+Category.create name: "CPU"
+Category.create name: "Hard Drive"
+
+Manufacturer.create name: "NVidia"
+Manufacturer.create name: "AMD"
+
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"

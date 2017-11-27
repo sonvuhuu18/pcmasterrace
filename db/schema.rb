@@ -22,17 +22,17 @@ ActiveRecord::Schema.define(version: 20171016060352) do
   create_table "cpus", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "manufacturer_id"
-    t.integer  "clock_speed"
-    t.integer  "turbo_clock_speed"
+    t.float    "clock_speed"
+    t.float    "turbo_clock_speed"
     t.string   "cores"
     t.string   "is_unlocked"
     t.string   "architechture"
     t.integer  "threads"
-    t.integer  "l2_cache"
-    t.integer  "l3_cache"
+    t.float    "l2_cache"
+    t.float    "l3_cache"
     t.integer  "manufacturer_process"
     t.string   "gpu_label"
-    t.integer  "tdp"
+    t.float    "tdp"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "images"
@@ -43,22 +43,22 @@ ActiveRecord::Schema.define(version: 20171016060352) do
     t.integer  "manufacturer_id"
     t.string   "gpu_brand"
     t.string   "gpu_name"
-    t.integer  "clock_speed"
-    t.integer  "turbo_clock_speed"
+    t.float    "clock_speed"
+    t.float    "turbo_clock_speed"
     t.integer  "is_dual_gpu"
-    t.integer  "memory_clock_speed"
-    t.integer  "effective_memory_clock_speed"
-    t.integer  "memory_bus"
-    t.integer  "memory"
+    t.float    "memory_clock_speed"
+    t.float    "effective_memory_clock_speed"
+    t.float    "memory_bus"
+    t.float    "memory"
     t.string   "memory_type"
-    t.integer  "memory_bandwidth"
-    t.integer  "tdp"
-    t.integer  "shading_units"
-    t.integer  "texture_mapping_units"
-    t.integer  "render_output_precessors"
-    t.integer  "pixel_rate"
-    t.integer  "texture_rate"
-    t.integer  "floating_point_performance"
+    t.float    "memory_bandwidth"
+    t.float    "tdp"
+    t.float    "shading_units"
+    t.float    "texture_mapping_units"
+    t.float    "render_output_precessors"
+    t.float    "pixel_rate"
+    t.float    "texture_rate"
+    t.float    "floating_point_performance"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "images"
@@ -67,14 +67,14 @@ ActiveRecord::Schema.define(version: 20171016060352) do
   create_table "hard_drives", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "manufacturer_id"
-    t.integer  "capacity"
-    t.integer  "cache"
-    t.string   "interface"
-    t.integer  "interface_speed"
+    t.float    "capacity"
+    t.float    "cache"
+    t.float    "interface"
+    t.float    "interface_speed"
     t.string   "controller"
     t.string   "memory_type"
-    t.integer  "process_size"
-    t.integer  "max_shock_force"
+    t.float    "process_size"
+    t.float    "max_shock_force"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "images"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20171016060352) do
     t.integer  "manufacturer_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "store"
   end
 
   create_table "manufacturers", force: :cascade do |t|

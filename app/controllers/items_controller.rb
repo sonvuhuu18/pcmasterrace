@@ -11,6 +11,8 @@ class ItemsController < ApplicationController
     @manufacturers = Manufacturer.side_bar_items
     @item = Item.find_by id: params[:id]
     @items = Item.all
+    @reviews = @item.reviews
+    @reviews = @reviews.paginate(page: params[:page], per_page: 5)
     if(@item.reviews.count == 0)
       @ranking = '0';
     else
@@ -118,7 +120,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id)
+      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id, :store)
     end
 
 end
