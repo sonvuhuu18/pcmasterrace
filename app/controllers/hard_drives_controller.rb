@@ -30,7 +30,7 @@ class HardDrivesController < ApplicationController
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Hard drive was successfully created.' }
-        format.json { render :show, status: :created, location: @hard_drive }
+        format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
         format.json { render json: @hard_drive.errors, status: :unprocessable_entity }
@@ -43,11 +43,11 @@ class HardDrivesController < ApplicationController
   def update
     respond_to do |format|
       if @hard_drive.update(hard_drive_params) && @hard_drive.item.update(item_params)
-        format.html { redirect_to @hard_drive, notice: 'Hard drive was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hard_drive }
+        format.html { redirect_to @item, notice: 'Hard drive was successfully updated.' }
+        format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
-        format.json { render json: @hard_drive.errors, status: :unprocessable_entity }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -121,6 +121,69 @@
 
             </div>
         </div>
+        
+    <% elsif @item.category.name == "Ram"%>
+        <div class="panel panel-default">
+            <div class="panel-body show-item">
+                <div class="text-center">
+                    <meta charset="utf-8">
+                      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <% count = 1 %>
+                            <% @item.ram.images.each do |image| %>
+                            <% if image == @item.ram.images.first %>
+                              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <% else %>
+                              <li data-target="#myCarousel" data-slide-to="<%= count %>"></li>
+                            <% count = count +1 %>
+                            <% end %>
+                            <% end %>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <% @item.ram.images.each do |image| %>
+                            <% if image == @item.ram.images.first %>
+                              <div class="item active">
+                                <%= image_tag(image, class:"thumbnail") %>
+                              </div>
+                            <% else %>
+                              <div class="item">
+                                <%= image_tag(image, class:"thumbnail") %>
+                              </div>
+                            <% end %>
+                            <% end %>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </div>
+                <br />
+
+                <div class="col-sm-4">
+                <p><b>Name: </b><%= @item.name %></p>
+                <p><b>Price: </b><%= @item.price %>$</p>
+                <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
+                <p><b>Released Date: </b><%= @item.release_date %></p>
+                <p><b>Memory Size: </b><%= @item.ram.memory_size %> GB</p>
+                <p><b>Ram Type: </b><%= @item.ram.ram_type %></p>
+                <p><b>Bus: </b><%= @item.ram.bus %> Mhz</p>
+                
+                </div>
+                <p><b>Store: </b><%= link_to "Link to HNC", @item.store, target: :_blank %></p>
+                </div>
+
+            </div>
+        </div>
 
       <% elsif @item.category.name == "Hard Drive"%>
         <div class="panel panel-default">

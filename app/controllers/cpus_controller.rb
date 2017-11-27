@@ -42,12 +42,12 @@ class CpusController < ApplicationController
   # PATCH/PUT /cpus/1.json
   def update
     respond_to do |format|
-      if @cpu.update(cpu_params) && @cpu.item.update(item_params)
+      if @cpu.update(cpu_params) && @item.item.update(item_params)
         format.html { redirect_to @cpu, notice: 'Cpu was successfully updated.' }
         format.json { render :show, status: :ok, location: @cpu }
       else
         format.html { render :edit }
-        format.json { render json: @cpu.errors, status: :unprocessable_entity }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end

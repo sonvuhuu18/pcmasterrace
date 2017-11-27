@@ -4,6 +4,7 @@ class Item < ActiveRecord::Base
   has_one :cpu
   has_one :gpu
   has_one :hard_drive
+  has_one :ram
   belongs_to :category
   belongs_to :manufacturer
   has_many :reviews

@@ -5,6 +5,7 @@ User.create! name: "Admin", email: "admin@gmail.com",
 Category.create name: "GPU"
 Category.create name: "CPU"
 Category.create name: "Hard Drive"
+Category.create name: "Ram"
 
 Manufacturer.create name: "NVidia"
 Manufacturer.create name: "AMD"

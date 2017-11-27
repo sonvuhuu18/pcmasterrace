@@ -22,6 +22,7 @@ module Workspace
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.web_console.whiny_requests = false
     config.before_configuration do
       env_file = File.join(Rails.root, "config", "local_env.yml")
       YAML.load(File.open(env_file)).each do |key, value|
