@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'buildpc/index'
+
   get 'search/index'
   get 'search/sorting'
 

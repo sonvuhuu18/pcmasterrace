@@ -1,0 +1,53 @@
+<%= form_tag buildpc_index_path, method: :get, :class => 'form-horizontal' do %>
+<h1>Build your PC</h1>
+<div class="form-group">
+    <%= label_tag "cpu_id", "CPU: ", :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10"> 
+    <%= select_tag "cpu_id", options_from_collection_for_select(@cpus, "id", "name", params[:cpu_id].to_i), include_blank: true, :class => 'form-control' %>
+    </div>
+</div>
+<div class="form-group">
+    <%= label_tag "gpu_id", "GPU: ", :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10"> 
+    <%= select_tag "gpu_id", options_from_collection_for_select(@gpus, "id", "item.name", params[:gpu_id].to_i), include_blank: true, :class => 'form-control' %>
+    </div>
+</div>
+<div class="form-group">
+    <%= label_tag "hard_drives_id", "Hard Drive: ", :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10"> 
+    <%= select_tag "hard_drives_id", options_from_collection_for_select(@hard_drives, "id", "item.name", params[:hard_drives_id].to_i), include_blank: true, :class => 'form-control' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class=" col-sm-offset-2 col-sm-10">
+    <%= submit_tag "Build", :class => 'btn btn-default' %>
+    </div>
+</div>
+
+<% end %>
+<% if @cpu || @gpu || @hard_drive %>
+    <div class=" col-sm-offset-2 col-sm-10">
+        <div class="panel panel-default">
+            <div class="panel-body show-item">
+                <table class="table table-hover table-bordered table-compare">
+                    <thead>
+                        <tr>
+                            <th style="width:15%;">Type</th>
+                            <th>Specs</th>
+                            <th style="width:15%;">Images</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if @cpu%>
+                        <tr>
+                            <td>CPU</td>
+                            <td><%= @cpu.name %></td>
+                            <td><%= image_tag @cpu.images.first, class: "img-responsive" %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<% end %>
