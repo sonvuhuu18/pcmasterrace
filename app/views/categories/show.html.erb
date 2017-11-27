@@ -57,6 +57,8 @@
                 <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content thumbnail"), item %>
               <% elsif item.category.name == "Hard Drive"%>
                 <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content thumbnail"), item %>
+                <% elsif item.category.name == "Ram"%>
+                <%= link_to image_tag(item.ram.images.first, class:"img-responsive square-content thumbnail"), item %>
               <% end %>
               </div>
             </div>
@@ -74,6 +76,8 @@
                 <%= link_to 'Edit', edit_cpu_path(item.cpu), class:"btn info" %>
               <% elsif item.category.name == "Hard Drive"%>
                 <%= link_to 'Edit', edit_hard_drife_path(item.hard_drive), class:"btn info" %>
+                <% elsif item.category.name == "Ram"%>
+                <%= link_to 'Edit', edit_ram_path(item.ram), class:"btn info" %>
               <% end %>
               <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn info" %>
             </div>
@@ -92,6 +96,9 @@
         <%= link_to 'New GPU', new_gpu_path, class:"btn info" %>
       </div><div class="new-component row">
         <%= link_to 'New Hard Drive', new_hard_drife_path, class:"btn info" %>
+      </div>
+      <div class="new-component row">
+        <%= link_to 'New Ram', new_ram_path, class:"btn info" %>
       </div>
       <% end %>
     </div>

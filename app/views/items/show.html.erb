@@ -127,6 +127,7 @@
     <% elsif @item.category.name == "Ram"%>
         <div class="panel panel-default">
             <div class="panel-body show-item">
+              <div class="text-center"><h1><%= @item.name %></h></div>
                 <div class="text-center">
                     <meta charset="utf-8">
                       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -172,7 +173,7 @@
                 <br />
 
                 <div class="col-sm-4">
-                <p><b>Name: </b><%= @item.name %></p>
+                
                 <p><b>Price: </b><%= @item.price %>$</p>
                 <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
@@ -185,7 +186,7 @@
                 </div>
 
             </div>
-        </div>
+        
 
       <% elsif @item.category.name == "Hard Drive"%>
         <div class="panel panel-default">
@@ -258,7 +259,7 @@
         <% end %>
 
 
-
+            
             <p class="left-align">Reviews: </p>
             
             <% if @item.reviews.size == 0 %>
@@ -335,6 +336,8 @@
                 <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content thumbnail"), item %>
                 <% elsif item.category.name == "Hard Drive"%>
                 <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content thumbnail"), item %>
+                <% elsif item.category.name == "Ram"%>
+                <%= link_to image_tag(item.ram.images.first, class:"img-responsive square-content thumbnail"), item %>
                 <% end %>
               </div>
             </div>
