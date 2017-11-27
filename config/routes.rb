@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :gpus
   resources :cpus
   resources :hard_drives
+  resources :rams
   resources :reviews
   resources :manufacturers
   resources :categories
