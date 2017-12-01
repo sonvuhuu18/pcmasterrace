@@ -2,26 +2,26 @@
 <h1>Build your PC</h1>
 <div class="form-group">
     <%= label_tag "cpu_id", "CPU: ", :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10"> 
-    <%= select_tag "cpu_id", options_from_collection_for_select(@cpus, "id", "name", params[:cpu_id].to_i), include_blank: true, :class => 'form-control' %>
+    <div class="col-sm-10">
+    <%= select_tag "cpu_id", options_from_collection_for_select(@cpus, "id", "name", params[:cpu_id].to_i), include_blank: true, class: 'form-control selectpicker', data: {live_search: "true"}  %>
     </div>
 </div>
 <div class="form-group">
     <%= label_tag "gpu_id", "GPU: ", :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10"> 
-    <%= select_tag "gpu_id", options_from_collection_for_select(@gpus, "id", "name", params[:gpu_id].to_i), include_blank: true, :class => 'form-control' %>
+    <div class="col-sm-10">
+    <%= select_tag "gpu_id", options_from_collection_for_select(@gpus, "id", "name", params[:gpu_id].to_i), include_blank: true, class: 'form-control selectpicker', data: {live_search: "true"} %>
     </div>
 </div>
 <div class="form-group">
     <%= label_tag "hard_drive_id", "Hard Drive: ", :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10"> 
-    <%= select_tag "hard_drive_id", options_from_collection_for_select(@hard_drives, "id", "name", params[:hard_drive_id].to_i), include_blank: true, :class => 'form-control' %>
+    <div class="col-sm-10">
+    <%= select_tag "hard_drive_id", options_from_collection_for_select(@hard_drives, "id", "name", params[:hard_drive_id].to_i), include_blank: true, class: 'form-control selectpicker', data: {live_search: "true"}  %>
     </div>
 </div>
 <div class="form-group">
     <%= label_tag "ram_id", "RAM: ", :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10"> 
-    <%= select_tag "ram_id", options_from_collection_for_select(@rams, "id", "name", params[:ram_id].to_i), include_blank: true, :class => 'form-control' %>
+    <div class="col-sm-10">
+    <%= select_tag "ram_id", options_from_collection_for_select(@rams, "id", "name", params[:ram_id].to_i), include_blank: true, class: 'form-control selectpicker', data: {live_search: "true"}  %>
     </div>
 </div>
 <div class="form-group">
@@ -89,3 +89,8 @@
         </div>
     </div>
 <% end %>
+<script>
+  $(document).on('turbolinks:load', function() {
+    $('.selectpicker').selectpicker();
+  });
+</script>
