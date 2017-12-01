@@ -42,8 +42,8 @@ class CpusController < ApplicationController
   # PATCH/PUT /cpus/1.json
   def update
     respond_to do |format|
-      if @cpu.update(cpu_params) && @item.item.update(item_params)
-        format.html { redirect_to @cpu, notice: 'Cpu was successfully updated.' }
+      if @cpu.update(cpu_params) && @item.update(item_params)
+        format.html { redirect_to @item, notice: 'Cpu was successfully updated.' }
         format.json { render :show, status: :ok, location: @cpu }
       else
         format.html { render :edit }
@@ -66,6 +66,7 @@ class CpusController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cpu
       @cpu = Cpu.find(params[:id])
+      @item = @cpu.item
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     if(@item.reviews.count == 0)
       @ranking = '0';
     else
-      @ranking = @item.reviews.sum("rate")/@item.reviews.count
+      @ranking = @item.reviews.sum("rate") / @item.reviews.count
     end
     @item.update_attributes(:ranking => @ranking)
   end
@@ -98,7 +98,7 @@ class ItemsController < ApplicationController
       format.js
     end
   end
-  
+
   def live_compare
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
     respond_to do |format|

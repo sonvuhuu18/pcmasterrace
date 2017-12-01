@@ -65,20 +65,20 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>Price</strong></td>
+            <td><strong>Price ($)</strong></td>
             <td><% if @item1.price > @item2.price %>
               <span class="strong_attribute"> <%= @item1.price %>
-            <% elsif @item1.price < @item1.price %>
+            <% elsif @item1.price < @item2.price %>
               <span class=""><%= @item1.price %>
             <% else %>
               <span><%= @item1.price %>
             <% end %></td>
             <td><% if @item1.price < item2.price %>
-              <span class="strong_attribute"> <%= @item1.price %>
-            <% elsif @item1.price > @item1.price %>
-              <span class="greentext"><%= @item1.price %>
+              <span class="strong_attribute"> <%= @item2.price %>
+            <% elsif @item1.price > @item2.price %>
+              <span class="greentext"><%= @item2.price %>
             <% else %>
-              <span><%= @item1.price %>
+              <span><%= @item2.price %>
             <% end %></td>
           </tr>
           <%= render partial: 'attribute_comparision', locals: { value1: @value1, value2: @value2 } %>

@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <%= fields_for :item do |fi|%>
+  <%= fields_for :item, @cpu.item do |fi|%>
   <div class="field">
-    <%= fi.label :name %><br> 
+    <%= fi.label :name %><br>
     <%= fi.text_field :name %>
   </div>
   <div class="field">
@@ -29,12 +29,12 @@
     <%= fi.label :manufacturer %><br>
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
-  
+
   <div class="field">
     <%= fi.label :store %><br>
     <%= fi.text_field :store %>
   </div>
-  
+
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "CPU").id %>
 
   <% end %>
@@ -43,12 +43,12 @@
     <%= f.label :images %><br>
     <%= f.file_field :images, multiple: true %>
   </div>
-  
+
   <div class="field">
     <%= f.label "clock_speed (ghz)" %><br>
     <%= f.number_field :clock_speed, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "turbo_clock_speed (ghz)" %><br>
     <%= f.number_field :turbo_clock_speed, step: :any %>
@@ -58,42 +58,42 @@
     <%= f.label :cores %> <br>
     <%= f.number_field :cores %>
   </div>
-  
+
   <div class="field">
     <%= f.label :is_unlocked %> <br>
     <%= f.select :is_unlocked, [['Yes', true], ['No', false]] %>
   </div>
-  
+
   <div class="field">
     <%= f.label :architechture %> <br>
     <%= f.text_field :architechture %>
   </div>
-  
+
   <div class="field">
     <%= f.label :threads %> <br>
     <%= f.number_field :threads %>
   </div>
-  
+
   <div class="field">
     <%= f.label "l2_cache (mb)" %> <br>
     <%= f.number_field :l2_cache, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "l3_cache (mb)" %> <br>
     <%= f.number_field :l3_cache, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "manufacturer_process (nm)" %> <br>
     <%= f.number_field :manufacturer_process, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label :gpu_label %> <br>
     <%= f.text_field :gpu_label %>
   </div>
-  
+
   <div class="field">
     <%= f.label "tdp (W)" %> <br>
     <%= f.number_field :tdp, step: :any %>
@@ -103,5 +103,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-  
+
 <% end %>

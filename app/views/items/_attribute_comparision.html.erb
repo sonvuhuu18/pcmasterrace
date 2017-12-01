@@ -1,10 +1,15 @@
 <% value1.attributes.keys.each do |key| %>
-  <% if not ["id", "item_id", "images", "manufacturer_id", "created_at", "updated_at"].include? key %>
+  <% unless ["id", "item_id", "images", "manufacturer_id", "created_at", "updated_at"].include? key %>
     <tr>
-      <td><strong><%= key.split('_').collect(&:capitalize).join(" ") %></strong></td>
-      <% if value1[key].is_a? Numeric %>
+      <td><strong><%= key.split('_').collect(&:capitalize).join(" ") %> <%= value1.unit key%></strong></td>
+      <% if value1[key].is_a?(Numeric) && value2[key].is_a?(Numeric) %>
+        <% if key == "is_dual_gpu" %>
+          <td><%= value1[key] != 0 ? "Yes" : "No" %></td>
+          <td><%= value2[key] != 0 ? "Yes" : "No" %></td>
+        <% else %>
         <td><span class="<%= value1[key] > value2[key] ? 'strong_attribute' : '' %>"><%= value1[key] %></span></td>
         <td><span class="<%= value1[key] < value2[key] ? 'strong_attribute' : '' %>"><%= value2[key] %></span></td>
+        <% end %>
       <% else %>
         <td><%= value1[key] %></td>
         <td><%= value2[key] %></td>

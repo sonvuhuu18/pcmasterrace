@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-  
-  <%= fields_for :item do |fi|%>
+
+  <%= fields_for :item, @ram.item do |fi|%>
   <div class="field">
-    <%= fi.label :name %><br> 
+    <%= fi.label :name %><br>
     <%= fi.text_field :name %>
   </div>
   <div class="field">
@@ -29,22 +29,22 @@
     <%= fi.label :manufacturer %><br>
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
-  
+
   <div class="field">
     <%= fi.label :store %><br>
     <%= fi.text_field :store %>
   </div>
-  
+
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "Ram").id %>
 
   <% end %>
-  
-  
+
+
   <div class="field">
     <%= f.label :images %><br>
     <%= f.file_field :images, multiple: true %>
   </div>
-  
+
   <div class="field">
     <%= f.label :ram_type %><br>
     <%= f.text_field :ram_type %>
@@ -57,7 +57,7 @@
     <%= f.label :bus %><br>
     <%= f.text_field :bus %>
   </div>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>
