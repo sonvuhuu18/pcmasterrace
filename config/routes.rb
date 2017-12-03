@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'buildpc/index'
+
   get 'search/index'
   get 'search/sorting'
 
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   resources :cpus
   resources :hard_drives
   resources :reviews
+  resources :rams
   resources :manufacturers
   resources :categories
 

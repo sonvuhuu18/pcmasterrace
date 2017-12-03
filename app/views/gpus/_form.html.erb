@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <%= fields_for :item do |fi|%>
+  <%= fields_for :item, @gpu.item do |fi|%>
   <div class="field">
-    <%= fi.label :name %><br> 
+    <%= fi.label :name %><br>
     <%= fi.text_field :name %>
   </div>
   <div class="field">
@@ -29,7 +29,12 @@
     <%= fi.label :manufacturer %><br>
     <%= fi.select :manufacturer_id, Manufacturer.all.collect {|m| [m.name, m.id] } %>
   </div>
-  
+
+  <div class="field">
+    <%= fi.label :store %><br>
+    <%= fi.text_field :store %>
+  </div>
+
   <%= fi.hidden_field :category_id, :value => Category.find_by(name: "GPU").id %>
 
   <% end %>
@@ -38,98 +43,98 @@
     <%= f.label :images %><br>
     <%= f.file_field :images, multiple: true %>
   </div>
-  
+
   <div class="field">
     <%= f.label :gpu_brand %> <br>
     <%= f.text_field :gpu_brand %>
   </div>
-  
+
   <div class="field">
     <%= f.label :gpu_name %><br>
     <%= f.text_field :gpu_name %>
   </div>
-  
+
   <div class="field">
     <%= f.label "Clock Speed (MHz)" %><br>
-    <%= f.number_field :clock_speed %>
+    <%= f.number_field :clock_speed, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label :"turbo_clock_speed_(mhz)" %><br>
-    <%= f.number_field :turbo_clock_speed %>
+    <%= f.number_field :turbo_clock_speed, step: :any %>
   </div>
 
   <div class="field">
     <%= f.label :is_dual_gpu %> <br>
     <%= f.select :is_dual_gpu, [['Yes', true], ['No', false]] %>
   </div>
-  
+
   <div class="field">
     <%= f.label "memory_clock_speed_(mhz)" %><br>
-    <%= f.number_field :memory_clock_speed %>
+    <%= f.number_field :memory_clock_speed, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "effective_memory_clock_speed (mhz)" %><br>
-    <%= f.number_field :effective_memory_clock_speed %>
+    <%= f.number_field :effective_memory_clock_speed, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "memory_bus (bit)" %><br>
-    <%= f.number_field :memory_bus %>
+    <%= f.number_field :memory_bus, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "memory (mb)" %><br>
-    <%= f.number_field :memory %>
+    <%= f.number_field :memory, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label :memory_type %><br>
     <%= f.text_field :memory_type %>
   </div>
-  
+
   <div class="field">
     <%= f.label "memory_bandwidth (GB/s)" %><br>
-    <%= f.number_field :memory_bandwidth %>
+    <%= f.number_field :memory_bandwidth, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "tdp (W)" %> <br>
-    <%= f.number_field :tdp %>
+    <%= f.number_field :tdp, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label :shading_units %> <br>
-    <%= f.number_field :shading_units %>
+    <%= f.number_field :shading_units, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label :texture_mapping_units %> <br>
-    <%= f.number_field :texture_mapping_units %>
+    <%= f.number_field :texture_mapping_units, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label :render_output_precessors %> <br>
-    <%= f.number_field :render_output_precessors %>
+    <%= f.number_field :render_output_precessors, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "pixel_rate (GPixel/s)" %> <br>
-    <%= f.number_field :pixel_rate %>
+    <%= f.number_field :pixel_rate, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "texture_rate (GTexel/s)" %> <br>
-    <%= f.number_field :texture_rate %>
+    <%= f.number_field :texture_rate, step: :any %>
   </div>
-  
+
   <div class="field">
     <%= f.label "floating_point_performance (GFLOPS)" %> <br>
-    <%= f.number_field :floating_point_performance %>
+    <%= f.number_field :floating_point_performance, step: :any %>
   </div>
-    
-  
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

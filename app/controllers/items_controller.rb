@@ -11,10 +11,12 @@ class ItemsController < ApplicationController
     @manufacturers = Manufacturer.side_bar_items
     @item = Item.find_by id: params[:id]
     @items = Item.all
+    @reviews = @item.reviews
+    @reviews = @reviews.paginate(page: params[:page], per_page: 5)
     if(@item.reviews.count == 0)
       @ranking = '0';
     else
-      @ranking = @item.reviews.sum("rate")/@item.reviews.count
+      @ranking = @item.reviews.sum("rate") / @item.reviews.count
     end
     @item.update_attributes(:ranking => @ranking)
   end
@@ -36,6 +38,9 @@ class ItemsController < ApplicationController
     when "Hard Drive"
       @value1 = @item1.hard_drive
       @value2 = @item2.hard_drive
+    when "Ram"
+      @value1 = @item1.ram
+      @value2 = @item2.ram
     end
   end
 
@@ -97,6 +102,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def live_compare
+    @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def search
     @items = Item.where("lower(name) LIKE ?", '%' + params[:q].downcase + '%')
     respond_to do |format|
@@ -111,7 +123,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id)
+      params.require(:item).permit(:name, :price, :ranking, :release_date, :category_id, :manufacturer_id, :store)
     end
 
 end

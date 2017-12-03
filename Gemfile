@@ -19,6 +19,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem "tinymce-rails"
+gem 'bootstrap-select-wrapper-rails'
 
 group :development, :test do
   gem "byebug"

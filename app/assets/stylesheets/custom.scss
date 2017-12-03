@@ -174,7 +174,6 @@ aside {
 }
 
 // forms
-
 input,
 textarea,
 select,
@@ -184,7 +183,10 @@ select,
   margin-bottom: 15px;
   width: 100%;
 }
-
+select{
+  margin-bottom: 0px;
+  margin-right: 15px;
+}
 input {
   height: auto;
 }
@@ -549,7 +551,11 @@ nav{
 }
 .components-list-title{
   margin-left: 15px;
+  width:50%;
 
+}
+.sorting-form{
+  width:50%;
 }
 .components-list{
   margin: 0;
@@ -836,7 +842,7 @@ form #result-box2{
       text-align: left;
     }
     td {
-      text-align: center;
+      text-align: left;
       padding: 12px !important;
     }
   }

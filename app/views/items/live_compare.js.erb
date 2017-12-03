@@ -2,7 +2,7 @@ $("#result-box2").html('');
 $("#result-box2").css('display', 'block');
 <% @items.each do |item| %>
   <% if item.category.name == $itemcompare.category.name && item.id != $itemcompare.id%>
-    $('#result-box2').append('<%= link_to(item.name, { action: "compare", id1: $itemcompare.id, id2: item.id }, method: :post)%>');
+    $('#result-box2').append('<%= link_to(item.name, { action: "compare", id1: $itemcompare.id, id2: item.id }, method: :get)%>');
     console.log('<%= item.name %>');
   <% end %>
 <% end%>

@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :category_id
       t.integer :manufacturer_id
       t.timestamps null: false
+      t.string :store
     end
   end
 end

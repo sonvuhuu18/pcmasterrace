@@ -37,9 +37,27 @@
       </div>
     </div>
     <div class="col-sm-9">
-      <p class="row components-list-title">
-        All
-      </p>
+      <div class="row">
+        <div class="col-sm-6">
+          <p>All</p>
+        </div>
+            <div class="col-sm-6">
+
+              <%= form_for :search, :method => 'GET', :html => {:id => "search-form", :class => "navbar-form navbar-right"}, url: {:controller => 'search', :action => 'sorting'} do |f|%>
+                <select name="sort_option" onchange="this.form.submit()">
+                  <option value="name" <%if @option && @option == 'name'%> selected <%end%>>Name</option>
+                  <option value="price" <%if @option && @option == 'price'%> selected <%end%>>Price</option>
+                </select>
+                <%if @category%>
+                  <input type="hidden" name="category" value="<%= @category.id%>">
+                <%end%>
+                <%if @manufacturer%>
+                  <input type="hidden" name="manufacturer" value="<%= @manufacturer.id%>">
+                <%end%>
+              <%end%>
+
+            </div>
+      </div>
        <div class="components-list row">
         <% @items.each do |item| %>
           <div class="components-show material-card col-sm-3">
@@ -54,10 +72,13 @@
                 <%= link_to image_tag(item.cpu.images.first, class:"img-responsive square-content thumbnail"), item %>
               <% elsif item.category.name == "Hard Drive"%>
                 <%= link_to image_tag(item.hard_drive.images.first, class:"img-responsive square-content thumbnail"), item %>
+                <% elsif item.category.name == "Ram"%>
+                <%= link_to image_tag(item.ram.images.first, class:"img-responsive square-content thumbnail"), item %>
               <% end %>
               </div>
             </div>
             <div class="row">
+              Price: $<%= item.price %>
               Category: <%= link_to item.category.name, item.category %> <br>
               <div class="review-rating-index" data-score=<%= item.ranking %>>Ranking: </div>
               Release date: <%= item.release_date %><br>

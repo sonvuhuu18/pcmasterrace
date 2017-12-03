@@ -17,3 +17,4 @@
 //= require_tree
 //= require tinymce
 //= require jquery.raty
+//= require bootstrap-select
