@@ -143,3 +143,206 @@ Item.create(
   manufacturer: Manufacturer.find(8),
   gpu: gpu
   )
+
+gpu = Gpu.create(
+  gpu_brand: "NVIDIA",
+  gpu_name: "GP104",
+  clock_speed: 1590,
+  turbo_clock_speed: 1780,
+  is_dual_gpu: "No",
+  memory_clock_speed: 2002,
+  effective_memory_clock_speed: 8008,
+  memory_bus: 256,
+  memory: 8192,
+  memory_type: "GDDR5",
+  memory_bandwidth: 256.3,
+  tdp: 170,
+  shading_units: 1920,
+  texture_mapping_units: 120,
+  render_output_precessors: 64,
+  pixel_rate: 96.4,
+  texture_rate: 180.7,
+  floating_point_performance: 5783
+  )
+Item.create(
+  name: "EVGA GeForce GTX 1070 8GB SSC GAMING ACX 3.0 Black Edition",
+  price: 430,
+  release_date: "2016-07-01",
+  category: Category.first,
+  manufacturer: Manufacturer.find(10),
+  gpu: gpu
+  )
+
+gpu = Gpu.create(
+  gpu_brand: "NVIDIA",
+  gpu_name: "GP104",
+  clock_speed: 1610,
+  turbo_clock_speed: 1690,
+  is_dual_gpu: "No",
+  memory_clock_speed: 2002,
+  effective_memory_clock_speed: 8008,
+  memory_bus: 256,
+  memory: 8192,
+  memory_type: "GDDR5",
+  memory_bandwidth: 256.3,
+  tdp: 180,
+  shading_units: 1920,
+  texture_mapping_units: 120,
+  render_output_precessors: 64,
+  pixel_rate: 96.4,
+  texture_rate: 180.7,
+  floating_point_performance: 5783
+  )
+Item.create(
+  name: "EVGA GeForce GTX 1070 8GB SSC GAMING ACX 3.0 Black Edition",
+  price: 470,
+  release_date: "2016-07-01",
+  category: Category.first,
+  manufacturer: Manufacturer.find(10),
+  gpu: gpu
+  )
+
+gpu = Gpu.create(
+  gpu_brand: "NVIDIA",
+  gpu_name: "GP104",
+  clock_speed: 1610,
+  turbo_clock_speed: 1690,
+  is_dual_gpu: "No",
+  memory_clock_speed: 2002,
+  effective_memory_clock_speed: 8008,
+  memory_bus: 256,
+  memory: 8192,
+  memory_type: "GDDR5",
+  memory_bandwidth: 256.3,
+  tdp: 180,
+  shading_units: 1920,
+  texture_mapping_units: 120,
+  render_output_precessors: 64,
+  pixel_rate: 96.4,
+  texture_rate: 180.7,
+  floating_point_performance: 5783
+  )
+Item.create(
+  name: "Zotac GeForce GTX 1070 8GB Mini",
+  price: 410,
+  release_date: "2016-07-01",
+  category: Category.first,
+  manufacturer: Manufacturer.find(4),
+  gpu: gpu
+  )
+
+gpu = Gpu.create(
+  gpu_brand: "NVIDIA",
+  gpu_name: "GP104",
+  clock_speed: 1670,
+  turbo_clock_speed: 1830,
+  is_dual_gpu: "No",
+  memory_clock_speed: 1251,
+  effective_memory_clock_speed: 10008,
+  memory_bus: 256,
+  memory: 8192,
+  memory_type: "GDDR5",
+  memory_bandwidth: 224.4,
+  tdp: 180,
+  shading_units: 2560,
+  texture_mapping_units: 160,
+  render_output_precessors: 64,
+  pixel_rate: 102.8,
+  texture_rate: 257.1,
+  floating_point_performance: 8228
+  )
+Item.create(
+  name: "Asus GeForce GTX 1080 8GB ROG STRIX",
+  price: 550,
+  release_date: "2016-07-01",
+  category: Category.first,
+  manufacturer: Manufacturer.find(9),
+  gpu: gpu
+  )
+
+gpu = Gpu.create(
+  gpu_brand: "NVIDIA",
+  gpu_name: "GP104",
+  clock_speed: 1710,
+  turbo_clock_speed: 1850,
+  is_dual_gpu: "No",
+  memory_clock_speed: 1251,
+  effective_memory_clock_speed: 10008,
+  memory_bus: 256,
+  memory: 8192,
+  memory_type: "GDDR5",
+  memory_bandwidth: 224.4,
+  tdp: 180,
+  shading_units: 2560,
+  texture_mapping_units: 160,
+  render_output_precessors: 64,
+  pixel_rate: 102.8,
+  texture_rate: 257.1,
+  floating_point_performance: 8228
+  )
+Item.create(
+  name: "MSI GeForce GTX 1080 8GB DUKE OC ",
+  price: 514,
+  release_date: "2016-07-01",
+  category: Category.first,
+  manufacturer: Manufacturer.find(8),
+  gpu: gpu
+  )
+
+gpu = Gpu.create(
+  gpu_brand: "NVIDIA",
+  gpu_name: "GP102",
+  clock_speed: 1570,
+  turbo_clock_speed: 1710,
+  is_dual_gpu: "No",
+  memory_clock_speed: 1376,
+  effective_memory_clock_speed: 11008,
+  memory_bus: 352,
+  memory: 11264,
+  memory_type: "GDDR5",
+  memory_bandwidth: 484.4,
+  tdp: 250,
+  shading_units: 3584,
+  texture_mapping_units: 224,
+  render_output_precessors: 88,
+  pixel_rate: 139.2,
+  texture_rate: 354.4,
+  floating_point_performance: 11340
+  )
+Item.create(
+  name: "Asus GeForce GTX 1080 Ti 11GB STRIX GAMING",
+  price: 800,
+  release_date: "2017-03-01",
+  category: Category.first,
+  manufacturer: Manufacturer.find(9),
+  gpu: gpu
+  )
+
+gpu = Gpu.create(
+  gpu_brand: "NVIDIA",
+  gpu_name: "GP102",
+  clock_speed: 1570,
+  turbo_clock_speed: 1680,
+  is_dual_gpu: "No",
+  memory_clock_speed: 1376,
+  effective_memory_clock_speed: 11008,
+  memory_bus: 352,
+  memory: 11264,
+  memory_type: "GDDR5",
+  memory_bandwidth: 484.4,
+  tdp: 250,
+  shading_units: 3584,
+  texture_mapping_units: 224,
+  render_output_precessors: 88,
+  pixel_rate: 139.2,
+  texture_rate: 354.4,
+  floating_point_performance: 11340
+  )
+Item.create(
+  name: "MSI GeForce GTX 1080 Ti 11GB GAMING X",
+  price: 770,
+  release_date: "2017-03-01",
+  category: Category.first,
+  manufacturer: Manufacturer.find(8),
+  gpu: gpu
+  )

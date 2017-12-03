@@ -40,11 +40,11 @@
           <% if @item.category.name == "GPU" %>
             <%= render "gpu", item: @item %>
 
-        
+
 
     <% elsif @item.category.name == "CPU"%>
         <div class="panel panel-default">
-          
+
             <div class="panel-body show-item">
               <div class="text-center"><h1><%= @item.name %></h></div>
                 <div class="text-center">
@@ -92,7 +92,7 @@
                 <br />
 
                 <div class="col-sm-4">
-                
+
                 <p><b>Price: </b><%= @item.price %>$</p>
                 <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
@@ -123,7 +123,7 @@
 
             </div>
         </div>
-        
+
     <% elsif @item.category.name == "Ram"%>
         <div class="panel panel-default">
             <div class="panel-body show-item">
@@ -173,24 +173,24 @@
                 <br />
 
                 <div class="col-sm-4">
-                
+
                 <p><b>Price: </b><%= @item.price %>$</p>
                 <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
                 <p><b>Memory Size: </b><%= @item.ram.memory_size %> GB</p>
                 <p><b>Ram Type: </b><%= @item.ram.ram_type %></p>
                 <p><b>Bus: </b><%= @item.ram.bus %> Mhz</p>
-                
+
                 </div>
                 <p><b>Store: </b><%= link_to "Link to HNC", @item.store, target: :_blank %></p>
                 </div>
 
             </div>
-        
+
 
       <% elsif @item.category.name == "Hard Drive"%>
         <div class="panel panel-default">
-          
+
             <div class="panel-body show-item">
               <div class="text-center"><h1><%= @item.name %></h></div>
                 <div class="text-center">
@@ -236,7 +236,7 @@
                       </div>
                 </div>
                 <div class="col-sm-6">
-                
+
                 <p><b>Price: </b><%= @item.price %></p>
                 <p class="review-rating" data-score=<%= @item.ranking %>><b>Ranking: </b></p>
                 <p><b>Released Date: </b><%= @item.release_date %></p>
@@ -259,9 +259,9 @@
         <% end %>
 
 
-            
+
             <p class="left-align">Reviews: </p>
-            
+
             <% if @item.reviews.size == 0 %>
             <p class="text-center"><i>This item has not been reviewed yet</i></p>
             <% else %>
@@ -282,7 +282,7 @@
             <% end %>
             <%= will_paginate @reviews %>
             <% end %>
-            
+
 
 
         <% if logged_in? %>

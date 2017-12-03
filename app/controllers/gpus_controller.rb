@@ -42,7 +42,7 @@ class GpusController < ApplicationController
   # PATCH/PUT /gpus/1.json
   def update
     respond_to do |format|
-      if @gpu.update(gpu_params) && @gpu.item.update(item_params)
+      if @gpu.update(gpu_params) && @item.update(item_params)
         format.html { redirect_to @item, notice: 'Gpu was successfully updated.' }
         format.json { render :show, status: :ok, location: @gpu }
       else
@@ -66,6 +66,7 @@ class GpusController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_gpu
       @gpu = Gpu.find(params[:id])
+      @item = @gpu.item
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

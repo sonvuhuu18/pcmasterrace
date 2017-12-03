@@ -38,6 +38,9 @@ class ItemsController < ApplicationController
     when "Hard Drive"
       @value1 = @item1.hard_drive
       @value2 = @item2.hard_drive
+    when "Ram"
+      @value1 = @item1.ram
+      @value2 = @item2.ram
     end
   end
 

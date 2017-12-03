@@ -5,7 +5,7 @@ class CreateHardDrives < ActiveRecord::Migration
       t.integer :manufacturer_id
       t.float :capacity
       t.float :cache
-      t.float :interface
+      t.string :interface
       t.float :interface_speed
       t.string :controller
       t.string :memory_type
